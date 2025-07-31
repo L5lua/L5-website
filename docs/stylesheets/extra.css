@@ -1,0 +1,24 @@
+/* Increase header height */
+.md-header {
+    height: 5rem; /* Default is usually 2.8rem, adjust as needed */
+    background-color: white;
+    color: black;
+    /* background pattern */
+    background: radial-gradient(circle at 40% 40%, #FFD700 25%, transparent 26%),radial-gradient(circle at 60% 60%, #FFD70080 25%, transparent 26%);
+    background-size: 6em 6em;
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+/* Adjust header content positioning */
+.md-header__inner {
+    height: 5rem;
+}
+
+.md-header__title {
+   font-size: 1.6rem;
+}
+
+.md-nav__title, .md-footer {
+  background-color: gold !important;
+}

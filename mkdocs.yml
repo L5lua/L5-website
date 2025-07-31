@@ -1,0 +1,41 @@
+site_name: "L5: A Processing Library in Lua"
+site_url: https://l5.github.io
+theme:
+  name: material
+  palette:
+    primary: gold
+    accent: blue
+  logo: assets/L5-logo-blob.png
+  font:
+    text: Poppins
+    code: Fira Code
+  favicon: assets/L5-logo-blob.png
+  features:
+    - navigation.indexes
+extra_css:
+ - stylesheets/extra.css
+extra:
+  generator: false
+nav:
+  - Welcome to L5: index.md
+  - Download: download.md
+  - Reference: 
+    - Reference: reference/index.md
+    - arc: reference/arc.md
+    - ellipse: reference/ellipse.md
+    - circle: reference/circle.md
+    - line: reference/line.md
+    - point: reference/point.md
+    - quad: reference/quad.md
+    - rect: reference/rect.md
+    - square: reference/square.md
+    - triangle: reference/triangle.md
+    - ellipseMode: reference/ellipseMode.md
+    - noSmooth: reference/noSmooth.md
+    - rectMode: reference/rectMode.md
+    - smooth: reference/smooth.md
+    - strokeJoin: reference/strokeJoin.md
+    - strokeWeight: reference/strokeWeight.md
+    - bezier: reference/bezier.md
+  - Bug Reports: bug-reports.md
+  - Copyleft: copyleft.md
