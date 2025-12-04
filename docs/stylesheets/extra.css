@@ -18,6 +18,11 @@
 /* Apply fonts */
 body, .md-typeset {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 1rem;
+}
+
+.md-nav {
+  font-size: 1rem;
 }
 
 code, pre, .md-typeset code, .md-typeset pre {

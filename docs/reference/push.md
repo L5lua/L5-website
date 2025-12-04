@@ -1,148 +1,104 @@
 # push()
- 
-**Note: This page was automatically ported from p5.js to L5 and hasn't yet been checked, fixed and updated. The code is likely incorrect, and the description or parameters might be wrong!**
 
-Begins a drawing group that contains its own styles and transformations.
+Begins a drawing group that contains its own transformations.
 
-By default, styles such as fill() and
-transformations such as rotate() are applied to
-all drawing that follows. The `push()` and pop()
-functions can limit the effect of styles and transformations to a specific
-group of shapes, images, and text. For example, a group of shapes could be
-translated to follow the mouse without affecting the rest of the sketch:
+**Note that L5's push() and pop() work differently than p5.js and Processing. In L5, push() and pop() only save and restore the transformation matrix state but not the style effects.**
 
-<pre><code class="language-js">// Begin the drawing group.
-push();
+`push` and [pop()](pop.md) contain the effects of the following functions:
 
-// Translate the origin to the mouse's position.
-translate(mouseX, mouseY);
+* translate()
+* rotate()
+* scale()
+* applyMatrix()
 
-// Style the face.
-noStroke();
-fill('green');
+By default, transformations such as [rotate()](rotate.md) are applied to all drawing that follows. The `push()` and [pop()](pop.md) functions can limit the effect of transformations to a specific group of shapes, images, and text. For example, a group of shapes could be translated to follow the mouse without affecting the rest of the sketch:
 
-// Draw the face.
-circle(0, 0, 60);
+```lua
+-- Begin the drawing group.
+push()
 
-// Style the eyes.
-fill('white');
+-- Translate the origin to the mouse's position.
+translate(mouseX, mouseY)
 
-// Draw the left eye.
-ellipse(-20, -20, 30, 20);
+-- Style the face.
+noStroke()
+fill('green')
 
-// Draw the right eye.
-ellipse(20, -20, 30, 20);
+-- Draw the face.
+circle(0, 0, 60)
 
-// End the drawing group.
-pop();
+-- Style the eyes.
+fill('white')
 
-// Draw a bug.
-let x = random(0, 100);
-let y = random(0, 100);
-text('🦟', x, y);
-`</pre>
-In the code snippet above, the bug's position isn't affected by
-`translate(mouseX, mouseY)` because that transformation is contained
-between `push()` and pop(). The bug moves around
-the entire canvas as expected.
+-- Draw the left eye.
+ellipse(-20, -20, 30, 20)
 
-Note: `push()` and pop() are always called as a
-pair. Both functions are required to begin and end a drawing group.
+-- Draw the right eye.
+ellipse(20, -20, 30, 20)
 
-`push()` and pop() can also be nested to create
-subgroups. For example, the code snippet above could be changed to give
-more detail to the frog’s eyes:
+-- End the drawing group.
+pop()
 
-<pre><code class="language-js">// Begin the drawing group.
-push();
+-- Draw a bug.
+local x = random(0, 100)
+local y = random(0, 100)
+fill(0)
+text('X', x, y)
+```
 
-// Translate the origin to the mouse's position.
-translate(mouseX, mouseY);
+In the code snippet above, the bug's position isn't affected by `translate(mouseX, mouseY)` because that transformation is contained between `push()` and [pop()](pop.md). The bug moves around the entire canvas as expected.
 
-// Style the face.
-noStroke();
-fill('green');
+Note: `push()` and [pop()](pop.md) are always called as a pair. Both functions are required to begin and end a drawing group.
 
-// Draw a face.
-circle(0, 0, 60);
+`push()` and [pop()](pop.md) can also be nested to create subgroups. For example, the code snippet above could be changed to give more detail to the frog’s eyes:
 
-// Style the eyes.
-fill('white');
+```lua
+-- Begin the drawing group.
+push()
 
-// Draw the left eye.
-push();
-translate(-20, -20);
+-- Translate the origin to the mouse's position.
+translate(mouseX, mouseY)
+
+-- Style the face.
+noStroke()
+fill('green')
+
+-- Draw a face.
+circle(0, 0, 60)
+
+-- Draw the left eye.
+push()
+translate(-20, -20)
+fill('white')
 ellipse(0, 0, 30, 20);
-fill('black');
-circle(0, 0, 8);
-pop();
+fill('black')
+circle(0, 0, 8)
+pop()
 
-// Draw the right eye.
-push();
-translate(20, -20);
-ellipse(0, 0, 30, 20);
-fill('black');
-circle(0, 0, 8);
-pop();
+-- Draw the right eye.
+push()
+translate(20, -20)
+fill('white')
+ellipse(0, 0, 30, 20)
+fill('black')
+circle(0, 0, 8)
+pop()
 
-// End the drawing group.
-pop();
+-- End the drawing group.
+pop()
 
-// Draw a bug.
-let x = random(0, 100);
-let y = random(0, 100);
-text('🦟', x, y);
-`</pre>
-In this version, the code to draw each eye is contained between its own
-`push()` and pop() functions. Doing so makes it
-easier to add details in the correct part of a drawing.
+-- Draw a bug.
+local x = random(0, 100)
+local y = random(0, 100)
+text('X', x, y)
+```
 
-`push()` and pop() contain the effects of the
-following functions:
+In this version, the code to draw each eye is contained between its own push() and `pop()` functions. Doing so makes it easier to add details in the correct part of a drawing.
 
-<ul>
-<li>fill()</li>
-<li>noFill()</li>
-<li>noStroke()</li>
-<li>stroke()</li>
-<li>tint()</li>
-<li>noTint()</li>
-<li>strokeWeight()</li>
-<li>strokeCap()</li>
-<li>strokeJoin()</li>
-<li>imageMode()</li>
-<li>rectMode()</li>
-<li>ellipseMode()</li>
-<li>colorMode()</li>
-<li>textAlign()</li>
-<li>textFont()</li>
-<li>textSize()</li>
-<li>textLeading()</li>
-<li>applyMatrix()</li>
-<li>resetMatrix()</li>
-<li>rotate()</li>
-<li>scale()</li>
-<li>shearX()</li>
-<li>shearY()</li>
-<li>translate()</li>
-</ul>
-In WebGL mode, `push()` and pop() contain the
-effects of a few additional styles:
-
-<ul>
-<li>setCamera()</li>
-<li>ambientLight()</li>
-<li>directionalLight()</li>
-<li>pointLight() texture()</li>
-<li>specularMaterial()</li>
-<li>shininess()</li>
-<li>normalMaterial()</li>
-<li>shader()</li>
-</ul>
 
 ## Examples
 
-![push example 1](assets/push1.webp)
+![push example 1](assets/pop1.webp)
 
 ```lua
 function setup()
@@ -170,6 +126,12 @@ function setup()
   -- End the drawing group.
   pop()
 
+  -- Style the right circle since
+  -- styles aren't encapsulated by push() and pop() in L5
+  strokeWeight(1)
+  stroke('black')
+  fill(255)
+
   -- Draw the right circle.
   circle(75, 50, 20)
 
@@ -179,7 +141,65 @@ function setup()
 end
 ```
 
+![push example 2](assets/pop2.gif)
+
+```lua
+function setup()
+  size(100, 100)
+
+  -- Slow the frame rate.
+  frameRate(24)
+
+  describe('A mosquito buzzes in front of a green frog. The frog follows the mouse as the user moves.')
+end
+
+function draw()
+  background(200)
+
+  -- Begin the drawing group.
+  push()
+
+  -- Translate the origin to the mouse's position.
+  translate(mouseX, mouseY)
+
+  -- Style the face.
+  noStroke()
+  fill('green')
+
+  -- Draw a face.
+  circle(0, 0, 60)
+
+  -- Draw the left eye.
+  push()
+  translate(-20, -20)
+  fill('white')
+  ellipse(0, 0, 30, 20)
+  fill('black')
+  circle(0, 0, 8)
+  pop()
+
+  -- Draw the right eye.
+  push()
+  translate(20, -20)
+  fill('white')
+  ellipse(0, 0, 30, 20)
+  fill('black')
+  circle(0, 0, 8)
+  pop()
+
+  -- End the drawing group.
+  pop()
+
+  -- Draw a bug.
+  local x = random(0, 100)
+  local y = random(0, 100)
+  text('X', x, y)
+end
+```
+
 ## Related
 
-* [rect()](rect.md)
-* [ellipse()](ellipse.md)
+* [pop()](pop.md)
+* [draw()](draw.md)
+* [isLooping()](isLooping.md)
+* [loop()](loop.md)

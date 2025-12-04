@@ -1,19 +1,14 @@
 # float()
  
-**Note: This page was automatically ported from p5.js to L5 and hasn't yet been checked, fixed and updated. The code is likely incorrect, and the description or parameters might be wrong!**
+Converts a string or boolean to a floating point (decimal) number.
 
-Converts a `String` to a floating point (decimal) `Number`.
+`float()` converts strings that resemble numbers, such as `'12.34'`, into numbers.
 
-`float()` converts strings that resemble numbers, such as `'12.34'`, into
-numbers.
+The parameter, `str`, is the string value to convert. For example, calling `float('12.34')` returns the number `12.34`.  If an array of strings is passed, as in `float({'12.34', '56.78'})`, then an array of numbers will be returned.
 
-The parameter, `str`, is the string value to convert. For example, calling
-`float('12.34')` returns the number `12.34`.  If an array of strings is
-passed, as in `float(['12.34', '56.78'])`, then an array of numbers will be
-returned.
+A boolean 'true' will be converted to 1, and 'false' will be converted to 0.
 
-Note: If a string can't be converted to a number, as in `float('giraffe')`,
-then the value `NaN` (not a number) will be returned.
+Note: If a string can't be converted to a number, as in `float('giraffe')`, then the value `nil` will be returned.
 
 ## Examples
 
@@ -24,6 +19,7 @@ function setup()
   size(100, 100)
 
   background(200)
+  fill(0)
 
   -- Create a string variable.
   local original = '12.3'
@@ -39,9 +35,32 @@ function setup()
   textSize(12)
 
   -- Display the original and converted values.
-  text(`$originalend × 2 = $twiceend`, 50, 50)
+  text(original..' × 2 = '..twice, 50, 50)
 
   describe('The text "12.3 × 2 = 24.6" written in black on a gray background.')
+end
+```
+
+![float example 2](assets/float2.webp)
+
+```lua
+function setup()
+  size(100, 100)
+
+  background(200)
+
+  -- Create an array of strings.
+  local original = {'60', '30', '15'}
+
+  -- Convert the strings to numbers.
+  local diameters = float(original)
+
+  for _,d in pairs(diameters) do
+    -- Draw a circle.
+    circle(50, 50, d)
+  end
+
+  describe('Three white, concentric circles on a gray background.')
 end
 ```
 
@@ -51,13 +70,24 @@ end
 float(str)
 ```
 
+```lua
+float(boolean)
+```
+
+```lua
+float(table)
+```
+
 ## Parameters
 
-| Parameter | |
-| - | -- |
-| str | String: string to convert. |
+| Parameter |                                                                   |
+| -         | --                                                                |
+| str       | String: string to convert.                                        |
+| ns        | Ordered table: array of strings and/or booleans to convert. |
 
 ## Related
 
-* [rect()](rect.md)
-* [ellipse()](ellipse.md)
+* [boolean()](boolean.md)
+* [str()](str.md)
+* [byte()](byte.md)
+* [char()](char.md)
