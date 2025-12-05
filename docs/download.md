@@ -11,6 +11,12 @@ To write code for L5 you need to install Love2d and the single L5.lua library fi
 3. Make a new folder for your project. Inside it create a `main.lua` file to write your code in. Be sure to include `require ("L5")` in the top of your program. 
 4. Add a copy of L5.lua to your folder. 
 
+## Downloads
+
+**Latest version:** [Download L5.lua](https://raw.githubusercontent.com/L5lua/L5/main/L5.lua)
+
+**Stable release (v0.1.0):** [Download L5.lua v0.1.0](https://raw.githubusercontent.com/L5lua/L5/v0.1.0/L5.lua)
+
 ## Running your program
 
 In general, the easiest way to run your program is to save your `main.lua` file inside a folder, then drag that entire folder onto your Love2d application folder to launch it. Don't forget to put `require('L5')` at the top of the file.
