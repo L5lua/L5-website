@@ -4,39 +4,13 @@ L5 stands on the shoulders of Processing and p5.js. You will be able to use your
 
 L5 was built to be fun, fast, and resource-light. It is in many cases faster than Processing or p5.js programs. It works cross-platform and on older machines. Lua's syntax is simpler and constrained compared to JavaScript and Processing-Java. Some things are easier in L5, but some things are not. L5 currently does not have 3d functionality. It only supports one video format (ogg theora). It is a younger and still developing language dialect compared to its older siblings.
 
-In most cases, L5 functions are similar or equivalent to Processing functions. In some cases, p5.js functionality has been targeted or added. For example, like in p5.js you can use HTML color names or HTML color codes instead of only the default RGB and RGBA values from Processing.
-
-## Conversion script
-
-For convenience, there is a simple p5.js to L5 script converter that can be useful for *very simple* programs. You might find this useful for converting code from p5.js to L5. But bear in mind, it was created as a simple way to convert the p5.js reference pages to starting L5 code and in many cases the converted programs will need to be further modified by hand. For example, loop bounds (0-based vs 1-based Lua indexing), function names that don't have L5 equivalence, and complex expressions and syntax may all fail. This is a brute force simple command line bash script that makes use of the command line program *sed*.
-
-[p5js-to-L5-converter.sh script](https://gist.github.com/lee2sman/f84e03ef5e5209a9466d2c0795c2d50a)
-
-You can download and place in a folder with your p5.js script.
-
-Make the script executable:
-
-```sh
-chmod +x p5js-to-l5-converter.sh
-```
-
-To convert a scrip to L5's format: 
-
-```sh
-./p5js-to-l5-converter.sh input.js [output.lua]
-```
-
-Often you may already have a `sketch.js` file, and will typically want to convert it to L5's default `main.lua`.
-
-```sh
-./p5js-to-l5-converter.sh sketch.js main.lua
-```
+In most cases, L5 functions are similar or equivalent to Processing functions. In some cases, p5.js functionality has been targeted or added. For example, like in p5.js you can use [HTML color names from or hexadecimal](https://en.wikipedia.org/wiki/Web_colors) instead of only the default RGB and RGBA values from Processing.
 
 ## Lua tips
 
 ### Global and local variables
 
-**By default all variables have global scope unless specified as local.** 
+**Unlike in Processing (Java) and p5.js (JavaScript), by default all variables in L5 (Lua) have global scope unless specified as local.** 
 
 ```lua
 function setup()
@@ -67,7 +41,7 @@ local name = "Nina"
 print("My name is "..name) --prints out "My name is Nina"
 ```
 
-## Commenting
+### Commenting
 
 A comment starts with `--` instead of `//`
 
@@ -122,14 +96,39 @@ print("Mario is a "..characters["Mario"])
 print("Mario is a "..characters.Mario)
 ```
 
+The brackets are optional if your parameter is a single string with no spaces. 
+
+```lua
+local characters = {
+  mario = "Plumber"
+}
+```
+
+You can easily add properties to a table, using bracket notation or dot notation.
+
+```lua
+local museum = {} --initializes the table
+museum['location'] = "Los Angeles"
+museum.name = "Museum of Jurassic Technology"
+```
+
 ### Loops in Lua
 
-*For loops* have simple syntax. By default the iterator increments by 1.
+*[For](/reference/for) loops* have simple syntax. By default the iterator increments by 1.
 
 ```lua
 for i=1,5 do
   print(i)
 end
+```
+
+You can optionally specify to increment or decrement by a different value.
+
+```lua
+for i=100, 0, -2 do
+  print(i)
+end
+-- counts backwards from 100 to 0, decreasing by 2 each iteration
 ```
 
 If you want to iterate through a table of values, the syntax is clear and efficient in Lua since prepending `#` to a table's name gives you its length, and since tables are ordered beginning at 1, we can count up from 1 to the table's length:
@@ -250,4 +249,7 @@ Unlike Java and JavaScript, there is no switch statement in Lua.
 
 OOP can be implemented in Lua using tables.
 
-Check out the [Lua Users wiki on Object Oriented Programming](http://lua-users.org/wiki/ObjectOrientedProgramming) for more information and examples.
+
+## More info on Lua
+
+Lua maintains a great documentation site with [reference manuals](https://lua.org/manual/). The [lua-users Tutorial Directory](http://lua-users.org/wiki/TutorialDirectory) has beginning and advanced tutorials on the language and its features. The Lua Users wiki has a section on [Object Oriented Programming](http://lua-users.org/wiki/ObjectOrientedProgramming) with many examples.
