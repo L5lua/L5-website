@@ -131,7 +131,7 @@
 * [fullscreen()](fullscreen.md)
 * [height](height.md)
 * [noCursor()](noCursor.md)
-* <s>[pixelDensity()](#)</s>
+* <s>[pixelDensity()](#)</s> (Not Implemented)
 * [print()](print.md)
 * [width](width.md)
 * [windowResized()](windowResized.md)
@@ -139,10 +139,10 @@
 
 ## Rendering
 
-* <s>[blendMode()](#)</s>
+* <s>[blendMode()](#)</s> (Not Implemented)
 * [size()](size.md)
 * [createGraphics()](createGraphics.md)
-* <s>[noCanvas()](#)</s>
+* <s>[noCanvas()](#)</s> (Not Implemented)
 * [resizeWindow()](resizeWindow.md)
 
 ## Math
@@ -170,7 +170,7 @@
 ### Noise
 
 * [noise()](noise.md)
-* <s>[noiseSeed()](#)</s>
+* <s>[noiseSeed()](#)</s> (Not Implemented)
 
 ### Random
 
@@ -195,15 +195,15 @@
 
 ### Input
 
-* <s>[loadJSON()](#)</s>
+* <s>[loadJSON()](#)</s> (Not Implemented)
 * [loadStrings()](loadStrings.md)
 * [loadTable()](loadTable.md)
-* <s>[loadXML()](#)</s>
+* <s>[loadXML()](#)</s> (Not Implemented)
 
 ### Output
 
 * [save()](save.md)
-* <s>[saveJSON()](#)</s>
+* <s>[saveJSON()](#)</s> (Not Implemented)
 * [saveStrings()](saveStrings.md)
 * [saveTable()](saveTable.md)
 
