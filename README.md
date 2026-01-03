@@ -28,10 +28,26 @@ git clone https://github.com/L5lua/L5-website.git
 cd L5-website
 ```
 2. Install dependencies
-
 ```bash
 pip install mkdocs-material
 ```
+*If you are working on an OS with an externally-managed python environment, you may have additional steps. For example, in Debian/Ubuntu-based systems:*
+```sh
+sudo apt install pipx
+pipx ensurepath
+# then restart shell or source your config
+source ~/.bashrc  # or your shell config
+pipx install mkdocs
+pipx inject mkdocs mkdocs-material
+```
+
+*Or in Void Linux:* 
+```sh
+sudo xbps-install -S python3-pipx
+pipx install mkdocs
+pipx inject mkdocs mkdocs-material
+```
+
 3. Make your edits
 * Edit markdown files in the `docs/` folder
 * `mkdocs.yml` lists all pages in the nav
@@ -63,8 +79,8 @@ git push origin main
 
 ## License
 
-This website and its original content are licensed under the [MIT License](LICENSE).
+This website uses the MIT license, with the exception of pages listing other licenses. Reference pages contain content adapted from [p5.js](https://p5js.org/) and [Processing](https://processing.org) by [p5.js Contributors](https://github.com/processing/p5.js?tab=readme-ov-file#contributors) and [Processing Foundation](https://processingfoundation.org/people), licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
 
-**Exception:** The Reference and Examples pages contain content adapted from [p5.js](https://p5js.org/) and [Processing](https://processing.org) by [p5.js Contributors](https://github.com/processing/p5.js?tab=readme-ov-file#contributors) and [Processing Foundation](https://processingfoundation.org/people), licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
+Tutorial and example pages are MIT licensed unless otherwise noted. Pages adapted from other sources include license and attribution at the bottom.
 
 Love2d installation instructions have been adapted from the Love2d wiki: Getting Started, GNU Free Documentation License 1.3.
