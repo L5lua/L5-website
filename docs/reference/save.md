@@ -4,6 +4,8 @@ Saves a png image from the display window. `save()` can optionally take one argu
 
 **Note that it is not recommended to call this function within draw as it will save repeatedly on every render.**
 
+If the user doesn't have write permission for the current directory then it will save to a default directory and print a warning and output location. 
+
 ## Examples
 
 save example 1
