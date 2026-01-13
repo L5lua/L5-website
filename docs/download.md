@@ -7,7 +7,7 @@ To write code for L5 you need to install Love2d and the single L5.lua library fi
 ## Install
 
 1. Download and install [Love2d](https://www.love2d.org/) with the free installer
-2. Download the L5 starter project and extract it (double-click on Mac, right-click "Extract All..." on Windows)
+2. Download the [L5 Starter project](L5-starter.zip) and extract it (double-click on Mac, right-click "Extract All..." on Windows)
 3. Open main.lua in any text editor and begin coding!
 4. Drag the L5-starter folder onto the Love2d application to run your program, or run from an IDE or command line for access to console messages
 
