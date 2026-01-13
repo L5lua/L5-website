@@ -1,6 +1,6 @@
 # loadImage()
 
-Loads an image from a specified file path. Possible image formats accepted are: `.jpg`, `.jpeg`, `.png`, `.bpm`, `.tga`, `.hdr`, `.pic`, `.exr`. **Unsupported filetypes include `.png` and `.gif`.**
+Loads an image from a specified file path. Possible image formats accepted are: `.jpg`, `.jpeg`, `.png`, `.bpm`, `.tga`, `.hdr`, `.pic`, `.exr`. **Unsupported filetypes include `.webp` and `.gif`.**
 
 Alternatively, `loadImage()` can also take a [FileData, ImageData, CompressedImageData or ByteData object](https://www.love2d.org/wiki/love.graphics.newImage) via underlying Love2d framework. 
 
