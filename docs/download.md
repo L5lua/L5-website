@@ -29,7 +29,7 @@ This compressed folder contains the *L5.lua* library, a starter *main.lua* file 
 
 This L5 documentation site is available for download to run offline, with or without images.
 
-* [Download L5lua.org with images (8MB ZIP)](https://github.com/L5lua/L5-website/archive/refs/heads/gh-pages.zip)
+* [Download L5lua.org with images (12MB ZIP)](https://github.com/L5lua/L5-website/archive/refs/heads/gh-pages.zip)
 * [Download L5lua.org without images (2MB ZIP)](https://github.com/L5lua/L5-website/archive/refs/heads/gh-pages-lite.zip)
 
 After downloading, extract the ZIP and open `index.html` in your browser, or serve the folder with any web server.

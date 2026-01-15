@@ -22,12 +22,13 @@ If you discover a bug or have an idea for a new feature *on the website* you'd l
 
 The documentation site is built with [Material for mkdocs](https://squidfunk.github.io/mkdocs-material/).
 
-1. Clone the repository
+1. Fork the repository on Github.
+2. Clone the repository to your computer. Command line description follows but this could also be done in Github Desktop.
 ```bash
 git clone https://github.com/L5lua/L5-website.git
 cd L5-website
 ```
-2. Install dependencies
+3. Install dependencies
 ```bash
 pip install mkdocs-material
 ```
@@ -48,28 +49,32 @@ pipx install mkdocs
 pipx inject mkdocs mkdocs-material
 ```
 
-3. Make your edits
+4. Make your edits
 * Edit markdown files in the `docs/` folder
 * `mkdocs.yml` lists all pages in the nav
-4. Test locally
+5. Test locally
 ```bash
 mkdocs serve
 ```
 Visit `http://localhost:8000` to preview changes.  
-5. Commit and push to your fork
+6. Commit and push to your fork
 ```bash
 git add .
 git commit -m "Description of changes"
 git push origin main
 ```
-6. Create a pull request
+7. Create a pull request
 * On GitHub open a Pull Request from your fork to the main website repo
 
-### Notes for Contributors
+## Notes for Contributors
 
 * Don't commit the `site/` folder (it's auto-generated).
 * Only edit files in `docs/` (and `mkdocs.yml` if adding a main navigation page)
 * The live site is automatically built by GitHub Actions when Pull Requests are merged
+
+### Working with images
+
+We use the compressed webp file format for most images, as well as a second version of the same image in jpg format. *webp* generally allows the smallest image size, for faster page loading. But as a fallback, if someone's browser can't display webp images then it will show a *jpg* file. **You should add both a webp image and an equivalently named jpg image for all static images**. We have the *image_fallback.py* hook script that the static site generator runs that adds the special `<picture>` tag for all webp images rendered into HTML pages.
 
 ### Branches
 

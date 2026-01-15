@@ -22,6 +22,8 @@ extra_css:
  - stylesheets/extra.css
 extra:
   generator: false
+hooks:
+  - hooks/image_fallback.py # fallback from webp to jpg on browsers without webp 
 nav:
   - Welcome to L5: index.md
   - Download: download.md
