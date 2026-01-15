@@ -22,9 +22,9 @@ If you discover a bug or have an idea for a new feature *on the website* you'd l
 
 The documentation site is built with [Material for mkdocs](https://squidfunk.github.io/mkdocs-material/).
 
-1. Clone the repository
+1. **Fork** and **Clone** your copy of the repository, with GitHub Desktop or in the command line:
 ```bash
-git clone https://github.com/L5lua/L5-website.git
+git clone https://github.com/YOUR-USERNAME/L5-website.git
 cd L5-website
 ```
 2. Install dependencies
