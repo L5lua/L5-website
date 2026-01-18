@@ -36,7 +36,7 @@ After downloading, extract the ZIP and serve the folder with a local web server.
 
 ## Running your program
 
-The easiest way to run your L5 program is to drag the folder containing your main.lua onto the Love2d application. But to see error messages and printing in the console you will want to run from an IDE or command line. Here are platform-specific details:
+The easiest way to run your L5 program is to drag the folder containing your main.lua onto the Love2d application. But to see error messages and printing in the console you will want to run from an Integrated Development Environment (IDE) or command line. Here are platform-specific details:
 
 ### Linux
 
@@ -103,23 +103,16 @@ and try it again.
 
 ### Windows
 
-ZeroBrane Studio, Sublime Text, VS Code, Notepad++, and SciTE allow you to launch your program from within their code editors, though may take some special configuration.
+The easiest way to run your program is to drag the folder onto either love.exe or a shortcut to love.exe. Remember to drag the folder containing `main.lua`, and not `main.lua` itself. 
 
-Otherwise, the easiest way to run your program is to drag the folder onto either love.exe or a shortcut to love.exe. Remember to drag the folder containing `main.lua`, and not `main.lua` itself.
+However, to see print messages and error output in the console (helpful when coding and debugging), you'll want to use an IDE or run from the command line. IDEs such as ZeroBrane Studio, Sublime Text, VS Code, Notepad++, and SciTE all support launching LÖVE programs (the underlying framework used by L5), though may require some configuration.
 
-You can also launch the game from the command line:
-
+Alternatively, you can launch from the command line with the `--console` flag:
 ```
-"C:\Program Files\LOVE\love.exe" "C:\games\mygame"
+"C:\Program Files\LOVE\love.exe" --console "C:\Users\<YourUsername>\Desktop\L5-starter"
 ```
 
-You can create a shortcut to do this; simply make a shortcut to love.exe, right-click on it and select "Properties", and then put the command line you want in the "Target" box for the shortcut.
-
-On Windows, there is a special command-line option which will attach a console to the window, allowing you to see the result of print calls (equivalent to setting t.console=true in conf.lua or running lovec.exe.
-
-```
-"C:\Program Files\LOVE\love.exe" --console
-```
+Replace `<YourUsername>` and `Desktop\L5-starter` with your actual username and the location of your program folder.
 
 ---
 
