@@ -23,7 +23,11 @@ This compressed folder contains the *L5.lua* library, a starter *main.lua* file 
 
 **Latest version:** [Download L5.lua](https://raw.githubusercontent.com/L5lua/L5/main/L5.lua)
 
-**Stable release (v0.1.2):** [Download L5.lua v0.1.2](https://raw.githubusercontent.com/L5lua/L5/v0.1.2/L5.lua)
+**Stable release (v0.1.3):** [Download L5.lua v0.1.3](https://raw.githubusercontent.com/L5lua/L5/v0.1.3/L5.lua)
+
+### Source code
+
+The [L5 repository](https://github.com/L5lua/L5) is accessible for anyone interested in viewing or modifying the L5 source code. See [contributing](contributing.md) for ways to contribute to the library or this site.
 
 ## Offline Documentation
 
