@@ -57,7 +57,7 @@ end
 
 ## Related Examples
 
-* [10print vartiations](10print.md) - An implementation of the classic maze-drawing algorithm
+* [10print variations](10print.md) - An implementation of the classic maze-drawing algorithm
 * [Basic Pong](basic-pong.md) - A simple program demonstrating a basic implementation of pong with enemy AI player
 * [Copy Image Data](imported-media-copy-image-data.md) - Paint from an image file onto the canvas.
 
