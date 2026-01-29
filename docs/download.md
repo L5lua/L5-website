@@ -52,6 +52,8 @@ In the Terminal, you can run `love path/to/main.lua`. Or if you are in the folde
 
 ### Mac
 
+**[There is a step-by-step Mac installation tutorial](tutorials/install-mac.md)**
+
 Drag and drop the folder holding L5.lua and your main.lua onto the Love application, being sure to add `printToScreen()` to your setup function to be able to see `print()` output.
 
 OR
