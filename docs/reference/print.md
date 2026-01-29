@@ -4,7 +4,9 @@ Displays text in the command line console.
 
 `print()` is helpful for printing values while debugging. Each call to `print()` creates a new line of text.
 
-Note: Call `print()` to print a blank line. 
+To enable the output of print to display in the window, you can call `printToScreen()` in setup to turn this on.
+
+Note: Call `print()` on its own to print a blank line. 
 
 ## Examples
 
@@ -32,11 +34,11 @@ print(contents)
 
 ## Related
 
+* [printToScreen()](printToScreen.md)
 * [cursor()](cursor.md)
 * [deltaTime](deltaTime.md)
 * [describe()](describe.md)
 * [text()](text.md)
-
 
 ---
 

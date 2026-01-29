@@ -135,6 +135,7 @@ An offline version of this documentation is available for [download](https://l5l
 * [noCursor()](noCursor.md)
 * <s>[pixelDensity()](#)</s> (Not Implemented)
 * [print()](print.md)
+* [printToScreen()](printToScreen.md)
 * [width](width.md)
 * [windowResized()](windowResized.md)
 * [windowTitle()](windowTitle.md)
