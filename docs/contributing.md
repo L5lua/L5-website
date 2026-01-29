@@ -1,4 +1,4 @@
-## Contributing to L5 ❤️
+# Contributing to L5 ❤️
 
 Thanks for your interest in contributing to **L5**! Contributions of all kinds are welcome — from code and documentation to tutorials, examples, and teaching.
 
@@ -21,7 +21,7 @@ Use this repository if you want to:
 - Improve core documentation
 - Add examples that ship with L5
 
-**Repository:** https://github.com/L5lua/L5  
+**Repository:** <https://github.com/L5lua/L5>
 
 ### L5 Website - The documentation site
 
@@ -32,7 +32,7 @@ Use this repository if you want to:
 - Add screenshots or examples
 - Improve wording, structure, or beginner explanations
 
-**Repository:** https://github.com/L5lua/L5-website  
+**Repository:** <https://github.com/L5lua/L5-website>
 
 
 ## Step 2: Start with an issue
@@ -48,8 +48,9 @@ This helps avoid duplicated work and gives you a place to ask questions.
 
 ### Where to file issues
 
-**Library issues:** https://github.com/L5lua/L5/issues
-**Website issues:** https://github.com/L5lua/L5-website/issues
+**Library issues:** <https://github.com/L5lua/L5/issues>
+
+**Website issues:** <https://github.com/L5lua/L5-website/issues>
 
 
 ## Step 3: Fork the repository
