@@ -60,7 +60,7 @@ function setup()
   
   noCursor()
   
-  description("A game of Pong between a human and computer AI player.")
+  describe("A game of Pong between a human and computer AI player.")
 end
 
 function draw()
