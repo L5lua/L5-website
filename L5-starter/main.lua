@@ -6,6 +6,9 @@ function setup()
   -- Set the program title
   windowTitle("Basic sketch")
 
+  -- Sets print command output to display in window
+  printToScreen()
+
   describe('Draws a yellow background')
 end
 

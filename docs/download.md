@@ -23,7 +23,7 @@ This compressed folder contains the *L5.lua* library, a starter *main.lua* file 
 
 **Latest version:** [Download L5.lua](https://raw.githubusercontent.com/L5lua/L5/main/L5.lua)
 
-**Stable release (v0.1.3):** [Download L5.lua v0.1.3](https://raw.githubusercontent.com/L5lua/L5/v0.1.3/L5.lua)
+**Stable release (v0.1.5):** [Download L5.lua v0.1.5](https://raw.githubusercontent.com/L5lua/L5/v0.1.5/L5.lua)
 
 ### Source code
 
@@ -40,7 +40,9 @@ After downloading, extract the ZIP and serve the folder with a local web server.
 
 ## Running your program
 
-The easiest way to run your L5 program is to drag the folder containing your main.lua onto the Love2d application. But to see error messages and printing in the console you will want to run from an Integrated Development Environment (IDE) or command line. Here are platform-specific details:
+The easiest way to run your L5 program is to drag the folder containing your main.lua onto the Love2d application. To be able to view the output of `print()` add the function `printToScreen()` to your setup() section of code.
+
+Alternatively, you may want to code, test and run your programs from an Integrated Development Environment (IDE) or command line. Here are platform-specific details:
 
 ### Linux
 
@@ -50,7 +52,7 @@ In the Terminal, you can run `love path/to/main.lua`. Or if you are in the folde
 
 ### Mac
 
-Drag and drop the folder holding L5.lua and your main.lua onto the Love application.
+Drag and drop the folder holding L5.lua and your main.lua onto the Love application, being sure to add `printToScreen()` to your setup function to be able to see `print()` output.
 
 OR
 
@@ -107,9 +109,11 @@ and try it again.
 
 ### Windows
 
-The easiest way to run your program is to drag the folder onto either love.exe or a shortcut to love.exe. Remember to drag the folder containing `main.lua`, and not `main.lua` itself. 
+The easiest way to run your program is to drag the folder onto either love.exe or a shortcut to love.exe. You will want to add `printToScreen()` function within your setup to see the output of any `print()` commands. Remember to drag the folder containing `main.lua`, and not `main.lua` itself. 
 
-However, to see print messages and error output in the console (helpful when coding and debugging), you'll want to use an IDE or run from the command line. IDEs such as ZeroBrane Studio, Sublime Text, VS Code, Notepad++, and SciTE all support launching LÖVE programs (the underlying framework used by L5), though may require some configuration.
+OR
+
+IDEs such as ZeroBrane Studio, Sublime Text, VS Code, Notepad++, and SciTE all support launching LÖVE programs (the underlying framework used by L5), though may require some configuration.
 
 Alternatively, you can launch from the command line with the `--console` flag:
 ```
