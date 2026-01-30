@@ -2,6 +2,8 @@
 
 **Previous tutorial**: [Animation](animation.md)
 
+*Note: If you are running your programs by dragging their project folder onto the Love application, be sure to add the `printToScreen()` function within your setup() to be able to see the output of `print()` commands in your program window.*
+
 You now know how to call functions, use variables, create variables and functions, use if statements, and create animations. This tutorial shows you how to get user input to make your programs interactive!
 
 ## Mouse Position
@@ -77,6 +79,9 @@ b = 128
 
 function setup()
   size(300, 300)
+  
+  -- displays output of print() function onscreen
+  printToScreen()
 end
 
 function draw()
@@ -182,6 +187,9 @@ message = "Press a key"
 function setup()
   size(300, 300)
   textSize(24)
+  
+  -- displays output of print() function onscreen
+  printToScreen()
 end
 
 function draw()
@@ -252,6 +260,9 @@ require("L5")
 
 function setup()
   size(300, 300)
+  
+  -- displays output of print() function onscreen
+  printToScreen()
 end
 
 function draw()

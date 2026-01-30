@@ -4,6 +4,8 @@ By Portia Morrell, Jaleesa Trapp, Kate Maschmeyer. Adapted to L5 by Lee Tusman.
 
 ---
 
+*Note: If you are running your programs by dragging their project folder onto the Love application, be sure to add the `printToScreen()` function within your setup() to be able to see the output of `print()` commands in your program window.*
+
 ![Data Garden 12](/assets/tutorials/data-garden12.gif)
 
 In this tutorial, you will use L5 to simulate an interactive flower garden. In this project, your digital canvas will come to life with 20 randomly generated flowers, each a different color and size. Users can also add diversity to the garden by clicking on the canvas to add new, unique flowers. Each flower is programmed with a wilting animation. This animation causes the flowers to slowly shrink and vanish, much like the natural cycle of a flower’s life.

@@ -56,4 +56,5 @@ String: Name of window from title bar.
 
 * [describe()](describe.md)
 * [print()](print.md)
+* [printToScreen()](printToScreen.md)
 

@@ -4,7 +4,7 @@ Displays text in the command line console.
 
 `print()` is helpful for printing values while debugging. Each call to `print()` creates a new line of text.
 
-To enable the output of print to display in the window, you can call `printToScreen()` in setup to turn this on.
+**Calling `printToScreen()` will turn on displaying the output of `print()` functions in your program window.** This is particularly helpful if you are running your L5 program without a text console output, for example by dragging and dropping your program's folder onto the Love application.
 
 Note: Call `print()` on its own to print a blank line. 
 
@@ -14,8 +14,13 @@ Note: Call `print()` on its own to print a blank line.
 
 ```lua
 function setup()
+  size(100, 100)
+  
   -- Prints "hello, world" to the console.
   print('hello, world')
+  
+  -- Turns on print console display on program window
+  printToScreen()
 end
 ```
 
@@ -39,6 +44,7 @@ print(contents)
 * [deltaTime](deltaTime.md)
 * [describe()](describe.md)
 * [text()](text.md)
+* [windowTitle()](windowTitle.md)
 
 ---
 

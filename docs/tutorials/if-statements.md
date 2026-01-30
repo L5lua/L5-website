@@ -2,6 +2,8 @@
 
 **Previous tutorial**: [Creating Functions](creating-functions.md)
 
+*Note: If you are running your programs by dragging their project folder onto the Love application, be sure to add the `printToScreen()` function within your setup() to be able to see the output of `print()` commands in your program window.*
+
 You now know how to call functions, use variables, create your own variables, and create your own functions. This tutorial introduces **if statements**, which let your code make decisions!
 
 ## Boolean Values
@@ -198,6 +200,11 @@ buttonHeight = 50
 
 function setup()
   size(300, 300)
+  
+  -- output of print() will now display in window
+  printToScreen() 
+  
+  describe('This code creates a button that turns green when you hover over it and prints a message when you click it.')
 end
 
 function draw()
@@ -226,8 +233,6 @@ function mousePressed()
 end
 ```
 
-This code creates a button that turns green when you hover over it and prints a message when you click it!
-
 ## Example: Bouncing Ball
 
 Here's an example that uses if statements to make a ball bounce:
@@ -244,6 +249,10 @@ speedY = 2
 
 function setup()
   size(300, 300)
+  
+  printToScreen()
+  
+  describe('The ball moves and bounces off the edges of the window')
 end
 
 function draw()
@@ -267,8 +276,6 @@ function draw()
   circle(ballX, ballY, 30)
 end
 ```
-
-The ball moves and bounces off the edges of the window!
 
 ## Practice
 
