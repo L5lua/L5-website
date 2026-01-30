@@ -103,8 +103,7 @@ We follow the *All Contributors* philosophy:
 
 ## Contributors meetings
 
-We regularly host in-person contributor meetings in NYC. All are welcome! Feel free to reach out directly if you'd like to learn more. 
-
+We regularly host in-person contributor meetings in NYC. All are welcome! Feel free to [reach out directly](https://leetusman.com/info/) if you'd like to learn more. 
 
 ## Winter 2026 L5 Survey
 
