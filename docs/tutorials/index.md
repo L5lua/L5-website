@@ -1,5 +1,5 @@
 
-[Getting Started](first-steps.md) - Welcome to L5! This introduction covers the basics of setting up L5 on your computer.
+[First Steps](first-steps.md) - Welcome to L5! This introduction covers the basics of setting up L5 on your computer.
 
 ## A complete introduction to programming with L5
 
