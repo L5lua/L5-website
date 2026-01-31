@@ -1,0 +1,1746 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/L5-for-processingp5/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>L5 for Processing-p5.js programmers - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#l5-for-processing-and-p5js-programmers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              L5 for Processing-p5.js programmers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="L5: A Processing Library in Lua" class="md-nav__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    L5: A Processing Library in Lua
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to L5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../download/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Download
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download/install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lua-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lua tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lua tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-and-local-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global and local variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commenting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commenting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tables-all-the-way-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tables all the way down
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-based-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-based indexing!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loops-in-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loops in Lua
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditionals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-lua-gotchas-and-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Lua Gotchas and Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-equivalences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion equivalences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-orientation-in-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object orientation in Lua
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-info-on-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More info on Lua
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#shape" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#color" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#typography" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#image" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#media" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#transform" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#environment" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#rendering" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#math" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#events" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#data" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#structure" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#constants" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/#foundation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bug-reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bug Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For developers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../copyleft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copyleft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lua-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lua tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lua tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-and-local-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global and local variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commenting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commenting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tables-all-the-way-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tables all the way down
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-based-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-based indexing!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loops-in-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loops in Lua
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditionals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-lua-gotchas-and-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Lua Gotchas and Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-equivalences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion equivalences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-orientation-in-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object orientation in Lua
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-info-on-lua" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More info on Lua
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="l5-for-processing-and-p5js-programmers">L5 for Processing and p5.js programmers</h1>
+<p>L5 stands on the shoulders of Processing and p5.js. You will be able to use your previous knowledge to get started right away and learn Lua in the process.</p>
+<p>L5 was built to be fun, fast, and resource-light. It is in many cases faster than Processing or p5.js programs. It works cross-platform and on older machines. Lua's syntax is simpler and constrained compared to JavaScript and Processing-Java. Some things are easier in L5, but some things are not. L5 currently does not have 3d functionality. It only supports one video format (ogg theora). It is a younger and still developing language dialect compared to its older siblings.</p>
+<p>In most cases, L5 functions are similar or equivalent to Processing functions. In some cases, p5.js functionality has been targeted or added. For example, like in p5.js you can use <a href="https://en.wikipedia.org/wiki/Web_colors">HTML/CSS color names or hexadecimal</a> instead of only the default RGB and RGBA values from Processing.</p>
+<h2 id="lua-tips">Lua tips</h2>
+<h3 id="global-and-local-variables">Global and local variables</h3>
+<p><strong>Unlike in Processing (Java) and p5.js (JavaScript), by default all variables in L5 (Lua) have global scope unless specified as local.</strong> </p>
+<pre><code class="language-lua">function setup()
+  name = &quot;Nina&quot; 
+end
+
+function draw()
+  print(name) --prints out &quot;Nina&quot;
+end
+</code></pre>
+<p>To create a variable with block scope, specify <code>local</code>.</p>
+<pre><code class="language-lua">function setup()
+  local name = &quot;Nina&quot;
+end
+
+function draw()
+  print(name) --prints out &quot;nil&quot;
+end
+</code></pre>
+<p>To concatenate variables together or to combine with other strings, use <code>..</code></p>
+<pre><code class="language-lua">local name = &quot;Nina&quot;
+print(&quot;My name is &quot;..name) --prints out &quot;My name is Nina&quot;
+</code></pre>
+<h3 id="commenting">Commenting</h3>
+<p>A comment starts with <code>--</code> instead of <code>//</code></p>
+<p>Multi-line comments can be created by surrounding them with <code>--[[</code> and <code>]]--</code>.</p>
+<h3 id="tables-all-the-way-down">Tables all the way down</h3>
+<p>The main data structure of Lua is the <em>table</em>. This is used to construct arrays and objects, for example.</p>
+<pre><code class="language-lua">wu_tang_clan = {&quot;RZA&quot;, &quot;GZA&quot;, &quot;Ol' Dirty Bastard&quot;, &quot;Inspectah Deck&quot;, &quot;Raekwon&quot;, &quot;Ghostface Killah&quot;, &quot;Method Man&quot;, &quot;Masta Killa&quot;}
+</code></pre>
+<p>And following from this...</p>
+<h3 id="1-based-indexing">1-based indexing!</h3>
+<p>You may have heard that Lua uses 1-based indexing. If you haven't, well now you've heard it.</p>
+<p>In other words, the first item in an ordered array is <code>1</code> where in many other C-based languages the first ordered element is <code>0</code>.</p>
+<pre><code class="language-lua">
+wu_tang_clan = {&quot;RZA&quot;, &quot;GZA&quot;, &quot;Ol' Dirty Bastard&quot;, &quot;Inspectah Deck&quot;, &quot;Raekwon&quot;, &quot;Ghostface Killah&quot;, &quot;Method Man&quot;, and &quot;Masta Killa&quot;}
+
+print(&quot;First rapper up is &quot;..wu_tang_clan[1])
+--prints: First rapper up is RZA.
+</code></pre>
+<p>There are some cool advantages in Lua for working with ordered tables.</p>
+<p>The <code>#</code> prepending the table name will always give you its <em>length</em>.</p>
+<pre><code class="language-lua">print(&quot;There are &quot;..#wu_tang_clan..&quot; members of Wu Tang Clan&quot;)
+</code></pre>
+<p>This makes it easy to work with tables in a loop.</p>
+<p>You can build associative tables, commonly known as a <em>dictionary</em>, <em>map</em> or <em>key-value pairs</em>. You can access their value through specifying a named index, or through dot notation.</p>
+<pre><code class="language-lua">local characters = {
+  [&quot;Mario&quot;] = &quot;Plumber&quot;,
+  [&quot;Luigi&quot;] = &quot;Plumber&quot;,
+  [&quot;Bowser&quot;] = &quot;Monster&quot;
+}
+
+print(&quot;Mario is a &quot;..characters[&quot;Mario&quot;])
+
+--Alternatively, you could write:
+print(&quot;Mario is a &quot;..characters.Mario)
+</code></pre>
+<p>The brackets are optional if your parameter is a single string with no spaces. </p>
+<pre><code class="language-lua">local characters = {
+  mario = &quot;Plumber&quot;
+}
+</code></pre>
+<p>You can easily add properties to a table, using bracket notation or dot notation.</p>
+<pre><code class="language-lua">local museum = {} --initializes the table
+museum['location'] = &quot;Los Angeles&quot;
+museum.name = &quot;Museum of Jurassic Technology&quot;
+</code></pre>
+<h3 id="loops-in-lua">Loops in Lua</h3>
+<p><em><a href="/reference/for">For</a> loops</em> have simple syntax. By default the iterator increments by 1.</p>
+<pre><code class="language-lua">for i=1,5 do
+  print(i)
+end
+</code></pre>
+<p>You can optionally specify to increment or decrement by a different value.</p>
+<pre><code class="language-lua">for i=100, 0, -2 do
+  print(i)
+end
+-- counts backwards from 100 to 0, decreasing by 2 each iteration
+</code></pre>
+<p>If you want to iterate through a table of values, the syntax is clear and efficient in Lua since prepending <code>#</code> to a table's name gives you its length, and since tables are ordered beginning at 1, we can count up from 1 to the table's length:</p>
+<pre><code class="language-lua">print(&quot;The Wu Tang Clan, starring:&quot;)
+for i=1,#wu_tang_clan do
+  print(wu_tang_clan[i])
+end
+</code></pre>
+<p>Lua also has special functions for working with tables. <code>ipairs</code> iterates through an ordered table (aka an <em>array</em>). <code>pairs</code> iterates through an associative table (aka <em>key-value pairs</em>). </p>
+<pre><code class="language-lua">names = {&quot;John&quot;,&quot;Paul&quot;,&quot;George&quot;,&quot;Ringo&quot;,&quot;Yoko&quot;}
+for i,name in ipairs(names) do
+  print(i,name)
+end
+</code></pre>
+<p>This will produce</p>
+<pre><code class="language-text">1   John
+2   Paul
+3   George
+4   Ringo
+5   Yoko
+</code></pre>
+<p>You will commonly see <code>_</code> when you don't need to print out or work with the iterator.</p>
+<pre><code>names = {&quot;John&quot;,&quot;Paul&quot;,&quot;George&quot;,&quot;Ringo&quot;,&quot;Yoko&quot;}
+print(&quot;The Beatles:&quot;)
+for _,name in ipairs(names) do
+  print(name)
+end
+</code></pre>
+<p>This will produce </p>
+<pre><code class="language-text">The Beatles:
+John
+Paul
+George
+Ringo
+Yoko
+</code></pre>
+<p><code>pairs</code> is used to iterate over all key-value pairs in a table. </p>
+<pre><code class="language-lua">local menu = {
+  breakfast = &quot;yogurt&quot;,
+  lunch = &quot;salad&quot;,
+  dinner = &quot;tacos&quot;
+}
+
+for key, value in pairs(menu) do
+  print(&quot;For &quot;..key..&quot; I ate &quot;..value)
+end
+</code></pre>
+<p>This will produce</p>
+<pre><code class="language-text">For breakfast I ate yogurt
+For dinner I ate tacos
+For lunch I ate salad
+</code></pre>
+<p><strong>Note: In an associative table of key-value pairs (rather than an ordered table array), there is no guarantee that the values will be output in a specific order.</strong> If you run the above code, you may find the <em>dinner</em> gets printed before <em>lunch</em> even though lunch was listed first in the table, but there are mechanisms to specify an exact order.</p>
+<h2 id="conditionals">Conditionals</h2>
+<p>Lua uses <code>if</code>, <code>elseif</code> and <code>else</code> to create conditionals. <code>then</code> is required after your <code>if</code> and <code>elseif</code> conditional.</p>
+<pre><code class="language-lua">if porridgeTemp &gt; 75 then
+  print(&quot;This bowl of porridge is too hot!&quot;)
+elseif porridgeTemp &lt; 45 then
+  print(&quot;This bowl of porridge is too cold!&quot;)
+else
+  print(&quot;This bowl of porridge is just right.&quot;)
+end
+</code></pre>
+<p>Unlike Java and JavaScript, there is no switch statement in Lua.</p>
+<h2 id="other-lua-gotchas-and-tips">Other Lua Gotchas and Tips</h2>
+<ul>
+<li>Lua is a dynamically typed language. You don't specify types (integer, floats, etc).</li>
+<li>Functions and loops use <code>end</code> rather than curly brackets <code>{ }</code> for specifying scope. Loops also use <code>do</code>.</li>
+<li><strong>There are no <code>++</code> or <code>+=</code> shortcuts in Lua. To increment a variable by 1 for example, you write <code>x = x + 1</code></strong></li>
+<li>The semicolon <code>;</code> is not needed at the end of lines</li>
+</ul>
+<h2 id="conversion-equivalences">Conversion equivalences</h2>
+<table>
+<thead>
+<tr>
+<th>Lua</th>
+<th>JavaScript</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>function func() ... end</code></td>
+<td><code>function func() {...}</code></td>
+<td><code>void func() {...}</code></td>
+</tr>
+<tr>
+<td><code>true</code> and <code>false</code></td>
+<td><code>true</code> and <code>false</code></td>
+<td><code>true</code> and <code>false</code></td>
+</tr>
+<tr>
+<td><code>a and b</code> (logical AND)</td>
+<td><code>a &amp;&amp; b</code></td>
+<td><code>a &amp;&amp; b</code></td>
+</tr>
+<tr>
+<td><code>a or b</code> (logical OR)</td>
+<td><code>a || b</code></td>
+<td><code>a || b</code></td>
+</tr>
+<tr>
+<td><code>not a</code></td>
+<td><code>!a</code></td>
+<td><code>!a</code></td>
+</tr>
+<tr>
+<td><code>a ~= b</code> (not-equal)</td>
+<td><code>a != b</code></td>
+<td><code>a != b</code></td>
+</tr>
+<tr>
+<td><code>i = i + 1</code> (increment)</td>
+<td><code>i++</code></td>
+<td><code>i++</code></td>
+</tr>
+<tr>
+<td><code>i = i - 1</code> (decrement)</td>
+<td><code>i--</code></td>
+<td><code>i--</code></td>
+</tr>
+<tr>
+<td><code>a &lt;= b and b &lt; c</code></td>
+<td><code>a &lt;= b &amp;&amp; b &lt; c</code></td>
+<td><code>a &lt;= b &amp;&amp; b &lt; c</code></td>
+</tr>
+<tr>
+<td><code>for i=1, limit do ... end</code></td>
+<td><code>for (let i=0; i&lt;limit; i++) {...}</code></td>
+<td><code>for (int i = 0; i &lt; limit; i++) {...}</code></td>
+</tr>
+<tr>
+<td><code>for i=start, limit, step do ... end</code></td>
+<td><code>for (let i=start; i&lt;limit; i+=step) {...}</code></td>
+<td><code>for (int i = start; i &lt; limit; i += step) {...}</code></td>
+</tr>
+<tr>
+<td><code>for _, b in ipairs(table_of_balls) do ... end</code></td>
+<td><code>for (let b of arrayOfBalls) {...}</code></td>
+<td><code>for (Ball b : arrayOfBalls) {...}</code></td>
+</tr>
+<tr>
+<td><code>local myColor = '#FFCC00'</code></td>
+<td><code>let myColor = '#FFCC00'</code></td>
+<td><code>String myColor = "#FFCC00";</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="object-orientation-in-lua">Object orientation in Lua</h2>
+<p>OOP is implemented in Lua using tables. For more information see the <a href="/tutorials/using-objects">Using Objects</a> and <a href="/tutorials/data-structure-garden">Data Structure Garden</a> tutorials and <a href="/examples/random-robot-objects">Random Robot Objects</a> example.</p>
+<h2 id="more-info-on-lua">More info on Lua</h2>
+<p>Lua maintains a great documentation site with <a href="https://lua.org/manual/">reference manuals</a>. The <a href="http://lua-users.org/wiki/TutorialDirectory">lua-users Tutorial Directory</a> has beginning and advanced tutorials on the language and its features. The Lua Users wiki has a section on <a href="http://lua-users.org/wiki/ObjectOrientedProgramming">Object Oriented Programming</a> with many examples.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

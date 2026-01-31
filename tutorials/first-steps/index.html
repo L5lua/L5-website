@@ -1,0 +1,1382 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/tutorials/first-steps/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>First steps - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#taking-your-first-steps-programming-with-l5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              First steps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-nav__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    L5: A Processing Library in Lua
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to L5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../download/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Download
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../L5-for-processingp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#shape" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#color" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#typography" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#image" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#media" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#transform" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#environment" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#rendering" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#math" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#events" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#data" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#structure" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#constants" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#foundation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bug-reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bug Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For developers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../copyleft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copyleft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#taking-your-first-steps-programming-with-l5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taking your first steps programming with L5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editing Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Program
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-interactive-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        An interactive program
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="An interactive program">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-and-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples and Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>First steps</h1>
+
+<p>This tutorial is adapted from <a href="https://processing.org/tutorials/gettingstarted">Getting Started</a> by Casey Reas and Ben Fry, adapted from the book, <a href="https://processing.org/books/#make:-getting-started-with-processing,-second-edition">Getting Started with Processing</a>, Maker Media 2015. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>. Adapted to L5 by Lee Tusman.</p>
+<h2 id="taking-your-first-steps-programming-with-l5">Taking your first steps programming with L5</h2>
+<p>Welcome to L5!</p>
+<p>Getting set up to create programs in L5 consists of these parts: </p>
+<h2 id="installation">Installation</h2>
+<ol>
+<li><a href="/download">Installing LÖVE (also known as Love2d) application</a> for your system, available for Mac, Windows, and Linux. </li>
+<li><a href="/download/#l5-starter-project-recommended">Downloading the L5 Starter Project</a>.</li>
+<li>Setting up a code editor to write your code in.</li>
+</ol>
+<p><em>L5</em> is the <em>language library</em> we'll be using to write our code, meaning it is full of resources we can use to write our own programs. These includes functions such as drawing, displaying images, and tracking the mouse movement and clicks.</p>
+<p><em>LÖVE/Love2d</em> is the framework powering our creative coding library. The first step is to install LÖVE/Love2d. This will differ slightly depending on what your operating system is. So follow the install instructions for your operating system.</p>
+<p>After installing Love2d is complete, <a href="/download/#l5-starter-project-recommended">download the L5 Starter Project</a>. It is a zipped folder containing the <em>L5.lua</em> library file, a basic <em>main.lua</em> starter program, and a <em>README.txt</em> with some information about L5. You'll need to uncompress the folder. On a Mac, double click the .zip folder. On a Windows machine, right click and choose "Extract All...". On Linux, usually you can right click and choose "Extract" or double click.</p>
+<p>We're almost ready to get started learning about and writing code. But first we need a <a href="https://en.wikipedia.org/wiki/Source-code_editor">code editor</a>.</p>
+<h2 id="editing-code">Editing Code</h2>
+<p>As its name implies, a code editor is a place to write your code. Some editors are minimal, mostly just a place to write and edit. Others have lots of features like autocomplete, nice colors, or other tools to make writing code more comfortable. There are many code editors that are <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open source</a>, that you can use freely, and are built collectively, and for a commons.</p>
+<p>You shouldn't use a word processor like Word or LibreOffice, as they aren't meant for writing code. While you could use the built-in Textpad on MacOS or Notepad on Windows, neither of these are much fun to write code in.</p>
+<p>Many people like code editors like <a href="https://www.sublimetext.com/">Sublime Text</a>, <a href="https://vscodium.com/">VSCodium</a>, or <a href="https://www.geany.org/">Geany</a>. But there are <a href="https://opensource.com/article/21/2/open-source-text-editors">dozens of others</a> available. If you've previously coded with Processing, you may have tried the Processing IDE. </p>
+<p><strong>One particularly friendly code editor we recommend for beginners to install</strong> is <a href="https://studio.zerobrane.com/">Zerobrane Studio</a>, a lightweight editor with auto-completion, syntax highlighting and debugging features built-in. If you use another editor you may have to look for information on setting it up for working with Love2d for example for <a href="https://www.love2d.org/forums/viewtopic.php?t=84657">Geany</a>, <a href="https://maxzsol.com/getting-started-with-love2d-and-vs-code-a-beginners-guide/">VSCodium</a> or <a href="https://www.love2d.org/wiki/Sublime_Text">SublimeText</a>. </p>
+<h3 id="main-workflow">Main workflow</h3>
+<p>A typical workflow is to write code in your <code>main.lua</code>, making sure that <code>require("L5")</code> is the top line in your program. Once you add or edit code, to run your program you'll first save. Then on the desktop, drag the <em>folder</em> holding your project files onto the icon for LÖVE/Love2d.</p>
+<p><img alt="A typical code editor window" src="/assets/tutorials/getting-started1.webp" title="A typical code editor window" /><br />
+<em>A typical code editor window. This is <a href="https://www.geany.org/">Geany</a>.</em></p>
+<h2 id="your-first-program">Your First Program</h2>
+<p>Once you have an editor installed, double click to open it.</p>
+<p>While the details will differ depending on whichever one you chose to use, the main thing is that there should be a large code editing window for you to write your code in.</p>
+<p>Find the location of your L5 Starter folder you downloaded and extracted on your computer. <strong>Drag the L5 Starter folder</strong> onto the Love application file and it should launch the program. You should see a window open with a yellow background.</p>
+<p><img alt="A yellow background window appearing on top of folder holding L5 Starter and love application" src="/assets/tutorials/install/mac8.webp" title="A yellow background window appearing on top of folder holding L5 Starter and love application" /></p>
+<p>Once verifying it works, close the window. Now we're going to start examining and writing some code.</p>
+<h2 id="an-interactive-program">An interactive program</h2>
+<p>Inside your code editor, open the <code>main.lua</code> file. You can erase everything there and replace it with this basic 5 line program, and then make sure to save the file:</p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  ellipse(50, 50, 80, 80)
+end
+</code></pre>
+<p>The <code>function setup()</code> section tells our program to start here first and run the enclosed code once. It's important that you include the parenthesis immediately after the word setup! After this line we'll put our code for drawing on screen. Then we'll end the setup section with the word <code>end</code> on the last line.</p>
+<pre><code class="language-lua">  ellipse(50, 50, 80, 80)
+</code></pre>
+<p>This line of code means "draw an ellipse, with the center 50 pixels over from the left and 50 pixels down from the top, with a width and height of 80 pixels." Incidentally, the space before the word ellipse is optional, and will have no impact on your program, but it's a custom that programmers use to make their code inside the setup function (for example) easier to read. It's also common to skip lines before and after functions, which again has no impact on how your program's output when it runs.</p>
+<p>After entering all this code save your <code>main.lua</code>. Then <strong>drop the folder</strong> holding your project's main.lua and L5.lua files onto the Love2d applicaton icon. </p>
+<p>If you've typed everything correctly, you'll see a circle on your screen. If you only see a black screen, you forgot to include the line <code>require("L5")</code> at the top of your main.lua file. If you didn't type something correctly, the window will turn blue and in white text complain about an error. If this happens, make sure that you've copied the example code exactly: the ellipse's numbers should be contained within parentheses and have commas between each of them. Check your spelling of function, setup(), ellipse and end!</p>
+<p>One of the most difficult things about getting started with programming is that you have to be very specific about the syntax, the way you write code. Our coding software isn't always smart enough to know what you mean, and can be quite fussy about the placement of punctuation. You'll get used to it with a little practice.</p>
+<p>Next, we'll skip ahead to a sketch that's a little more exciting. Delete the text from the last example, and try this:</p>
+<p><img alt="Getting started 2" src="/assets/tutorials/getting-started2.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  size(480, 120)
+end
+
+function draw()
+  if mouseIsPressed then
+    fill('black')
+  else
+    fill('white')
+  end
+  ellipse(mouseX, mouseY, 80, 80)
+end
+</code></pre>
+<p>This program creates a window that is 480 pixels wide and 120 pixels high, and then starts drawing white circles at the position of the mouse. When a mouse button is pressed, the circle color changes to black. We'll explain more about the elements of this program in detail later. For now, run the code, move the mouse, and click to see what it does. When you are finished, quit or close your program window.</p>
+<p>It’s always a good idea to save your <a href="https://leetusman.com/nosebook/code-sketching-2019">code sketches</a> often. As you try different things, keep saving with different names, so that you can always go back to an earlier version. This is especially helpful if—no, when—something breaks. </p>
+<p>To create a new sketch, you'll need a new independent project folder, with its own L5.lua and main.lua inside.A simple way to do this would be to duplicate your previous folder, which you can do easily by copying and pasting the previous folder, and then renaming the new one.</p>
+<h3 id="examples-and-reference">Examples and Reference</h3>
+<p>Learning how to program involves exploring lots of code: running, altering, breaking, and enhancing it until you have reshaped it into something new. With this in mind, the L5 website includes <a href="/examples">examples</a> that demonstrate different features of the software.</p>
+<p>To use example code, you can copy the code and paste it into your code editor window in your main.lua file. As always, make sure you have <code>require("L5")</code> at the top of your file. That tells the computer what to do with your code when you try to run it.  </p>
+<p>When looking at code in a text editor with <a href="https://en.wikipedia.org/wiki/Syntax_highlighting">syntax highlighting</a>, you'll see that functions like <a href="/reference/ellipse">ellipse</a> and <a href="/reference/fill">fill()</a> have a different color from the rest of the text. If you see a function that you’re unfamiliar with, visit its page on the online <a href="/reference">reference</a> index page or type it into the search in the top right of the website. You can also press <code>/</code> from any page on the site and it will automatically open up the search feature where you can type the word you're looking for. </p>
+<p>The <a href="/reference">L5 Reference</a> explains every code element with a description and examples. The Reference programs are much shorter (usually four or five lines) and easier to follow than the longer code found in the Examples section. We recommend keeping the Reference handy while you’re programming. </p>
+<p>Here's an example page from the reference about presenting your work in <a href="https://l5lua.org/reference/fullscreen/">fullscreen</a> mode.</p>
+<p><img alt="L5's fullscreen reference page" src="/assets/tutorials/getting-started3.webp" /><br />
+<em>A section of L5's reference page on the function <a href="https://l5lua.org/reference/fullscreen/">fullscreen</a>.</em></p>
+<p>The Reference was written with the beginner in mind, but may still take some effort to decipher. At the top of the page is the function name, a detailed description, then example code with screenshots or animations showing what you can expect. Finally, there is a detailed description of the exact syntax, what optional parameters are available, and links to related pages in the reference. </p>
+<h3 id="where-to-go-next">Where to go next</h3>
+<p>From here, check out <a href="/tutorials/#a-complete-introduction-to-programming-with-l5">A complete introduction to programming with L5</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2343 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/tutorials/data-structure-garden/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Data Structure Garden - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-structure-garden" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Structure Garden
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-nav__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    L5: A Processing Library in Lua
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to L5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../download/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Download
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../L5-for-processingp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#shape" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#color" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#typography" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#image" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#media" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#transform" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#environment" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#rendering" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#math" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#events" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#data" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#structure" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#constants" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#foundation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bug-reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bug Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For developers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../copyleft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copyleft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-make-your-first-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Make your first object
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-use-your-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Use your object
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Use your object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try this!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-define-a-createflower-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Define a createFlower() function
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Define a createFlower() function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-this_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try this!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-define-the-drawflower-function-with-a-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Define the drawFlower() function with a parameter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Define the drawFlower() function with a parameter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-this_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try this!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-learn-to-use-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Learn to use arrays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Learn to use arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-creating-and-drawing-an-array-of-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1: Creating and drawing an array of names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-using-a-for-loop-to-iterate-through-the-array-of-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 2: Using a for loop to iterate through the array of names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-adding-new-elements-to-the-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 3: Adding new elements to the array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-4-removing-an-array-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 4: Removing an array element
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-5-using-forin-loop-for-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 5: Using for..in loop for arrays
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-generate-multiple-flowers-with-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Generate multiple flowers with an array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-this_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try this!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-update-the-flowers-in-the-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Update the flowers in the array
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7: Update the flowers in the array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-this_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try this!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-add-more-flowers-to-the-array-with-mousepressed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Add more flowers to the array with mousePressed()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 8: Add more flowers to the array with mousePressed()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#try-this_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try this!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-structure-garden">Data Structure Garden</h1>
+<p>By Portia Morrell, Jaleesa Trapp, Kate Maschmeyer. Adapted to L5 by Lee Tusman.</p>
+<hr />
+<p><em>Note: If you are running your programs by dragging their project folder onto the Love application, be sure to add the <code>printToScreen()</code> function within your setup() to be able to see the output of <code>print()</code> commands in your program window.</em></p>
+<p><img alt="Data Garden 12" src="/assets/tutorials/data-garden12.gif" /></p>
+<p>In this tutorial, you will use L5 to simulate an interactive flower garden. In this project, your digital canvas will come to life with 20 randomly generated flowers, each a different color and size. Users can also add diversity to the garden by clicking on the canvas to add new, unique flowers. Each flower is programmed with a wilting animation. This animation causes the flowers to slowly shrink and vanish, much like the natural cycle of a flower’s life.</p>
+<p>In this tutorial, you will:</p>
+<ul>
+<li>Explore data structures like objects (built from Lua's <a href="/reference/table">table</a> data structure) by defining, creating, and using your own objects.</li>
+<li>Explore and use methods to perform actions on built-in objects like arrays (also built out of Lua tables!).</li>
+<li>Use iteration with for loops to manage multiple objects at once.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you begin, you should be able to:</p>
+<ul>
+<li>Add and customize shapes and color on the canvas using L5</li>
+<li>Declare, initialize, use, and update custom variables, and functions with parameters and return values</li>
+<li>Add animation on the canvas</li>
+<li>Comment code and address error messages</li>
+<li>Create and use custom functions</li>
+<li>Understand how to use for loops to manage repetitive tasks</li>
+</ul>
+<p>In this tutorial, you will learn how to:</p>
+<ul>
+<li>get a basic understanding of Lua tables</li>
+<li>define objects</li>
+<li>create and use custom functions to update and draw objects</li>
+<li>manage multiple objects using arrays </li>
+</ul>
+<p>Let’s begin!</p>
+<ul>
+<li>To get started, create a new folder to hold your project and give it a name like <code>data-garden</code>. Place a copy of the <code>L5.lua</code> library in the folder. Finally, create a new blank code document in the code editor of your choice. Make sure to write <code>require("L5")</code> at the top of the text file, and save the document under the name <code>main.lua</code>. The rest of our code will go in this file.</li>
+</ul>
+<h2 id="objects">Objects</h2>
+<p>We have learned that variables can store one value at a time (a number, string, or Boolean). Arrays can store multiple values in indices. </p>
+<p><strong>If you are new to Lua, it's important to understand that Lua uses the <a href="/reference/table">table</a> data structure both to build arrays as well as objects.</strong> </p>
+<p>Sometimes, however, we want to store several pieces of related data about one thing together. We can do this using objects, which bundle data together by pairing properties and values. In Lua we also use a table to build objects. Properties are special types of variables or names that are associated with an object. Each property stores a value. For example, if we wanted to create an object based on a flower, it could have properties that describe its location (x and y) and ASCII character symbol.  </p>
+<h2 id="step-1-make-your-first-object">Step 1: Make your first object</h2>
+<p>Let’s start our flower garden by creating one flower. We can start by drawing it using an ASCII character, so we need data on the x-coordinate, the y-coordinate, and the character for our flower. We'll use a '@' symbol to represent our first flower</p>
+<ul>
+<li>Create a flower object by bundling the flower’s canvas coordinates with the character used to draw it. Let’s store the object in a variable named flower. Add this code above <code>setup()</code>: </li>
+</ul>
+<pre><code class="language-lua">-- Flower Object
+local flower = {
+  x = 200,
+  y = 100,
+  char = '@' 
+}
+
+function setup()
+  size(400, 400)
+end
+</code></pre>
+<ul>
+<li>Print your object to the console by adding the following line of code in <code>setup()</code>. Note that we loop through our table of key-value pairs using <code>pairs(tablename)</code>:</li>
+</ul>
+<pre><code class="language-lua">for i,val in pairs(flower) do
+  print(i,val)
+end
+</code></pre>
+<p>which returns the output:</p>
+<pre><code class="language-text">x   200
+y   100
+char    @
+</code></pre>
+<ul>
+<li>Set the background to 'lightblue'</li>
+</ul>
+<p>Your code should look like this:</p>
+<p><img alt="Data garden 1" src="/assets/tutorials/data-garden1.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Flower Object
+local flower = {
+  x = 200,
+  y = 100,
+  char = '@' 
+}
+
+function setup()
+  size(400, 400)
+
+  -- Print object in console.
+  for i,val in pairs(flower) do
+    print(i,val)
+  end
+end
+
+function draw()
+  background('lightblue')
+end
+</code></pre>
+<p>Try <a href="https://l5lua.org/download/#running-your-program">running your code</a>. You should see your flower object printed out to the console. </p>
+<p>Here’s the general syntax for defining an object:</p>
+<pre><code class="language-lua">-- Define an object
+local objectName = {
+  property1 = value1,
+  property2 = value2,
+  property3 = value3
+}
+</code></pre>
+<p>The syntax for objects uses:</p>
+<ul>
+<li>curly braces (<code>{}</code>) to enclose a bundle of properties; </li>
+<li>Properties can be names, such as the names of variables or functions, or they can be strings, or even other tables. When using spaces in property names, Lua requires square brackets to interpret them correctly. For example, I might create an object with a property for a 'first name' and a 'last name,' like this:</li>
+</ul>
+<pre><code class="language-lua">local ironMan = {
+  ['first name'] = 'Tony',
+  ['last name'] = 'Stark'
+}
+</code></pre>
+<ul>
+<li>If your property has no spaces, the quotes and brackets around the property name are optional, such as <code>first_name = 'Tony'</code>.</li>
+<li>an equal sign (<code>=</code>) to separate each property with specific values;</li>
+<li>Values can be of any datatype, and can even be a function!</li>
+<li>commas (<code>,</code>) to separate each <code>[property] = value</code> pair</li>
+</ul>
+<p>You can store objects by initializing new variables when you define them. In the code above, you declared a variable named flower. You then initialized the flower variable with an object whose properties represent a flower that can be drawn on the window.</p>
+<p>To check the properties and values of an object, you printed the key value pairs from the table.</p>
+<h2 id="step-2-use-your-object">Step 2: Use your object</h2>
+<p>You can access any value stored in object properties by using its square bracket name as shown above or its variable name, property name, and dot notation like so (as long as the property name doesn't have spaces in it or special characters, in which case you will need to use the square brackets syntax):</p>
+<pre><code class="language-lua">-- Access the object's property1 value with dot notation.
+objectName.property1
+</code></pre>
+<ul>
+<li>Use the <a href="/reference/text">text()</a> function with flower object properties to place the flower on the canvas.</li>
+<li>We can specify a color for the text and place that before writing to the screen</li>
+<li>In <a href="/reference/draw">draw()</a>, add the following code:</li>
+</ul>
+<pre><code class="language-lua">-- Fill shapes and text with a specified carnation pink color
+fill('pink')
+
+-- Display flower object.
+text(flower.char, flower.x, flower.y)
+</code></pre>
+<ul>
+<li>You can use <a href="/reference/textSize">textSize()</a> before the text function to set the size of the flower.</li>
+</ul>
+<pre><code class="language-lua">-- Increase the text size
+text(100)
+</code></pre>
+<p>Your code should look like this:</p>
+<p><img alt="Data garden 2" src="/assets/tutorials/data-garden2.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Flower Object
+local flower = {
+  x = 200,
+  y = 100,
+  char = '@' 
+}
+
+function setup()
+  size(400, 400)
+end
+
+function draw()
+  background('lightblue')
+
+  -- Increase the text size
+  textSize(100)
+
+  -- Fill shapes and text with a specified carnation pink color
+  fill('pink')
+
+  -- Display flower object
+  text(flower.char, flower.x, flower.y)
+end
+</code></pre>
+<p>To access values in the flower object, we use <a href="https://www.lua.org/pil/16.html">dot notation</a>, which uses the dot operator to access properties and values within objects.</p>
+<p>In th ecode above, you accessed:</p>
+<ul>
+<li>the character for the flower with <code>flower.char</code> </li>
+<li>the x-coordinate with <code>flower.x</code></li>
+<li>the y-coordinate with <code>flower.y</code></li>
+</ul>
+<p>Since these values represent strings and numbers, they can be used in the <a href="/reference/text">text()</a> function, similar to the way variable names are used to access the value they store.</p>
+<p>Visit the L5 reference to learn more about <a href="/reference/table">tables</a>.</p>
+<h3 id="try-this">Try this!</h3>
+<ul>
+<li>Add a <code>size</code> property to the flower object.</li>
+<li>Replace the <code>textSize()</code> value with the <code>flower</code> object's <code>size</code>.</li>
+</ul>
+<h2 id="step-3-define-a-createflower-function">Step 3: Define a <code>createFlower()</code> function</h2>
+<p>Now, let’s define a function that can display different flowers on the canvas. We will define a <code>createFlower()</code> function that will allow us to customize the flower objects we create. We want to make sure that we can change the x- and y-coordinates for different flowers. We also want to change their <code>size</code> and <code>color</code>. One way to do that is to add new properties to the flower object for size and color. In this project, we also want the flower to appear, then disappear after some time. To do this, we will also include a <code>lifespan</code> property for our flower object. </p>
+<p>We want our <code>createFlower()</code> to return information when it’s called, just like the built-in <code>text()</code> function returns text on the canvas. Therefore, we must specify a return value. Using return values is a great way to save information computed by the function in a variable or array. </p>
+<p>In this example, we will be using <a href="/reference/random">random()</a> to create variety in our flowers when they’re drawn on the canvas. </p>
+<ul>
+<li>Define the <code>createFlower()</code> function, which creates a random flower object. All values will be set randomly each time <code>createFlower()</code> is called.</li>
+<li>Outside of <a href="/reference/draw">draw()</a> and <a href="/reference/setup">setup()</a>, add the following function declaration:</li>
+</ul>
+<pre><code class="language-lua">-- Function that creates a random flower object.
+function createFlower() 
+  -- Define a flower object.
+  local flower = {
+    x = random(20, 380),
+    y = random(20, 380),
+    size = random(20, 75),
+    lifespan = random(255, 300),
+    color = color(random(255), random(255), random(255)),
+  }
+  -- Return the flower object.
+  return flower
+end
+</code></pre>
+<ul>
+<li>Test the <code>createFlower()</code> function by using it to create a flower object, and store it in a variable called <code>myFlower</code>.</li>
+<li>Add the following in the <a href="/reference/draw">draw()</a> function:</li>
+</ul>
+<pre><code class="language-lua">-- Create flower object
+local myFlower = createFlower()
+</code></pre>
+<p>Draw an <a href="/reference/ellipse">ellipse</a> on the canvas using <code>myFlower</code> properties.
+  * Add the following in the <a href="/reference/draw">draw()</a> function:  </p>
+<pre><code class="language-lua">-- Use flower object properties to draw an ellipse.
+fill(myFlower.color)
+ellipse(myFlower.x, myFlower.y, myFlower.size)
+</code></pre>
+<ul>
+<li>Slow down the rate at which each flower appears by changing the frame rate to one frame per second. In <a href="/reference/setup">setup()</a>, add: <code>frameRate(1)</code>.</li>
+</ul>
+<p>Your code should look like this:</p>
+<p><img alt="Data garden 3" src="/assets/tutorials/data-garden3.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup() 
+  size(400, 400)
+  frameRate(1)
+end
+function draw() 
+  background(&quot;lightblue&quot;)
+
+  -- Create flower object.
+  local myFlower = createFlower()
+
+  -- Use flower object properties to draw an ellipse.
+  fill(myFlower.color)
+  ellipse(myFlower.x, myFlower.y, myFlower.size)
+end
+function createFlower() 
+  -- Define flower object.
+  local flower = {
+    x = random(20,380),
+    y = random(20,380),
+    size = random(20,75),
+    lifespan = random(255,300),
+    color = color(random(255), random(255), random(255)),
+  }
+
+  -- Return flower object.
+  return flower
+end
+</code></pre>
+<p>In the code above, you use <code>createFlower()</code> to create and return a new flower object with random values, then store the object in the variable <code>myFlower</code>. <code>myFlower</code> is used to access its property’s random values, which are used to draw an ellipse on the canvas. Each time <a href="/reference/draw">draw()</a> runs, a new random flower object is created, and its properties are used to draw a new random ellipse on the canvas. </p>
+<p>Visit the L5 reference to learn more about <a href="/reference/random">random()</a>.</p>
+<h3 id="try-this_1">Try this!</h3>
+<ul>
+<li>Change the random range for the flower’s x and y location and size.</li>
+<li>Get creative with the color generation; maybe it’s shades of only blues, reds, or purples.</li>
+</ul>
+<h2 id="step-4-define-the-drawflower-function-with-a-parameter">Step 4: Define the <code>drawFlower()</code> function with a parameter</h2>
+<p>Now that we know that <code>createFlower()</code> creates and returns a new flower object, let’s define the <code>drawFlower()</code> function. Our <code>drawFlower()</code> function will receive a flower object as an argument and place it on the canvas. This will help make our code organized and manageable.</p>
+<ul>
+<li>Outside of all other functions, define the <code>drawFlower()</code> function with one parameter representing a flower object.</li>
+</ul>
+<pre><code class="language-lua">function drawFlower(flower)
+end
+</code></pre>
+<ul>
+<li>Inside the <code>drawFlower()</code> function, draw the attributes of a flower, including the petals and center of the flower. Remember to use the flower object properties for the <code>x</code> and <code>y</code> locations, <code>size</code>, and <code>color</code>. You can add the following code to the function body:</li>
+</ul>
+<pre><code class="language-lua">noStroke()
+fill(flower.color)
+
+-- Draw petals.
+ellipse(flower.x, flower.y, flower.size / 2, flower.size);
+ellipse(flower.x, flower.y, flower.size, flower.size / 2)
+
+-- Draw a yellow center.
+fill(255, 204, 0)
+circle(flower.x, flower.y, flower.size / 2)
+</code></pre>
+<p>Next, we will test the <code>drawFlower()</code> function. Add the following to the <a href="/reference/draw">draw()</a> function:</p>
+<pre><code class="language-lua">-- Testing drawFlower().
+let flower1 = createFlower();
+drawFlower(flower1)
+</code></pre>
+<p>Your code should look similar to this:</p>
+<p><img alt="Data garden 4" src="/assets/tutorials/data-garden4.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  size(400, 400)
+  frameRate(1)
+end
+
+function draw()
+  background(&quot;lightblue&quot;)
+
+  -- Testing drawFlower().
+  local flower1 = createFlower()
+  drawFlower(flower1)
+end
+
+function createFlower()
+  local flower = {
+    x = random(20,380),
+    y = random(20,380),
+    size = random(20,75),
+    lifespan = random(255,300),
+    color = color(random(255), random(255), random(255))
+  }
+  return flower
+end
+
+function drawFlower(flower) 
+  noStroke()
+  fill(flower.color)
+
+  -- Draw petals.
+  ellipse(flower.x, flower.y, flower.size / 2, flower.size)
+  ellipse(flower.x, flower.y, flower.size, flower.size / 2)
+
+  -- Draw a yellow center.
+  fill(255, 204, 0)
+  circle(flower.x, flower.y, flower.size / 2)
+end
+</code></pre>
+<p>In the code above, <code>createFlower()</code> is used to create and return a random flower that is stored in <code>flower1</code>. The random flower (<code>flower1</code>) is then passed into <code>drawFlower()</code>, which accesses the flower object properties to draw a flower on the canvas. This process occurs each time the <a href="/reference/draw">draw()</a> function runs, so random flowers appear and disappear on the canvas. </p>
+<h3 id="try-this_2">Try this!</h3>
+<p>Change and modify the flower drawing using other 2D shapes:</p>
+<ul>
+<li><a href="/reference/ellipse">ellipse()</a></li>
+<li><a href="/reference/square">square()</a></li>
+<li><a href="/reference/quad">quad()</a></li>
+<li><a href="/reference/triangle">triangle()</a></li>
+<li><a href="/reference/line">line()</a></li>
+<li><a href="/reference/point">point()</a></li>
+<li><a href="/reference/point">arc()</a></li>
+</ul>
+<h2 id="step-5-learn-to-use-arrays">Step 5: Learn to use arrays</h2>
+<p>Before we move on to making our garden of flowers by using an array, let’s better understand how arrays work with a few simple examples. Arrays are objects that can store multiple values in one variable name. Each value is stored in an element with a specific location known as its index. <strong>The index of the first element in any array in Lua is 1.</strong></p>
+<p><strong>Tables are used for arrays and objects in Lua.</strong></p>
+<p>Example of building an array with a Lua table:</p>
+<pre><code class="language-lua">-- This is an ordered table, AKA a list or array
+local fruits = {'apple', 'banana', 'cherry', 'dragon fruit', 'elderberry', 'fig', 'grape', 'honeydew'}
+</code></pre>
+<p>Each item in this array can be accessed with a number, beginning at the index 1.</p>
+<pre><code class="language-lua">print(fruits[1]) -- 'apple'
+print(fruits[3]) -- 'cherry'
+</code></pre>
+<p>Prepending a <code>#</code> to a table gives us the length (total elements) in an array. So we can get the very last item from the list very easily, no matter how many items are in that array.</p>
+<pre><code>print(fruits[#fruits]) -- 'honeydew'
+</code></pre>
+<h3 id="example-1-creating-and-drawing-an-array-of-names">Example 1: Creating and drawing an array of names</h3>
+<p><img alt="Data garden 5" src="/assets/tutorials/data-garden5.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Create an array flowers
+local flowers = {&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot;}
+
+function setup()
+  size(200, 200)
+
+  background(220)
+
+  -- Draw the first name.
+  fill('red')
+  text(flowers[1], 10, 50)
+
+  -- Draw the second name.
+  fill('green')
+  text(flowers[2], 10, 100)
+
+  -- Draw the third name.
+  fill('blue')
+  text(flowers[3], 10, 150)
+end
+</code></pre>
+<pre><code class="language-lua">local flowers = {&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot;}
+</code></pre>
+<p>In this example, we’ve created an array using curly brackets (<code>{ }</code>) and commas that separate each element in the array. The array is a collection of strings, each representing a type of flower, and is stored in a variable called <code>flowers</code>. Each element of the array holds a string with a flower name. Each element can be accessed using its index number. For example, <code>"Rose"</code> is located at index <code>1</code>, <code>"Daisy"</code> at index <code>2</code>, and <code>"Tulip"</code> at index <code>3</code>.</p>
+<pre><code class="language-lua">local rose = flowers[1]
+</code></pre>
+<p>In the code snippet above, we access the first element of the <code>flowers</code> array at index 1 using the index notation: <code>flowers[1]</code>. In the example above, this syntax is used to place text on the canvas with the names accessed from various elements in the <code>flowers</code> array.</p>
+<p>We then assign that value to a new variable named <code>rose</code>. <code>rose</code> now holds the string <code>"Rose"</code>, which is the first flower name in the <code>flowers</code> array. Values stored in other elements can be accessed in the same way.</p>
+<h3 id="example-2-using-a-for-loop-to-iterate-through-the-array-of-names">Example 2: Using a <code>for</code> loop to iterate through the array of names</h3>
+<p><img alt="Data Garden 6" src="/assets/tutorials/data-garden6.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Create an array flowers
+local flowers = {&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot;}
+
+function setup()
+  size(200, 200)
+end
+
+function draw()
+  background(220)
+  fill(0)
+
+  -- Use a for loop to iterate over the array.
+  for i=1,#flowers do
+    text(flowers[i], 10, 50 * i)
+  end
+end
+</code></pre>
+<p>Our second example uses a <code>for</code> loop to iterate through each element in the array and print the text on the canvas. <em>Iteration</em> is a process where a block of code is executed repeatedly for each element in an array. </p>
+<pre><code class="language-lua">for i=1,#flowers do
+  text(flowers[i], 10, 50 * i)
+end
+</code></pre>
+<p>To iterate, the code snippet above uses a <code>for</code> loop that “looks through” each element of the flower array. According to the <code>for</code> loop, the index i starts at 1 and increases with each iteration until it reaches the max number of elements in the array. <em>Arrays in Lua start their index at 1</em>. The last element in the array can be accessed by referencing the item stored at the length of the array. The number of elements in any array can be accessed by using the array<code>#</code> symbol. In the for loop above, the length of the flowers array is accessed using <code>#flowers</code>. To access the values in the array, we use <code>flowers[i]</code> in the <code>for</code> loop in the <a href="/reference/text">text()</a> function to display the value in each element as text on the canvas.</p>
+<h3 id="example-3-adding-new-elements-to-the-array">Example 3: Adding new elements to the array</h3>
+<p><img alt="Data Garden 7" src="/assets/tutorials/data-garden7.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Create an array flowers
+local flowers = {&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot;}
+
+function setup()
+  size(200, 200)
+  table.insert(flowers, &quot;Sunflower&quot;); --add new element
+
+  background(220)
+  fill(0)
+
+  -- Use a for loop to iterate over the array.
+  for i=1,#flowers do
+    text(flowers[i], 10, 40 * i)
+  end
+end
+</code></pre>
+<pre><code class="language-lua">local flowers = {
+&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot; --Inserted elements will go here
+}
+
+-- Add a new element to the end of the array
+table.insert(flowers, &quot;Sunflower&quot;)
+</code></pre>
+<p>Using the array method <a href="https://www.luadocs.com/docs/functions/table/insert">table.insert()</a>, you can add a new element to the end of the array. In this example, we are adding "Sunflower" to the end of the <code>flowers</code> array.</p>
+<h3 id="example-4-removing-an-array-element">Example 4: Removing an array element</h3>
+<p><img alt="Data Garden 8" src="/assets/tutorials/data-garden8.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Create an array flowers
+local flowers = {&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot;}
+
+function setup()
+  size(200, 200)
+  fill(0)
+
+  -- Starting at index 1, remove one flower.
+  table.remove(flowers, 1)
+
+  background(220)
+
+  for i=1,#flowers do
+    text(flowers[i], 10, 50 * i)
+  end
+end
+</code></pre>
+<pre><code class="language-lua">local flowers = {&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot;}
+
+-- remove one element from flowers at index 1
+table.remove(flowers, 1)
+</code></pre>
+<p>In order to remove elements from an array, we use the function <a href="https://www.luadocs.com/docs/functions/table/remove">table.remove()</a>. The function <code>table.remove(flowers, 1)</code> modifies the flowers array with two parameters: one for the array, and another for the index of where to start removing. You can optionally add a third that specifies the number of elements to remove. <code>table.remove(flowers, 1)</code> results in the removal of <code>"Rose"</code> from the array, leaving only <code>"Daisy"</code> and <code>"Tulip"</code>.</p>
+<h3 id="example-5-using-forin-loop-for-arrays">Example 5: Using <code>for..in</code> loop for arrays</h3>
+<p><img alt="Data Garden 9" src="/assets/tutorials/data-garden9.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Create an array flowers
+local flowers = {&quot;Rose&quot;, &quot;Daisy&quot;, &quot;Tulip&quot;}
+
+function setup()
+  size(200, 200)
+
+  background(220)
+  fill(0)
+  local y = 50
+
+  -- Use the for loop with ipairs to look at each element as a variable.
+  for i, flower in ipairs(flowers) do
+    text(flower, 10, i * y)
+  end
+end
+</code></pre>
+<pre><code class="language-lua">for i, flower of ipairs(flowers) do
+-- flower declares a variable to store each current element
+-- ipairs is the keyword to loop through each ordered element in an array
+-- flowers is the name of the array to loop over
+
+  --do something with the current element
+  print(flower)
+end
+</code></pre>
+<p>We can also iterate over an array using a <code>for..in</code> loop. The <code>flower</code> variable temporarily stores each element during the loop’s iteration. The <code>print(flower)</code> statement inside the loop prints the name of each flower to the console, cycling through <code>"Rose"</code>, <code>"Daisy"</code>, and <code>"Tulip"</code> in order.</p>
+<p>Using a <code>for...in</code> loop can make code easier to read when things become more complex.</p>
+<h3 id="step-6-generate-multiple-flowers-with-an-array">Step 6: Generate multiple flowers with an array</h3>
+<p>Now, it’s time to generate multiple flowers on the screen using arrays.</p>
+<ul>
+<li>First, declare the <code>flowers</code> array at the top of your program. The curly brackets with nothing in them represent an empty array of flowers.</li>
+</ul>
+<pre><code class="language-lua">-- Array of flowers.
+local flowers = {}
+</code></pre>
+<ul>
+<li>Outside of all other functions, define the <code>flowerPower()</code> function.</li>
+</ul>
+<pre><code class="language-lua">-- Function to create 20 flowers.
+function flowerPower()
+end
+</code></pre>
+<p>Inside <code>flowerPower()</code>, create 20 flower objects using a <code>for</code> loop and add them to your <code>flowers</code> array.</p>
+<pre><code class="language-lua">for i=1,20 do
+  -- Create a flower in a random location.
+  local flower = createFlower()
+  -- Add the flower to the flowers array.
+  table.insert(flowers, flower1)
+end
+</code></pre>
+<p>Call the <code>flowerPower()</code> function in the <a href="/reference/setup">setup()</a> function to create the 20 flower objects.</p>
+<pre><code class="language-lua">flowerPower()
+</code></pre>
+<ul>
+<li>Use the <code>for..in</code> loop with <code>ipairs</code> for arrays in the <a href="/reference/draw">draw()</a> function to draw each flower in the <code>flowers</code> array. The <code>for..in</code> loop reads, for each flower element in the array of flowers, call <code>drawFlower()</code>.</li>
+</ul>
+<pre><code class="language-lua">for i,flower in ipairs(flowers) do
+  drawFlower(flower)
+end
+</code></pre>
+<p>Your code should look similar to this:</p>
+<p><img alt="Data Garden 10" src="/assets/tutorials/data-garden10.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Array of flowers.
+local flowers = {}
+
+function setup()
+  size(400, 400)
+  frameRate(1)
+
+  -- Generate 20 flowers.
+  flowerPower()
+end
+function draw()
+  background(&quot;lightblue&quot;)
+
+  -- For each flower in the array of flowers.
+  for _,flower in ipairs(flowers) do
+    drawFlower(flower)
+  end
+end
+
+-- Function to create 20 flowers.
+function flowerPower()
+  for i=1,20 do
+    -- Create a flower in a random location.
+    local flower = createFlower()
+
+    -- Add the flower to the flowers array.
+    table.insert(flowers, flower)
+  end
+end
+
+-- ... createFlower() and drawFlower()
+function createFlower()
+  local flower = {
+    x = random(20,380),
+    y = random(20,380),
+    size = random(20,75),
+    lifespan = random(255,300),
+    color = color(random(255), random(255), random(255))
+  }
+  return flower
+end
+
+function drawFlower(flower) 
+  noStroke()
+  fill(flower.color)
+
+  -- Draw petals.
+  ellipse(flower.x, flower.y, flower.size / 2, flower.size)
+  ellipse(flower.x, flower.y, flower.size, flower.size / 2)
+
+  -- Draw a yellow center.
+  fill(255, 204, 0)
+  circle(flower.x, flower.y, flower.size / 2)
+end
+</code></pre>
+<h3 id="try-this_3">Try this!</h3>
+<p>Add a parameter to your <code>flowerPower()</code> function so you can easily start with as many flowers as you like.</p>
+<h2 id="step-7-update-the-flowers-in-the-array">Step 7: Update the flowers in the array</h2>
+<p>Now that we have tested the array of flowers, let’s draw the wilting effect. One of the benefits of using an array to control the flowers is the ability to update values in each flower. </p>
+<ul>
+<li>Outside of all other functions, define a function called <code>updateAndDrawFlowers()</code>:</li>
+</ul>
+<pre><code class="language-lua">function updateAndDrawFlowers()
+end
+</code></pre>
+<p>This function will look at each flower in the array and will draw the flower.</p>
+<pre><code class="language-lua">for i,flower in ipairs(flowers) do
+  drawFlower(flower)
+end
+</code></pre>
+<ul>
+<li>Inside the <code>for</code> loop, decrease the flower object’s <code>size</code> and <code>lifespan</code> to simulate wilting. </li>
+</ul>
+<p>Add a wilting animation effect, which will decrease the flower size by 1% after the <code>drawFlower()</code> function draws the flower. We create the wilting effect by multiplying the current size by 0.99 and storing it back into the flower’s <code>size</code> property. Then decrement the lifespan and store it in the flower’s <code>lifespan</code> variable. </p>
+<pre><code class="language-lua">-- Wilting effect for the flower
+flower.size = flower.size * 0.99
+
+-- Reduce lifespan.
+flower.lifespan = flower.lifespan - 1
+</code></pre>
+<ul>
+<li>When the flower object’s <code>lifespan</code> is zero or negative, we’ll remove it from the array by using the <a href="https://www.luadocs.com/docs/functions/table/remove">table.remove()</a> method. </li>
+</ul>
+<pre><code>for i,flower in ipairs(flowers) do
+  -- Draw the flower.
+  drawFlower(flower)
+
+  -- Wilting effect for the flower.
+  flower.size = flower.size * 0.99
+
+  -- Reduce lifespan
+  flower.lifespan = flower.lifespan - 1
+
+  if flower.lifespan &lt;= 0 then 
+    -- Remove wilted flower.
+    table.remove(flowers, i)
+  end
+end
+</code></pre>
+<ul>
+<li>
+<p>Add <code>updateAndDrawFlowers()</code> to the <a href="/reference/draw">draw()</a> function.</p>
+</li>
+<li>
+<p>Remove the call to <code>frameRate(1)</code> from <code>setup()</code>.</p>
+</li>
+</ul>
+<p>Your code should look similar to this:</p>
+<p><img alt="Data Garden 11" src="/assets/tutorials/data-garden11.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+-- Array of flowers.
+local flowers = {}; 
+
+function setup()
+  size(400, 400)
+
+  -- Generate 20 flowers.
+  flowerPower(); 
+end
+
+function draw()
+  background('lightblue')
+
+  -- Call your new function.
+  updateAndDrawFlowers()
+end
+
+-- Define your new function
+function updateAndDrawFlowers()
+  for i,flower in ipairs(flowers) do
+
+    -- Draw the flower.
+    drawFlower(flower)
+
+    -- Apply wilting effect by reducing size by 1%
+    flower.size = flower.size * 0.99
+
+    -- Reduce lifespan
+    flower.lifespan = flower.lifespan - 1
+
+    if flower.lifespan &lt;= 0 then 
+      -- Remove wilted flower.
+      table.remove(flowers, i)
+    end
+  end
+end
+
+-- Function to create 20 flowers.
+function flowerPower()
+  for i=1,20 do
+    -- Create a flower in a random location.
+    local flower1 = createFlower()
+
+    -- Add the flower to the flowers array.
+    table.insert(flowers,flower1)
+  end
+end
+
+function createFlower()
+  local flower = {
+    x = random(20,380),
+    y = random(20,380),
+    size = random(20, 75),
+    lifespan = random(255,300),
+    color = color(random(255), random(255), random(255))
+  } 
+
+  return flower
+end
+
+function drawFlower(flower)
+  noStroke()
+  fill(flower.color)
+
+  -- Draw petals.
+  ellipse(flower.x, flower.y, flower.size / 2, flower.size)
+  ellipse(flower.x, flower.y, flower.size, flower.size / 2)
+
+  -- Draw center.
+  fill(255, 204, 0)
+  circle(flower.x, flower.y, flower.size / 2)
+
+end
+</code></pre>
+<h3 id="try-this_4">Try this!</h3>
+<p>Experiment with the wilting effect using subtraction, random numbers, or any other ideas you come up with.</p>
+<h2 id="step-8-add-more-flowers-to-the-array-with-mousepressed">Step 8: Add more flowers to the array with <code>mousePressed()</code></h2>
+<p>Finally, let’s add more flowers to the canvas by using <a href="/reference/mousePressed">mousePressed()</a>, `mouseX](/reference/mouseX), and <a href="/reference/mouseY">mouseY</a> to add another flower object to the flowers array each time the window is clicked.</p>
+<ul>
+<li>Outside of all other functions, write your <code>mousePressed()</code> function:</li>
+</ul>
+<pre><code class="language-lua">function mousePressed()
+  local flower = createFlower()
+
+  -- reassign x to be mouseX
+  flower.x = mouseX
+
+  -- reassign y to be mouseY
+  flower.y = mouseY
+
+  -- add the flower to the flowers array
+  table.insert(flowers, flower)
+end
+</code></pre>
+<p>Your code should look something like this:</p>
+<p><img alt="Data Garden 12" src="/assets/tutorials/data-garden12.gif" /></p>
+<pre><code>require(&quot;L5&quot;)
+
+-- Array of flowers.
+local flowers = {}; 
+
+function setup()
+  size(400, 400)
+
+  -- Generate 20 flowers.
+  flowerPower(); 
+end
+
+function draw()
+  background('lightblue')
+
+  -- Call your new function.
+  updateAndDrawFlowers()
+end
+
+function mousePressed()
+  local flower = createFlower()
+
+  -- reassign x to be mouseX
+  flower.x = mouseX; 
+
+  -- reassign y to be mouseY
+  flower.y = mouseY
+
+  -- add the flower to the flowers array
+  table.insert(flowers,flower)
+end
+
+function updateAndDrawFlowers()
+  for i,flower in ipairs(flowers) do
+
+    -- Draw the flower.
+    drawFlower(flower)
+
+    -- Apply wilting effect by reducing size by 1%
+    flower.size = flower.size * 0.99
+
+    -- Reduce lifespan
+    flower.lifespan = flower.lifespan - 1
+
+    if flower.lifespan &lt;= 0 then 
+      -- Remove wilted flower.
+      table.remove(flowers, i)
+    end
+  end
+end
+
+-- Function to create 20 flowers.
+function flowerPower()
+  for i = 1, 20 do
+    -- Create a flower in a random location.
+    local flower1 = createFlower()
+
+    -- Add the flower to the flowers array.
+    table.insert(flowers,flower1)
+  end
+end
+
+function createFlower()
+  local flower = {
+    x = random(20,380),
+    y = random(20,380),
+    size = random(20, 75),
+    lifespan = random(255,300),
+    color = color(random(255), random(255), random(255))
+  } 
+  return flower
+end
+
+function drawFlower(flower)
+  noStroke()
+  fill(flower.color)
+
+  -- Draw petals.
+  ellipse(flower.x, flower.y, flower.size / 2, flower.size)
+  ellipse(flower.x, flower.y, flower.size, flower.size / 2)
+
+  -- Draw center.
+  fill(255, 204, 0)
+  circle(flower.x, flower.y, flower.size / 2)
+
+end
+</code></pre>
+<h3 id="try-this_5">Try this!</h3>
+<ul>
+<li>Add multiple flowers around the <code>mouseX</code> and <code>mouseY</code> locations when the mouse is pressed.</li>
+<li>Experiment with different shapes or colors for the flowers. </li>
+<li>Introduce new elements to the garden, like bees or butterflies, and see how they interact with the flowers. </li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations on completing the Data Structure Garden tutorial!</p>
+<p>Throughout this journey, you learned about the fundamental concepts of objects and arrays (built with tables) to create a dynamic and interactive garden simulation. Using arrays, you’ve managed multiple objects elegantly and efficiently, each with their own properties and behaviors. This is a powerful skill in the world of programming, opening doors to more complex and interactive applications.</p>
+<p>Once again, well done on completing this tutorial. Keep experimenting, keep coding, and most importantly, enjoy learning and creating!</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.lua.org/pil/16.html">Objects in Lua</a></li>
+<li><a href="https://www.lua.org/pil/11.1.html">Arrays in Lua</a></li>
+<li><a href="https://www.lua.org/manual/2.4/node9.html">Expressions and Operators</a></li>
+</ul>
+<p>By Portia Morrell, Jaleesa Trapp, Kate Maschmeyer. Adapted to L5 by Lee Tusman. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1954 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/reference/">
+      
+      
+        <link rel="prev" href="../L5-for-processingp5/">
+      
+      
+        <link rel="next" href="../tutorials/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Reference Summary - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shape" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reference Summary
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="L5: A Processing Library in Lua" class="md-nav__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    L5: A Processing Library in Lua
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to L5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../download/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Download
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../download/install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L5-for-processingp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#shape" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#color" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#typography" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#image" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#media" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#transform" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#environment" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#rendering" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#math" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#events" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#data" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#structure" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#constants" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="#foundation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bug-reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bug Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For developers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../copyleft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copyleft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shape
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2d-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2D Primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertex
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and Reading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typography
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Typography">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attributes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-and-displaying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading and Displaying
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-and-displaying_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading and Displaying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pixels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Media
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Media">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Math
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Noise
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Random
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigonometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigonometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I/O
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-and-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time and Date
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Reference Summary</h1>
+
+<p>An offline version of this documentation is available for <a href="/download/#offline-documentation">download</a>.</p>
+<h2 id="shape">Shape</h2>
+<h3 id="2d-primitives">2D Primitives</h3>
+<ul>
+<li><a href="arc/">arc()</a></li>
+<li><a href="circle/">circle()</a></li>
+<li><a href="ellipse/">ellipse()</a></li>
+<li><a href="line/">line()</a></li>
+<li><a href="point/">point()</a></li>
+<li><a href="quad/">quad()</a></li>
+<li><a href="rect/">rect()</a></li>
+<li><a href="square/">square()</a></li>
+<li><a href="triangle/">triangle()</a></li>
+</ul>
+<h3 id="attributes">Attributes</h3>
+<ul>
+<li><a href="ellipseMode/">ellipseMode()</a></li>
+<li><a href="noSmooth/">noSmooth()</a></li>
+<li><a href="rectMode/">rectMode()</a></li>
+<li><a href="smooth/">smooth()</a></li>
+<li><a href="strokeJoin/">strokeJoin()</a></li>
+<li><a href="strokeWeight/">strokeWeight()</a></li>
+</ul>
+<h3 id="curves">Curves</h3>
+<ul>
+<li><a href="bezier/">bezier()</a></li>
+<li><a href="curve/">curve()</a></li>
+</ul>
+<h3 id="vertex">Vertex</h3>
+<ul>
+<li><a href="beginShape/">beginShape()</a></li>
+<li><a href="endShape/">endShape()</a></li>
+<li><a href="vertex/">vertex()</a></li>
+</ul>
+<h2 id="color">Color</h2>
+<h3 id="creating-and-reading">Creating and Reading</h3>
+<ul>
+<li><a href="alpha/">alpha()</a></li>
+<li><a href="blue/">blue()</a></li>
+<li><a href="brightness/">brightness()</a></li>
+<li><a href="color-object/">color()</a></li>
+<li><a href="green/">green()</a></li>
+<li><a href="hue/">hue()</a></li>
+<li><a href="lerpColor/">lerpColor()</a></li>
+<li><a href="lightness/">lightness()</a></li>
+<li><a href="red/">red()</a></li>
+</ul>
+<h3 id="setting">Setting</h3>
+<ul>
+<li><a href="background/">background()</a></li>
+<li><a href="clear/">clear()</a></li>
+<li><a href="colorMode/">colorMode()</a></li>
+<li><a href="fill/">fill()</a></li>
+<li><a href="noFill/">noFill()</a></li>
+<li><a href="noStroke/">noStroke()</a></li>
+<li><a href="stroke/">stroke()</a></li>
+</ul>
+<h2 id="typography">Typography</h2>
+<h3 id="attributes_1">Attributes</h3>
+<ul>
+<li><a href="textAlign/">textAlign()</a></li>
+<li><a href="textSize/">textSize()</a></li>
+<li><a href="textWidth/">textWidth()</a></li>
+<li><a href="textWrap/">textWrap()</a></li>
+</ul>
+<h3 id="loading-and-displaying">Loading and Displaying</h3>
+<ul>
+<li><a href="loadFont/">loadFont()</a></li>
+<li><a href="text/">text()</a></li>
+<li><a href="textFont/">textFont()</a></li>
+</ul>
+<h2 id="image">Image</h2>
+<h3 id="loading-and-displaying_1">Loading and Displaying</h3>
+<ul>
+<li><a href="image/">image()</a></li>
+<li><a href="imageMode/">imageMode()</a></li>
+<li><a href="loadImage/">loadImage()</a></li>
+<li><a href="noTint/">noTint()</a></li>
+<li><a href="tint/">tint()</a></li>
+</ul>
+<h3 id="pixels">Pixels</h3>
+<ul>
+<li><a href="blend/">blend()</a></li>
+<li><a href="copy/">copy()</a></li>
+<li><a href="filter/">filter()</a></li>
+<li><a href="get/">get()</a></li>
+<li><a href="loadPixels/">loadPixels()</a></li>
+<li><a href="pixels/">pixels</a></li>
+<li><a href="set/">set()</a></li>
+<li><a href="updatePixels/">updatePixels()</a></li>
+</ul>
+<h2 id="media">Media</h2>
+<h3 id="video">Video</h3>
+<ul>
+<li><a href="loadVideo/">loadVideo()</a></li>
+<li><a href="video-getWidth/">:getWidth()</a></li>
+<li><a href="video-getHeight/">:getHeight()</a></li>
+<li><a href="video-isPlaying/">:isPlaying()</a></li>
+<li><a href="video-loop/">:loop()</a></li>
+<li><a href="video-noLoop/">:noLoop()</a></li>
+<li><a href="video-play/">:play()</a></li>
+<li><a href="video-pause/">:pause()</a></li>
+<li><a href="video-seek/">:seek()</a></li>
+<li><a href="video-stop/">:stop()</a></li>
+<li><a href="video-time/">:time()</a></li>
+<li><a href="video-volume/">:volume()</a></li>
+</ul>
+<h2 id="transform">Transform</h2>
+<ul>
+<li><a href="applyMatrix/">applyMatrix()</a></li>
+<li><a href="resetMatrix/">resetMatrix()</a></li>
+<li><a href="rotate/">rotate()</a></li>
+<li><a href="scale/">scale()</a></li>
+<li><a href="translate/">translate()</a></li>
+</ul>
+<h2 id="environment">Environment</h2>
+<ul>
+<li><a href="cursor/">cursor()</a></li>
+<li><a href="deltaTime/">deltaTime</a></li>
+<li><a href="describe/">describe()</a></li>
+<li><a href="displayDensity/">displayDensity()</a></li>
+<li><a href="displayHeight/">displayHeight</a></li>
+<li><a href="displayWidth/">displayWidth</a></li>
+<li><a href="focused/">focused</a></li>
+<li><a href="frameCount/">frameCount</a></li>
+<li><a href="frameRate/">frameRate()</a></li>
+<li><a href="fullscreen/">fullscreen()</a></li>
+<li><a href="height/">height</a></li>
+<li><a href="noCursor/">noCursor()</a></li>
+<li><s><a href="#">pixelDensity()</a></s> (Not Implemented)</li>
+<li><a href="print/">print()</a></li>
+<li><a href="printToScreen/">printToScreen()</a></li>
+<li><a href="width/">width</a></li>
+<li><a href="windowResized/">windowResized()</a></li>
+<li><a href="windowTitle/">windowTitle()</a></li>
+</ul>
+<h2 id="rendering">Rendering</h2>
+<ul>
+<li><s><a href="#">blendMode()</a></s> (Not Implemented)</li>
+<li><a href="size/">size()</a></li>
+<li><a href="createGraphics/">createGraphics()</a></li>
+<li><s><a href="#">noCanvas()</a></s> (Not Implemented)</li>
+<li><a href="resizeWindow/">resizeWindow()</a></li>
+</ul>
+<h2 id="math">Math</h2>
+<h3 id="calculation">Calculation</h3>
+<ul>
+<li><a href="abs/">abs()</a> </li>
+<li><a href="ceil/">ceil()</a> </li>
+<li><a href="constrain/">constrain()</a></li>
+<li><a href="dist/">dist()</a></li>
+<li><a href="exp/">exp()</a></li>
+<li><a href="floor/">floor()</a></li>
+<li><a href="fract/">fract()</a></li>
+<li><a href="lerp/">lerp()</a></li>
+<li><a href="log/">log()</a></li>
+<li><a href="map/">map()</a></li>
+<li><a href="max/">max()</a></li>
+<li><a href="min/">min()</a></li>
+<li><a href="norm/">norm()</a></li>
+<li><a href="pow/">pow()</a></li>
+<li><a href="round/">round()</a></li>
+<li><a href="sq/">sq()</a></li>
+<li><a href="sqrt/">sqrt()</a></li>
+</ul>
+<h3 id="noise">Noise</h3>
+<ul>
+<li><a href="noise/">noise()</a></li>
+<li><s><a href="#">noiseSeed()</a></s> (Not Implemented)</li>
+</ul>
+<h3 id="random">Random</h3>
+<ul>
+<li><a href="random/">random()</a></li>
+<li><a href="randomGaussian/">randomGaussian()</a></li>
+<li><a href="randomSeed/">randomSeed()</a></li>
+</ul>
+<h3 id="trigonometry">Trigonometry</h3>
+<ul>
+<li><a href="acos/">acos()</a></li>
+<li><a href="angleMode/">angleMode()</a></li>
+<li><a href="asin/">asin()</a></li>
+<li><a href="atan/">atan()</a></li>
+<li><a href="atan2/">atan2()</a></li>
+<li><a href="cos/">cos()</a></li>
+<li><a href="degrees/">degrees()</a></li>
+<li><a href="radians/">radians()</a></li>
+<li><a href="sin/">sin()</a></li>
+<li><a href="tan/">tan()</a></li>
+</ul>
+<h2 id="io">I/O</h2>
+<h3 id="input">Input</h3>
+<ul>
+<li><s><a href="#">loadJSON()</a></s> (Not Implemented)</li>
+<li><a href="loadStrings/">loadStrings()</a></li>
+<li><a href="loadTable/">loadTable()</a></li>
+<li><s><a href="#">loadXML()</a></s> (Not Implemented)</li>
+</ul>
+<h3 id="output">Output</h3>
+<ul>
+<li><a href="save/">save()</a></li>
+<li><s><a href="#">saveJSON()</a></s> (Not Implemented)</li>
+<li><a href="saveStrings/">saveStrings()</a></li>
+<li><a href="saveTable/">saveTable()</a></li>
+</ul>
+<h3 id="time-and-date">Time and Date</h3>
+<ul>
+<li><a href="day/">day()</a></li>
+<li><a href="hour/">hour()</a></li>
+<li><a href="millis/">millis()</a></li>
+<li><a href="minute/">minute()</a></li>
+<li><a href="month/">month()</a></li>
+<li><a href="second/">second()</a></li>
+<li><a href="year/">year()</a></li>
+</ul>
+<h2 id="events">Events</h2>
+<h3 id="keyboard">Keyboard</h3>
+<ul>
+<li><a href="key/">key</a></li>
+<li><a href="keyIsDown/">keyIsDown()</a></li>
+<li><a href="keyIsPressed/">keyIsPressed()</a></li>
+<li><a href="keyPressed/">keyPressed()</a></li>
+<li><a href="keyReleased/">keyReleased()</a></li>
+<li><a href="keyTyped/">keyTyped()</a></li>
+</ul>
+<h3 id="mouse">Mouse</h3>
+<ul>
+<li><a href="mouseButton/">mouseButton</a></li>
+<li><a href="mouseClicked/">mouseClicked()</a></li>
+<li><a href="mouseDragged/">mouseDragged()</a></li>
+<li><a href="mouseIsPressed/">mouseIsPressed</a></li>
+<li><a href="mouseMoved/">mouseMoved()</a></li>
+<li><a href="mousePressed/">mousePressed()</a></li>
+<li><a href="mouseReleased/">mouseReleased()</a></li>
+<li><a href="mouseWheel/">mouseWheel()</a></li>
+<li><a href="mouseX/">mouseX</a></li>
+<li><a href="mouseY/">mouseY</a></li>
+<li><a href="movedX/">movedX</a></li>
+<li><a href="movedY/">movedY</a></li>
+<li><a href="pmouseX/">pmouseX</a></li>
+<li><a href="pmouseY/">pmouseY</a></li>
+</ul>
+<h2 id="data">Data</h2>
+<h3 id="conversion">Conversion</h3>
+<ul>
+<li><a href="boolean-function/">boolean()</a></li>
+<li><a href="byte/">byte()</a></li>
+<li><a href="char/">char()</a></li>
+<li><a href="float/">float()</a></li>
+<li><a href="hex/">hex()</a></li>
+<li><a href="int/">int()</a></li>
+<li><a href="str/">str()</a></li>
+<li><a href="unchar/">unchar()</a></li>
+<li><a href="unhex/">unhex()</a></li>
+</ul>
+<h2 id="structure">Structure</h2>
+<ul>
+<li><a href="draw/">draw()</a></li>
+<li><a href="isLooping/">isLooping()</a></li>
+<li><a href="loop/">loop()</a></li>
+<li><a href="noLoop/">noLoop()</a></li>
+<li><a href="pop/">pop()</a></li>
+<li><a href="push/">push()</a></li>
+<li><a href="redraw/">redraw()</a></li>
+<li><a href="setup/">setup()</a></li>
+</ul>
+<h2 id="constants">Constants</h2>
+<ul>
+<li><a href="degrees-constant/">DEGREES</a></li>
+<li><a href="HALF_PI/">HALF_PI</a></li>
+<li><a href="HSB/">HSB</a></li>
+<li><a href="HSL/">HSL</a></li>
+<li><a href="PI/">PI</a></li>
+<li><a href="QUARTER_PI/">QUARTER_PI</a></li>
+<li><a href="radians-constant/">RADIANS</a></li>
+<li><a href="TAU/">TAU</a></li>
+<li><a href="TWO_PI/">TWO_PI</a></li>
+<li><a href="VERSION/">VERSION</a></li>
+</ul>
+<h2 id="foundation">Foundation</h2>
+<ul>
+<li><a href="for/">for</a></li>
+<li><a href="function/">function</a></li>
+<li><a href="if/">if</a></li>
+<li><a href="local/">local</a></li>
+<li><a href="table/">Table</a></li>
+<li><a href="Boolean/">Boolean</a></li>
+<li><a href="Number/">Number</a></li>
+<li><a href="while/">while</a></li>
+</ul>
+<hr />
+<p><em>This reference page contains content adapted from <a href="https://p5js.org/">p5.js</a> and <a href="https://processing.org">Processing</a> by <a href="https://github.com/processing/p5.js?tab=readme-ov-file#contributors">p5.js Contributors</a> and <a href="https://processingfoundation.org/people">Processing Foundation</a>, licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
