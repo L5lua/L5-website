@@ -4,7 +4,7 @@ L5 stands on the shoulders of Processing and p5.js. You will be able to use your
 
 L5 was built to be fun, fast, and resource-light. It is in many cases faster than Processing or p5.js programs. It works cross-platform and on older machines. Lua's syntax is simpler and constrained compared to JavaScript and Processing-Java. Some things are easier in L5, but some things are not. L5 currently does not have 3d functionality. It only supports one video format (ogg theora). It is a younger and still developing language dialect compared to its older siblings.
 
-In most cases, L5 functions are similar or equivalent to Processing functions. In some cases, p5.js functionality has been targeted or added. For example, like in p5.js you can use [HTML color names from or hexadecimal](https://en.wikipedia.org/wiki/Web_colors) instead of only the default RGB and RGBA values from Processing.
+In most cases, L5 functions are similar or equivalent to Processing functions. In some cases, p5.js functionality has been targeted or added. For example, like in p5.js you can use [HTML/CSS color names or hexadecimal](https://en.wikipedia.org/wiki/Web_colors) instead of only the default RGB and RGBA values from Processing.
 
 ## Lua tips
 
@@ -247,8 +247,7 @@ Unlike Java and JavaScript, there is no switch statement in Lua.
 
 ## Object orientation in Lua
 
-OOP can be implemented in Lua using tables.
-
+OOP is implemented in Lua using tables. For more information see the [Using Objects](/tutorials/using-objects) and [Data Structure Garden](/tutorials/data-structure-garden) tutorials and [Random Robot Objects](/examples/random-robot-objects) example.
 
 ## More info on Lua
 

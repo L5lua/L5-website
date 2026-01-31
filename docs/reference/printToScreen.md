@@ -4,7 +4,7 @@ Displays `print()` text output in the running program window.
 
 `printToScreen()` is a helper function to enable viewing `print()` output without requiring running L5 from the console or an IDE. This allows, for example, a program to be run simply by dragging its project folder onto the *Love application* file.
 
-This works with `print()` to create values used while debugging. Each call to `print()` will produce a new line of text in the window.
+Each call to `print()` will produce a new line of text in the window. It is particularly useful for debugging.
 
 By default the print size is 16 but a font size can optionally be specified as an argument to the function.
 
@@ -16,7 +16,7 @@ By default the print size is 16 but a font size can optionally be specified as a
 
 ```lua
 function setup()
-  size(400, 400)
+  size(100, 100)
 
   print('hello, world')
   

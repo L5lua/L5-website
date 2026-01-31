@@ -1,4 +1,4 @@
-An offline version of this documentation is available for [download](https://l5lua.org/download/#offline-documentation).
+An offline version of this documentation is available for [download](/download/#offline-documentation).
 
 ## Shape
 

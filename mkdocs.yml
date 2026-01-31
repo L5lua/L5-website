@@ -24,7 +24,12 @@ extra:
   generator: false
 nav:
   - Welcome to L5: index.md
-  - Download: download.md
+  - Download: 
+    - Download: download/index.md
+    - Install for Mac: download/install-mac.md
+    - Install for Windows: download/install-windows.md
+    - Install for Linux: download/install-linux.md
+  - Getting Started: getting-started.md
   - L5 for Processing-p5.js programmers: L5-for-processingp5.md
   - Reference: 
     - Reference Summary: reference/index.md

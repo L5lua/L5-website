@@ -1,8 +1,6 @@
-# Getting Started
-
 This tutorial is adapted from [Getting Started](https://processing.org/tutorials/gettingstarted) by Casey Reas and Ben Fry, adapted from the book, [Getting Started with Processing](https://processing.org/books/#make:-getting-started-with-processing,-second-edition), Maker Media 2015. [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/). Adapted to L5 by Lee Tusman.
 
-## Getting started 
+## Taking your first steps programming with L5
 
 Welcome to L5!
 
@@ -10,15 +8,15 @@ Getting set up to create programs in L5 consists of these parts:
 
 ## Installation
 
-1. [Installing the LÖVE (also knows as Love2d) application](https://love2d.org/) for your system, available for Mac, Windows, and Linux. 
-2. [Downloading the L5 Starter Project](https://l5lua.org/download/#l5-starter-project-recommended).
+1. [Installing LÖVE (also known as Love2d) application](/download) for your system, available for Mac, Windows, and Linux. 
+2. [Downloading the L5 Starter Project](/download/#l5-starter-project-recommended).
 3. Setting up a code editor to write your code in.
 
-*LÖVE/Love2d* is the framework powering our creative coding library. *L5* is the *language library* we'll be using to write our code, meaning it is full of resources we can use to write our own programs. These includes functions such as drawing, displaying images, and tracking the mouse movement and clicks.
+*L5* is the *language library* we'll be using to write our code, meaning it is full of resources we can use to write our own programs. These includes functions such as drawing, displaying images, and tracking the mouse movement and clicks.
 
-The first step is to install LÖVE/Love2d. This will differ slightly depending on what your operating system is. So follow the install instructions there.
+*LÖVE/Love2d* is the framework powering our creative coding library. The first step is to install LÖVE/Love2d. This will differ slightly depending on what your operating system is. So follow the install instructions for your operating system.
 
-After installing Love2d is complete, [download the L5 Starter Project](https://l5lua.org/download/#l5-starter-project-recommended). It is a zipped folder containing the *L5.lua* library file, a basic *main.lua* starter program, and a *README.txt* with some information about L5. You'll need to uncompress the folder. On a Mac, double click the .zip folder. On a Windows machine, right click and choose "Extract All...". On Linux, you can use various programs such as *zip* or usually you can right click and choose "Extract".
+After installing Love2d is complete, [download the L5 Starter Project](/download/#l5-starter-project-recommended). It is a zipped folder containing the *L5.lua* library file, a basic *main.lua* starter program, and a *README.txt* with some information about L5. You'll need to uncompress the folder. On a Mac, double click the .zip folder. On a Windows machine, right click and choose "Extract All...". On Linux, usually you can right click and choose "Extract" or double click.
 
 We're almost ready to get started learning about and writing code. But first we need a [code editor](https://en.wikipedia.org/wiki/Source-code_editor).
 
@@ -28,7 +26,9 @@ As its name implies, a code editor is a place to write your code. Some editors a
 
 You shouldn't use a word processor like Word or LibreOffice, as they aren't meant for writing code. While you could use the built-in Textpad on MacOS or Notepad on Windows, neither of these are much fun to write code in.
 
-Many people like code editors like [Sublime Text](https://www.sublimetext.com/), [VSCodium](https://vscodium.com/), or [Geany](https://www.geany.org/). But there are [dozens of others](https://opensource.com/article/21/2/open-source-text-editors) available. If you've previously coded with Processing, you may have tried the Processing IDE. One particularly friendly editor for beginners to L5 is [Zerobrane Studio](https://studio.zerobrane.com/), a lightweight editor with auto-completion, syntax highlighting and debugging features built-in for our underlying Lua/Love2d code. If you use another editor you may have to look for information on setting it up for working with Love2d for example for [Geany](https://www.love2d.org/forums/viewtopic.php?t=84657), [VSCodium](https://maxzsol.com/getting-started-with-love2d-and-vs-code-a-beginners-guide/) or [SublimeText](https://www.love2d.org/wiki/Sublime_Text). 
+Many people like code editors like [Sublime Text](https://www.sublimetext.com/), [VSCodium](https://vscodium.com/), or [Geany](https://www.geany.org/). But there are [dozens of others](https://opensource.com/article/21/2/open-source-text-editors) available. If you've previously coded with Processing, you may have tried the Processing IDE. 
+
+**One particularly friendly code editor we recommend for beginners to install** is [Zerobrane Studio](https://studio.zerobrane.com/), a lightweight editor with auto-completion, syntax highlighting and debugging features built-in. If you use another editor you may have to look for information on setting it up for working with Love2d for example for [Geany](https://www.love2d.org/forums/viewtopic.php?t=84657), [VSCodium](https://maxzsol.com/getting-started-with-love2d-and-vs-code-a-beginners-guide/) or [SublimeText](https://www.love2d.org/wiki/Sublime_Text). 
 
 ### Main workflow
 
@@ -39,11 +39,19 @@ A typical workflow is to write code in your `main.lua`, making sure that `requir
 
 ## Your First Program
 
-You're now hopefully running a code editor. While the details will differ depending on whichever one you chose to use, the main thing is that there should be a large code editing window for you to write your code in.
+Once you have an editor installed, double click to open it.
 
-Some code editors are full-featured Integrated Development Environments (IDE). The Processing IDE for example has a space for editing code, a play and stop button, and a console for output messages and errors.
+While the details will differ depending on whichever one you chose to use, the main thing is that there should be a large code editing window for you to write your code in.
 
-In whichever code editor you are using, inside your new `main.lua` file type the following underneath the previous line `require("L5")`:
+Find the location of your L5 Starter folder you downloaded and extracted on your computer. **Drag the L5 Starter folder** onto the Love application file and it should launch the program. You should see a window open with a yellow background.
+
+![A yellow background window appearing on top of folder holding L5 Starter and love application](/assets/tutorials/install/mac8.webp "A yellow background window appearing on top of folder holding L5 Starter and love application")
+
+Once verifying it works, close the window. Now we're going to start examining and writing some code.
+
+## An interactive program
+
+Inside your code editor, open the `main.lua` file. You can erase everything there and replace it with this basic 5 line program, and then make sure to save the file:
 
 ```lua
 require("L5")
@@ -65,7 +73,7 @@ After entering all this code save your `main.lua`. Then **drop the folder** hold
 
 If you've typed everything correctly, you'll see a circle on your screen. If you only see a black screen, you forgot to include the line `require("L5")` at the top of your main.lua file. If you didn't type something correctly, the window will turn blue and in white text complain about an error. If this happens, make sure that you've copied the example code exactly: the ellipse's numbers should be contained within parentheses and have commas between each of them. Check your spelling of function, setup(), ellipse and end!
 
-One of the most difficult things about getting started with programming is that you have to be very specific about the syntax. Our coding software isn't always smart enough to know what you mean, and can be quite fussy about the placement of punctuation. You'll get used to it with a little practice.
+One of the most difficult things about getting started with programming is that you have to be very specific about the syntax, the way you write code. Our coding software isn't always smart enough to know what you mean, and can be quite fussy about the placement of punctuation. You'll get used to it with a little practice.
 
 Next, we'll skip ahead to a sketch that's a little more exciting. Delete the text from the last example, and try this:
 
@@ -92,7 +100,7 @@ This program creates a window that is 480 pixels wide and 120 pixels high, and t
 
 It’s always a good idea to save your [code sketches](https://leetusman.com/nosebook/code-sketching-2019) often. As you try different things, keep saving with different names, so that you can always go back to an earlier version. This is especially helpful if—no, when—something breaks. 
 
-To create a new sketch, you'll create a new independent project folder, with its own L5.lua and main.lua inside.
+To create a new sketch, you'll need a new independent project folder, with its own L5.lua and main.lua inside.A simple way to do this would be to duplicate your previous folder, which you can do easily by copying and pasting the previous folder, and then renaming the new one.
 
 ### Examples and Reference
 
@@ -113,7 +121,5 @@ The Reference was written with the beginner in mind, but may still take some eff
 
 ### Where to go next
 
-From here, check out some of the other [shapes](/reference/#shapes) in the reference. Then try adding color, or check out more [tutorials](/tutorials).
-
-
+From here, check out [A complete introduction to programming with L5](/tutorials/#a-complete-introduction-to-programming-with-l5).
 

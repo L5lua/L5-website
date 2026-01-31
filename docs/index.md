@@ -66,7 +66,7 @@ Where Java undergoes regular major updates and JavaScript is a fast-evolving and
 
 ## Getting Started
 
-Ready to try L5? Check out the [download](download.md) page for an installation guide and the [tutorials](tutorials/index.md) for easy ways to get started.
+Ready to try L5? Check out the [download](download/index.md) page for an installation guide and the [tutorials](tutorials/index.md) for easy ways to get started.
 
 ## Community and Support
 
