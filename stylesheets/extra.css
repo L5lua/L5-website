@@ -1,0 +1,114 @@
+/* Manrope font */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/manrope-v20-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/manrope-v20-latin-600.woff2') format('woff2');
+}
+
+/* Apply fonts */
+body, .md-typeset {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 1rem;
+}
+
+.md-nav {
+  font-size: 1rem;
+}
+
+code, pre, .md-typeset code, .md-typeset pre {
+  font-family: Consolas, Menlo, Monaco, 'Courier New', monospace !important;
+  /* background-color: #f5f5f5 !important;  */
+  /* color: #333;  */
+  background-color: black !important;
+  color: gold;
+}
+
+/* Existing header styles */
+.md-header {
+    height: 5rem;
+    background-color: white;
+    color: black;
+    background: radial-gradient(circle at 40% 40%, #FFD700 25%, transparent 26%),radial-gradient(circle at 60% 60%, #FFD70080 25%, transparent 26%);
+    background-size: 6em 6em;
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+.md-header__inner {
+    height: 5rem;
+}
+
+.md-header__title {
+   font-size: 1.6rem;
+}
+
+.md-nav__title, .md-footer {
+  background-color: gold !important;
+}
+
+pre {
+    padding: 10px; 
+    border-radius: 4px; 
+    overflow-x: auto; 
+}
+
+html {
+    scroll-padding-top: 5rem;
+}
+/* Increase header height */
+html {
+  scroll-padding-top: 5rem; 
+}
+.md-header {
+    height: 5rem; /* Default is usually 2.8rem, adjust as needed */
+    background-color: white;
+    color: black;
+    /* background pattern */
+    background: radial-gradient(circle at 40% 40%, #FFD700 25%, transparent 26%),radial-gradient(circle at 60% 60%, #FFD70080 25%, transparent 26%);
+    background-size: 6em 6em;
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+/* Adjust header content positioning */
+.md-header__inner {
+    height: 5rem;
+}
+
+.md-header__title {
+   font-size: 1.6rem;
+}
+
+.md-nav__title, .md-footer {
+  background-color: gold !important;
+}
+
+pre,
+pre code, code {
+    background-color: #f5f5f5 !important; 
+    color: #333; 
+    padding: 10px; 
+    border-radius: 4px; 
+    overflow-x: auto; 
+}
+
+/* for copy button on code blocks */
+.md-clipboard {
+  color: gold !important;
+  opacity: 0.7; 
+}
+
+.md-clipboard:hover {
+  color: gold !important;
+  opacity: 1; 
+}

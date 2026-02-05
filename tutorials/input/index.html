@@ -1,0 +1,1587 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/tutorials/input/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Input - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#input" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Input
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-nav__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    L5: A Processing Library in Lua
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to L5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../download/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Download
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../L5-for-processingp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#shape" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#color" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#typography" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#image" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#media" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#transform" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#environment" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#rendering" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#math" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#events" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#data" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#structure" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#constants" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#foundation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bug-reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bug Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For developers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../copyleft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copyleft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse Position
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse Buttons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse Events
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drawing Program
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Events
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-multiple-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Multiple Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat Sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="input">Input</h1>
+<p><strong>Previous tutorial</strong>: <a href="../animation/">Animation</a></p>
+<p><em>Note: If you are running your programs by dragging their project folder onto the Love application, be sure to add the <code>printToScreen()</code> function within your setup() to be able to see the output of <code>print()</code> commands in your program window.</em></p>
+<p>You now know how to call functions, use variables, create variables and functions, use if statements, and create animations. This tutorial shows you how to get user input to make your programs interactive!</p>
+<h2 id="mouse-position">Mouse Position</h2>
+<p>L5 provides <code>mouseX</code> and <code>mouseY</code> variables that hold the current position of the mouse cursor in the window. L5 automatically updates these variables, so you can use them in the <code>draw()</code> function to get the position of the mouse.</p>
+<p><img alt="a circle follows the mouse" src="/assets/tutorials/using-variables3.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  size(400, 400)
+end
+
+function draw()
+  background(220)
+  circle(mouseX, mouseY, 50)
+end
+</code></pre>
+<p>This program draws a circle wherever the mouse cursor is!</p>
+<h2 id="mouse-buttons">Mouse Buttons</h2>
+<p>L5 provides a <code>mouseIsPressed</code> variable that is <code>true</code> when the mouse button is pressed, and <code>false</code> otherwise.</p>
+<p><img alt="a mouse clicks and creates circles" src="/assets/tutorials/input2.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  size(300, 300)
+  background(220)
+end
+
+function draw()
+  if mouseIsPressed then
+    circle(mouseX, mouseY, 25)
+  end
+end
+</code></pre>
+<p>This program lets you draw with circles whenever the mouse is pressed. Notice that the code does not call <code>background()</code> in the <code>draw()</code> function, so new circles are drawn on top of old circles.</p>
+<h2 id="mouse-events">Mouse Events</h2>
+<p>The <code>mouseIsPressed</code> variable is useful when you want to do something continuously, as long as the user has the mouse pressed. But what if you want to detect one-time input like a mouse click?</p>
+<p>These one-time inputs are called <strong>events</strong>, and L5 provides functions that it automatically calls whenever an event happens.</p>
+<p>L5 provides these mouse event functions:</p>
+<ul>
+<li><code>mousePressed()</code> - called once when the mouse button is pressed</li>
+<li><code>mouseReleased()</code> - called once when the mouse button is released</li>
+<li><code>mouseClicked()</code> - called once when the mouse is clicked (press and release)</li>
+<li><code>mouseMoved()</code> - called when the mouse moves but a button is not pressed down</li>
+<li><code>mouseDragged()</code> - called when the mouse moves and a button is pressed</li>
+<li><code>mouseWheel()</code> - called when you scroll with the mouse wheel</li>
+<li>If you need to know which mouse button is pressed, check out the <code>mouseButton</code> variable.</li>
+</ul>
+<p>You define these functions, and L5 calls them for you:</p>
+<p><img alt="the mouse moves into the gray window, clicks and the background is green, then turns yellow when released. it is clicked again and turns green and then blue as the mouse is dragged" src="/assets/tutorials/input3.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+r = 128
+g = 128
+b = 128
+
+function setup()
+  size(300, 300)
+
+  -- displays output of print() function onscreen
+  printToScreen()
+end
+
+function draw()
+  background(r, g, b)
+end
+
+function mousePressed()
+  r = 0
+  g = 255
+  b = 0
+  print(&quot;Mouse pressed!&quot;)
+end
+
+function mouseReleased()
+  r = 255
+  g = 255
+  b = 0
+  print(&quot;Mouse released!&quot;)
+end
+
+function mouseDragged()
+  r = 0
+  g = 0
+  b = 255
+  print(&quot;Mouse dragged!&quot;)
+end
+</code></pre>
+<p>The program starts out gray. When you press the mouse, it turns green. When you release, it turns yellow. When you drag, it turns blue.</p>
+<h2 id="drawing-program">Drawing Program</h2>
+<p>Here's a complete drawing program that uses mouse events:</p>
+<p><img alt="the mouse moves into the screen and draws a spiral of blue circles, then a green circle appears when they release the mouse" src="/assets/tutorials/input4.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  size(300, 300)
+  background(32)
+end
+
+function draw()
+  if mouseIsPressed then
+    fill(0, 255, 255)
+    circle(mouseX, mouseY, 25)
+  end
+end
+
+function mouseClicked()
+  fill(0, 255, 0)
+  circle(mouseX, mouseY, 50)
+end
+</code></pre>
+<p>Inside the <code>draw()</code> function, the code checks <code>mouseIsPressed</code> and draws small cyan circles. Inside the <code>mouseClicked()</code> function, the code draws large green circles. So you can hold the mouse to draw small circles, or click to draw large circles!</p>
+<h2 id="keyboard-input">Keyboard Input</h2>
+<p>Similar to mouse input, L5 provides keyboard input variables and event functions.</p>
+<p>The <code>keyIsPressed</code> variable is <code>true</code> when any key is pressed:</p>
+<p><img alt="the background is gray but turns green when a key is pressed" src="/assets/tutorials/input5.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  size(300, 300)
+end
+
+function draw()
+  if keyIsPressed then
+    background(0, 255, 0)
+  else
+    background(220)
+  end
+end
+</code></pre>
+<p>This program shows a green background when any key is pressed.</p>
+<h2 id="keyboard-events">Keyboard Events</h2>
+<p>L5 provides these keyboard event functions:</p>
+<ul>
+<li><code>keyPressed()</code> - called once when a key is pressed</li>
+<li><code>keyReleased()</code> - called once when a key is released</li>
+<li><code>keyTyped()</code> - called once when a key is typed (pressed and released)</li>
+</ul>
+<p>The <code>key</code> variable holds the most recently pressed key:</p>
+<p><img alt="Text onscreen presents the key pressed, various letters and arrow keys, return" src="/assets/tutorials/input6.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+message = &quot;Press a key&quot;
+
+function setup()
+  size(300, 300)
+  textSize(24)
+
+  -- displays output of print() function onscreen
+  printToScreen()
+end
+
+function draw()
+  background(220)
+  fill(0)
+  text(message, 50, 150)
+end
+
+function keyPressed()
+  message = &quot;You pressed: &quot; .. key
+  print(message)
+end
+</code></pre>
+<p>The <code>..</code> operator in Lua concatenates (joins) strings together.</p>
+<h2 id="handling-multiple-keys">Handling Multiple Keys</h2>
+<p>What if you want to handle multiple keys being pressed at the same time? For example, moving a character with arrow keys where you can move diagonally?</p>
+<p>The <code>key</code> variable only hold the most recent key pressed. This limits you to only knowing about one key at a time. But what if the user is holding down multiple keys at the same time?</p>
+<p>The <code>keyIsDown()</code> function takes a <code>key</code> parameter and returns a boolean: <code>true</code> if the corresponding key is currently down, and <code>false</code> if it’s not. Here’s an example:</p>
+<p><img alt="a blue circle is moved around the screen" src="/assets/tutorials/input7.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+playerX = 150
+playerY = 150
+
+function setup()
+  size(300, 300)
+end
+
+function draw()
+  background(220)
+
+  -- Check for arrow keys
+  if keyIsDown(&quot;up&quot;) or keyIsDown(&quot;w&quot;) then
+    playerY = playerY - 3
+  end
+  if keyIsDown(&quot;down&quot;) or keyIsDown(&quot;s&quot;) then
+    playerY = playerY + 3
+  end
+  if keyIsDown(&quot;left&quot;) or keyIsDown(&quot;a&quot;) then
+    playerX = playerX - 3
+  end
+  if keyIsDown(&quot;right&quot;) or keyIsDown(&quot;d&quot;) then
+    playerX = playerX + 3
+  end
+
+  -- Draw player
+  fill(0, 100, 255)
+  circle(playerX, playerY, 40)
+end
+</code></pre>
+<h2 id="cheat-sheet">Cheat Sheet</h2>
+<p>This program shows a bunch of the variables and event functions you can use to get user input:</p>
+<p><img alt="a debugging-style screen showing the output of various built-in event commands for the mouse and keyboard" src="/assets/tutorials/input8.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+function setup()
+  size(300, 300)
+
+  -- displays output of print() function onscreen
+  printToScreen()
+end
+
+function draw()
+  background(100);  
+  textSize(18)
+  fill(255)
+
+  text('mouseIsPressed: ' .. str(mouseIsPressed), 20, 20)
+  text('mouseButton: ' .. str(mouseButton), 20, 40)
+  text('mouseX: ' .. mouseX, 20, 60)
+  text('mouseY: ' .. mouseY, 20, 80)
+  text('pmouseX: ' .. pmouseX, 20, 100)
+  text('pmouseY: ' .. pmouseY, 20, 120)
+  text('movedX: ' .. movedX, 20, 180)
+  text('movedY: ' .. movedY, 20, 200)
+  text('keyIsPressed: ' .. str(keyIsPressed), 20, 220)
+  text('key: ' .. key, 20, 240)
+end
+
+function keyPressed()
+  print('keyPressed: ' .. key)
+end
+
+function keyReleased()
+  print('keyReleased: ' .. key)
+end
+
+function keyTyped()
+  print('keyTyped: ' .. key)
+end
+
+function mousePressed()
+  print('mousePressed')
+end
+
+function mouseReleased()
+  print('mouseReleased')
+end
+
+function mouseClicked()
+  print('mouseClicked')
+end
+
+function mouseMoved()
+  print('mouseMoved')
+end
+
+function mouseDragged()
+  print('mouseDragged')
+end
+
+function mouseWheel()
+  print('mouseWheel')
+end
+</code></pre>
+<p>There are other input variables and functions. See the <a href="/reference/#events">Events section in the L5 reference</a> for more info.</p>
+<h2 id="practice">Practice</h2>
+<p>Before moving on to the next tutorial, practice using input!</p>
+<p>Here are some ideas:</p>
+<ul>
+<li>Create a program that draws different shapes based on which key is pressed</li>
+<li>Make a simple painting program with different colors for different mouse buttons</li>
+<li>Create a game where you move a character with the mouse</li>
+<li>Make a program that changes background color based on mouse position</li>
+<li>Create a "catch the circle" game where clicking a moving target gives you points</li>
+<li>Create a program where the user controls a ball that bounces around the screen. Add acceleration, gravity, and braking. Instead of a circle, make it a spaceship (like from the game <a href="https://en.wikipedia.org/wiki/Asteroids_(video_game)">Asteroids</a>) where you control the direction and acceleration.</li>
+</ul>
+<p><strong>Next tutorial</strong>: <a href="../for-loops/">For Loops</a></p>
+<hr />
+<p><em>This tutorial is adapted from <a href="https://happycoding.io/tutorials/p5js/input">Input</a> by <a href="https://happycoding.io">Happy Coding</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
