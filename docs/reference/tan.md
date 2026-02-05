@@ -9,6 +9,8 @@ Calculates the tangent of an angle.
 ![tan example 1](assets/tan1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -12,6 +12,8 @@ imageMode() for other ways to position images.
 ```lua
 local img
 
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('image example')
@@ -28,6 +30,8 @@ end
 ![image example 2](assets/image2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('image example')
@@ -44,6 +48,8 @@ end
 ![image 3 example](assets/image3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('image example')

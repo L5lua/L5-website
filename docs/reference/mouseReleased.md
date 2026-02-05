@@ -33,6 +33,8 @@ Note: mousePressed(), `mouseReleased()`, and mouseClicked() are all related. mou
 ```lua
 local value = 0
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -65,6 +67,8 @@ end
 ![mouseReleased example 2](assets/mouseClicked2.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

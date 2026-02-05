@@ -10,6 +10,8 @@ Alternatively, `loadImage()` can also take a [FileData, ImageData, CompressedIma
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('loadImage example')

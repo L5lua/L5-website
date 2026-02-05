@@ -21,6 +21,8 @@ The version of `noise()` with three parameters computes noise values in three di
 ![noise example 1](assets/noise1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -43,7 +45,9 @@ end
 ![noise example 2](assets/noise2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe('A black dot moves randomly on a gray square.')
@@ -72,7 +76,9 @@ end
 ![noise example 3](assets/noise3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe('A hilly terrain drawn in gray against a black sky.')
@@ -98,7 +104,9 @@ end
 ![noise example 4](assets/noise4.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe('A calm sea drawn in gray against a black sky.')
@@ -129,7 +137,9 @@ end
 ![noise example 5](assets/noise5.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -162,7 +172,9 @@ end
 ![noise example 6](assets/noise6.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe('A gray cloudy pattern that changes.')

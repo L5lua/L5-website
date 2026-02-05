@@ -7,6 +7,8 @@ Returns the current year as a number such as 1999.
 ![year example 1](assets/year1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -9,6 +9,8 @@ Calling `noFill()` is the same as making the fill completely transparent, as in 
 ![noFill example 1](assets/noFill1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

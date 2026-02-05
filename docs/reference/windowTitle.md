@@ -9,6 +9,8 @@ Calling windowTitle without an argument returns the current window title, or "Un
 ![windowTitle example 1](assets/windowTitle1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   windowTitle("windowTitle example")
@@ -20,6 +22,8 @@ end
 ![windowTitle example 2](assets/windowTitle1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   windowTitle("windowTitle example")

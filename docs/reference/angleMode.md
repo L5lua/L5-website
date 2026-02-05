@@ -13,6 +13,8 @@ Calling `angleMode()` with no arguments returns current angle mode, which is eit
 ![angleMode example 1](assets/angleMode1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -31,7 +33,9 @@ end
 ![angleMode example 2](assets/angleMode2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -52,7 +56,9 @@ end
 ![angleMode example 3](assets/angleMode3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(50)
@@ -80,7 +86,9 @@ end
 ![angleMode example 4](assets/angleMode4.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(50)
@@ -111,6 +119,8 @@ end
 ![angleMode example 5](assets/angleMode5.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -133,6 +143,8 @@ end
 ![angleMode example 6](assets/angleMode5.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -158,6 +170,8 @@ end
 ![angleMode example 7](assets/angleMode7.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

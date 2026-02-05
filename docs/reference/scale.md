@@ -16,6 +16,8 @@ Note: Transformations are reset at the beginning of the draw loop. Calling `scal
 ![scale example 1](assets/scale1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('scale() example')
@@ -42,7 +44,9 @@ end
 ![scale example 2](assets/scale2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('scale() example')
   describe('A rectangle and a square drawn in white on a gray background.')

@@ -11,7 +11,9 @@ If no height is set, the value of width is used for both the width and height. I
 ![ellipse example](assets/ellipse.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

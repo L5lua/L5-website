@@ -14,6 +14,8 @@ vertex.
 ![vertex example 1](assets/vertex1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

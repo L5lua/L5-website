@@ -12,6 +12,8 @@ The parameter, `n`, is the value to convert. If `n` is a Boolean, as in `byte(fa
 
 ```lua
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -39,6 +41,8 @@ end
 ![byte example 2](assets/byte2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -65,6 +69,8 @@ end
 ![byte example 3](assets/byte3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -91,6 +97,8 @@ end
 ![byte example 4](assets/byte4.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

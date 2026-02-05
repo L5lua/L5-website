@@ -9,7 +9,9 @@ A line's default width is one pixel. The version of `line()` with four parameter
 ![line 1 example](assets/line1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -23,7 +25,9 @@ end
 ![line 2 example](assets/line2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("line example")
   background(200)
@@ -39,7 +43,9 @@ end
 ![line 3 example](assets/line3.webp)  
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("line example")
   background(200)

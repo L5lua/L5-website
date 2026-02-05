@@ -17,6 +17,8 @@ The version of `background()` with three parameters interprets them as RGB, HSB,
 ![background example 1](assets/background1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -30,7 +32,9 @@ end
 ![background example 2](assets/background2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   -- R, G, B values
@@ -42,7 +46,9 @@ end
 ![background example 3](assets/background3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100,100)
   -- 3 digit hex notation
   background('#fae')
@@ -53,7 +59,9 @@ end
 ![background example 4](assets/background4.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100,100)
   -- 6-digit hex notation
   background('#222222')
@@ -64,7 +72,9 @@ end
 ![background example 5](assets/background5.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100,100)
 
   --a color object

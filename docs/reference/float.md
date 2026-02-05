@@ -15,6 +15,8 @@ Note: If a string can't be converted to a number, as in `float('giraffe')`, then
 ![float example 1](assets/float1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -44,6 +46,8 @@ end
 ![float example 2](assets/float2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

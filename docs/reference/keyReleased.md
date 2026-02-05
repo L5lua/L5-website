@@ -31,6 +31,8 @@ end
 ```lua
 local value = 0
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -64,6 +66,8 @@ end
 ```lua
 local value = 0
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -94,6 +98,8 @@ end
 
 ```lua
 local value = 0
+
+require("L5")
 
 function setup()
   size(100, 100)

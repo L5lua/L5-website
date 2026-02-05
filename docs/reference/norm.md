@@ -11,6 +11,8 @@ Numbers outside of the original range are not constrained between 0 and 1. Out-o
 ![norm example 1](assets/norm1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

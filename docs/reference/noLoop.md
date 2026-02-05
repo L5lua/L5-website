@@ -13,6 +13,8 @@ The isLooping() function can be used to check whether a sketch is looping, as in
 ![noLoop example 1](assets/noLoop1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -38,6 +40,8 @@ end
 
 ```lua
 -- Click to stop the draw loop.
+require("L5")
+
 function setup()
   size(100, 100)
 

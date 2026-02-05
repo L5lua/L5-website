@@ -11,6 +11,8 @@ Removes the current tint set by tint().
 ```lua
 local img
 -- Load the image.
+require("L5")
+
 function setup()
   size(100, 100)
   img = loadImage("assets/flower.jpg")

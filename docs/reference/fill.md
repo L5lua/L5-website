@@ -14,6 +14,8 @@ The version of `fill()` with three parameters interprets them as RGB, HSB, or HS
 ![fill example 1](assets/fill1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -29,6 +31,8 @@ end
 ![fill example 2](assets/fill2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -45,6 +49,8 @@ end
 ![fill example 3](assets/fill3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -61,6 +67,8 @@ end
 ![fill example 4](assets/fill4.webp)
 
 ```
+require("L5")
+
 function setup()
   size(100,100)
   background(200)
@@ -77,6 +85,8 @@ end
 ![fill example 5](assets/fill5.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   background(200)
@@ -92,6 +102,8 @@ end
 ![fill example 6](assets/fill6.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   background(200)

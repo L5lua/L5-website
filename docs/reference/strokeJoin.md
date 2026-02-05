@@ -13,7 +13,9 @@ The argument passed to `strokeJoin()` must be written in ALL CAPS because the co
 ![strokeJoin example](assets/strokeJoin.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(200,200)
   background(200)
 

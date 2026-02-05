@@ -10,6 +10,8 @@ Code placed in the body of `windowResized()` will run when the window's size cha
 
 ```lua
 
+require("L5")
+
 function setup()
   windowTitle("windowResized example")
   text("Welcome",width/2,height/2)

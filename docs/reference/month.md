@@ -7,6 +7,8 @@ Returns the current month as a number from 1–12.
 ![month example 1](assets/month1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

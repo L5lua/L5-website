@@ -7,6 +7,8 @@ Calculates the closest integer value that is less than or equal to the value of 
 ![floor example 1](assets/floor1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

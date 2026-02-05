@@ -10,7 +10,9 @@ Loads the current value of each pixel on the canvas into the pixels array.
 
 ```lua
 local img
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("loadPixels example")
   -- Load the image.

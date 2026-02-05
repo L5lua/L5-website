@@ -9,6 +9,8 @@ Returns the largest value in a sequence of numbers.
 ![max example 1](assets/max1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -32,6 +34,8 @@ end
 ![max example 2](assets/max1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

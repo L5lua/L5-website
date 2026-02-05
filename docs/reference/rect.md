@@ -9,7 +9,9 @@ To draw a rounded rectangle, add a fifth parameter, which is used as the radius 
 ![basic 1 rectangle](assets/rect1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("rect example")
   background(200)
@@ -23,7 +25,9 @@ end
 ![rectangle 2 example](assets/rect2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("rect example")
   background(200)
@@ -37,7 +41,9 @@ end
 ![rectangle 3 example](assets/rect3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("rect example")
   background(200)

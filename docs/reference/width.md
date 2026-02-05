@@ -11,6 +11,8 @@ A `Number` variable that stores the width of the canvas in pixels.
 ![width example 1](assets/width1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   background(200)

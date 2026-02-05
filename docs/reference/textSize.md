@@ -11,6 +11,8 @@ Calling `textSize()` without an argument returns the current size.
 ![textSize example 1](assets/textSize1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

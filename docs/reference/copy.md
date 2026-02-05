@@ -15,7 +15,9 @@ The next four parameters, `dx`, `dy`, `dw`, and `dh` determine the region of the
 ```lua
 local img
 
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   img = loadImage('assets/flower.jpg')
   windowTitle("copy() example")

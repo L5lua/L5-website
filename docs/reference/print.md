@@ -13,6 +13,8 @@ Note: Call `print()` on its own to print a blank line.
 ![print example 1](assets/print1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   

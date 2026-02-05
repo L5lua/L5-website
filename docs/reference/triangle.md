@@ -7,7 +7,9 @@ A triangle is a plane created by connecting three points. The first two argument
 ![triangle 1 example](assets/triangle1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("triangle example")
   background(200)

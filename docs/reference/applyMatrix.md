@@ -24,6 +24,8 @@ Note: Transformations are reset at the beginning of the draw loop. Calling `appl
 ![applyMatrix example 1](assets/applyMatrix1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -44,6 +46,8 @@ end
 ![applyMatrix example 2](assets/applyMatrix2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("applyMatrix(0 example")
@@ -65,7 +69,9 @@ end
 ![applyMatrix example 3](assets/applyMatrix3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('applyMatrix example')
   describe('A white quadrilateral on a gray background.')
@@ -87,7 +93,9 @@ end
 ![applyMatrix example 4](assets/applyMatrix4.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('applyMatrix() example')
   describe('Two white squares on a gray background. The larger square appears at the top-center. The smaller square appears at the top-left.')
@@ -111,7 +119,9 @@ end
 ![applyMatrix example 5](assets/applyMatrix5.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('applyMatrix example')
 

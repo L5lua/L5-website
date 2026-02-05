@@ -7,6 +7,8 @@ Clears all transformations applied to the coordinate system.
 ![resetMatrix example 1](assets/resetMatrix1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

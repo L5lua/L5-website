@@ -23,6 +23,8 @@ loadTable example 1
 --and has a header specifying the columns labels
 local mammals = loadTable('assets/mammals.csv', 'header')
 
+require("L5")
+
 function setup()
   print(#mammals..' total rows in table')
   print(#mammals.columns..' total columns in table.')
@@ -54,6 +56,8 @@ loadTable example 2
 --my table is comma separated value "csv"
 --without headers
 local data = loadTable('assets/mammals.csv')
+
+require("L5")
 
 function setup()
   print(#data..' total rows in table')

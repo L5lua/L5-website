@@ -101,6 +101,8 @@ In this version, the code to draw each eye is contained between its own push() a
 ![pop example 1](assets/pop1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -144,6 +146,8 @@ end
 ![pop example 2](assets/pop2.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

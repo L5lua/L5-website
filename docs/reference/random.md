@@ -18,6 +18,8 @@ The version of `random()` with two parameters returns a random number from a giv
 ![random example 1](assets/random1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -38,7 +40,9 @@ end
 ![random example 2](assets/random2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -64,7 +68,9 @@ end
 ![random example 3](assets/random3.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   -- Slow the frame rate.
@@ -89,7 +95,9 @@ end
 ![random example 4](assets/random4.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   -- Slow the frame rate.
@@ -117,7 +125,9 @@ end
 local x = 50
 local y = 50
 
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

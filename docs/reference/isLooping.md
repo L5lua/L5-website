@@ -11,6 +11,8 @@ The `isLooping()` function can be used to check whether a sketch is looping, as 
 ![isLooping example 1](assets/isLooping1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

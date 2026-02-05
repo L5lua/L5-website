@@ -11,6 +11,8 @@ Hue describes a color's position on the color wheel. By default, `hue()` returns
 ![hue example 1](assets/hue1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   noStroke()
@@ -28,6 +30,8 @@ end
 ![hue example 2](assets/hue1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -56,6 +60,8 @@ end
 ![hue example 3](assets/hue2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -84,6 +90,8 @@ end
 ![hue example 3](assets/hue3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(400, 400)
   noStroke()

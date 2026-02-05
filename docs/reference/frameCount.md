@@ -9,6 +9,8 @@ A `Number` variable that tracks the number of frames drawn since the sketch star
 ![frameCount example 1](assets/frameCount1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -28,7 +30,9 @@ end
 ![frameCount example 2](assets/frameCount2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   -- Set the frameRate to 30.

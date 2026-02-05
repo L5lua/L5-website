@@ -12,6 +12,8 @@ Note: The window can only receive input if it's focused.
 -- Open this example in two separate browser
 -- windows placed side-by-side to demonstrate.
 
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -7,6 +7,8 @@ Toggles full-screen mode. Calling `fullscreen()` makes the sketch full-screen or
 ![fullscreen example 1](assets/fullscreen1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   background(200)
 

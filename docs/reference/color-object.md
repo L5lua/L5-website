@@ -17,6 +17,8 @@ The version of `color()` with four parameters interprets them as RGBA, HSBA, or 
 ![color example 1](assets/color1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -37,6 +39,8 @@ end
 ![color example 2](assets/color2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -66,6 +70,8 @@ end
 ![color example 3](assets/color3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -86,6 +92,8 @@ end
 ![color example 4](assets/color4.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

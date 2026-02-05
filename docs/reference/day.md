@@ -7,6 +7,8 @@ Returns the current day as a number from 1–31.
 ![day example 1](assets/day1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

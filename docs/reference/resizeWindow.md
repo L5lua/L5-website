@@ -11,6 +11,8 @@ The two parameters, `width` and `height`, set the dimensions of the resized wind
 ![resizeWindow example 1](assets/resizeWindow1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("resizeWindow example")
   text("Welcome",width/2,height/2)

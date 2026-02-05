@@ -8,6 +8,8 @@ A `Boolean` system variable that's `true` if the mouse is pressed and
 ![mouseIsPressed example 1](assets/mouseIsPressed1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -32,6 +34,8 @@ end
 ![mouseIsPressed example 2](assets/keyPressed1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

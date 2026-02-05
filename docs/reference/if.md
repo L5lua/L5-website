@@ -87,6 +87,8 @@ See [Boolean](Boolean.md) and [Number](Number.md) to learn more about these data
 ```lua
 -- Click the mouse to show the circle.
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -108,6 +110,8 @@ end
 
 ```lua
 -- Click the mouse to show different shapes.
+
+require("L5")
 
 function setup()
   size(100, 100)
@@ -133,6 +137,8 @@ end
 ```lua
 -- Move the mouse to change the background color.
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -156,6 +162,8 @@ end
 
 ```lua
 -- Click on the canvas to begin detecting key presses.
+
+require("L5")
 
 function setup()
   size(100, 100)

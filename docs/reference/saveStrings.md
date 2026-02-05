@@ -11,6 +11,8 @@ The second parameter, `filename`, is a string that sets the file's name. For exa
 ![saveStrings example 1](assets/saveStrings1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -43,6 +45,8 @@ end
 ![saveStrings example 2](assets/saveStrings1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

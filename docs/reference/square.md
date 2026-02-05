@@ -25,6 +25,8 @@ end
 ![square with rounded edges](assets/square-rounded.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -7,6 +7,8 @@ Returns height of the named loaded video file.
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

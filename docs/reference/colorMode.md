@@ -13,6 +13,8 @@ Calling `colorMode(HSB)` or `colorMode(HSL)` changes to HSB or HSL system instea
 ![colorMode example 1](assets/colorMode1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -30,6 +32,8 @@ end
 ![colorMode example 2](assets/colorMode2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -50,6 +54,8 @@ end
 ![colorMode example 3](assets/colorMode3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -70,6 +76,8 @@ end
 ![colorMode example 4](assets/colorMode4.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -90,6 +98,8 @@ end
 ![colorMode example 5](assets/colorMode5.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -112,7 +122,9 @@ end
 ![colorMode example 6](assets/colorMode6.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   -- Use HSB color with values in the range 0-100.
@@ -132,7 +144,9 @@ end
 ![colorMode example 7](assets/colorMode7.webp)  
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   -- Create a color table
@@ -165,7 +179,9 @@ end
 ![colorMode example 8](assets/colorMode8.webp)  
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(255)

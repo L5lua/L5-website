@@ -13,6 +13,8 @@ local playing = false
 local video
 local buttonText = 'play'
 
+require("L5")
+
 function setup()
   size(400,400)
   windowTitle('Video player')

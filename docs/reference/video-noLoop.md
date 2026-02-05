@@ -7,6 +7,8 @@ Changes video playback to only play once and then stop.
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

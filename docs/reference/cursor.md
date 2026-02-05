@@ -13,6 +13,8 @@ The parameters `x` and `y` are optional. If an image is used for the cursor, `x`
 ![cursor example 1](assets/cursor1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -31,7 +33,9 @@ end
 ![Cursor example 2](assets/cursor2.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe('A gray square divided into quadrants. The cursor image changes when the mouse moves to each quadrant.')

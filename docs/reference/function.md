@@ -81,6 +81,8 @@ text("3 x 2 = "..six, 50, 50)
 ![function example 1](assets/function1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -110,6 +112,8 @@ end
 ![function example 2](assets/function1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -143,6 +147,8 @@ end
 ![function example 3](assets/function3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

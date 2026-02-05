@@ -7,7 +7,9 @@ A quad is a quadrilateral, a four sided polygon. It is similar to a rectangle, b
 ![quad 1 example](assets/quad1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("line example")
   background(200)
@@ -21,7 +23,9 @@ end
 ![quad 2 example](assets/quad2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("quad example")
   background(200)
@@ -35,7 +39,9 @@ end
 ![quad 3 example](assets/quad3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("quad example")
   background(200)
@@ -49,7 +55,9 @@ end
 ![quad 4 example](assets/quad4.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("quad example")
   background(200)

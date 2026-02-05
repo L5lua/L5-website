@@ -9,6 +9,8 @@ A `Number` system variable that tracks the mouse's horizontal position.
 ![mouseX example 1](assets/mouseX1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -26,6 +28,8 @@ end
 ![mouseX example 2](assets/mouseX2.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

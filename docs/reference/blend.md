@@ -17,6 +17,8 @@ The tenth parameter, `blendMode`, sets the effect used to blend the images' colo
 ```lua
 local img0
 local img1
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("blend example") 
@@ -42,6 +44,8 @@ end
 ```lua
 local img0
 local img1
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("blend example") 
@@ -67,6 +71,8 @@ end
 ```lua
 local img0
 local img1
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("blend example") 

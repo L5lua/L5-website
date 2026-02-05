@@ -12,6 +12,8 @@ A `Number` variable that tracks the number of milliseconds it took to draw the l
 local x = 0
 local speed = 0.05  
 
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("deltaTime example")

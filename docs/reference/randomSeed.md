@@ -11,6 +11,8 @@ results each time a sketch is run.
 
 ```lua
 
+require("L5")
+
 function setup()
   size(100, 100)
 

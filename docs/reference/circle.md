@@ -7,7 +7,9 @@ Draws a circle to the screen. By default, the first two parameters set the locat
 ![circle 1 example](assets/circle1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("circle example")
   background(200)

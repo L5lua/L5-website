@@ -16,6 +16,8 @@ The version of `get()` with four parameters interprets them as coordinates and d
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100,100)
   img = loadImage("assets/rockies.jpg")
@@ -39,6 +41,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100,100)
   img = loadImage("assets/rockies.jpg")
@@ -65,6 +69,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100,100)
   img = loadImage("assets/rockies.jpg")

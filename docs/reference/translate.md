@@ -15,6 +15,8 @@ Note: Transformations are reset at the beginning of the draw loop. Calling `tran
 ![translate example 1](assets/translate1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('translate() example')
@@ -35,7 +37,9 @@ end
 ![translate example 2](assets/translate2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("translate() example")
   describe(
@@ -65,7 +69,9 @@ end
 ![translate example 3](assets/translate3.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("translate() example")
   describe('A white circle moves slowly from left to right on a gray background.')

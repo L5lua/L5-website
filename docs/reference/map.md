@@ -11,6 +11,8 @@ The sixth parameter, `withinBounds`, is optional. By default, `map()` can return
 ![map example 1](assets/map1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -34,7 +36,9 @@ end
 ![map example 2](assets/map2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100,100)
 
   describe('A circle changes color from black to white as the mouse moves from left to right.')

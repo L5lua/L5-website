@@ -11,6 +11,8 @@ The way that colors are interpolated depends on the current colorMode().
 ![lerpColor example 1](assets/lerpColor1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

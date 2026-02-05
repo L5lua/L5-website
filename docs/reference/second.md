@@ -7,6 +7,8 @@ Returns the current second as a number from 0–59.
 ![second example 1](assets/second1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

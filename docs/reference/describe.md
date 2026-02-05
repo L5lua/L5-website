@@ -7,6 +7,8 @@ Prints an accessibility description to the command line. The parameter text is t
 ![describe example 1](assets/describe1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   background('pink')

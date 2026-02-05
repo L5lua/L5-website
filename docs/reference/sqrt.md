@@ -9,6 +9,8 @@ A number's square root can be multiplied by itself to produce the original numbe
 ![sqrt example 1](assets/sqrt1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -29,7 +31,9 @@ end
 ![sqrt example 2](assets/sqrt2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

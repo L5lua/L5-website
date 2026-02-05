@@ -15,6 +15,8 @@ By default the print size is 16 but a font size can optionally be specified as a
 ![printToScreen example 1](assets/printToScreen1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -29,6 +31,8 @@ end
 ![printToScreen example 2](assets/printToScreen2.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(400, 400)
 

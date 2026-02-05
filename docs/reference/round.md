@@ -11,6 +11,8 @@ The second parameter, `decimals`, is optional. It sets the number of decimal pla
 ![round example 1](assets/round1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -34,7 +36,9 @@ end
 ![round example 2](assets/round2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

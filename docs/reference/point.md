@@ -11,7 +11,9 @@ Set the point location with its x- and y-coordinates, as in point(10, 20).
 ![point 1 example](assets/point1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("point example")
   background(200)
@@ -37,7 +39,9 @@ end
 ![point 2 example](assets/point2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("point example")
   background(200)

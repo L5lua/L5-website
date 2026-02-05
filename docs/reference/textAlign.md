@@ -15,6 +15,8 @@ y-coordinate sets the bottom edge of the bounding box. `textAlign()` accepts the
 ![textAlign example 1](assets/textAlign1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -44,7 +46,9 @@ end
 ![textAlign example 2](assets/textAlign2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

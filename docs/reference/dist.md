@@ -7,6 +7,8 @@ Calculates the distance between two points.
 ![dist example 1](assets/dist1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

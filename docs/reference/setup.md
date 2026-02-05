@@ -5,7 +5,9 @@ A function that's called once when the sketch begins running.
 Declaring the function `setup()` sets a code block to run once automatically when the sketch starts running. It's used to perform setup tasks such as creating the canvas and initializing variables:
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   -- Code to run once at the start of the sketch.
 end
 ```
@@ -19,6 +21,8 @@ Note: `setup()` doesn’t have to be declared, but it’s common practice to do 
 ![setup example 1](assets/setup1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('setup example')
@@ -35,6 +39,8 @@ end
 ![setup example 2](assets/setup2.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -56,6 +62,8 @@ end
 
 ```lua
 local img
+
+require("L5")
 
 function setup()
   size(100, 100)

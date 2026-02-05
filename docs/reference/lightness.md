@@ -11,6 +11,8 @@ By default, `lightness()` returns a color's HSL lightness in the range 0 to 100.
 ![lightness example 1](assets/lightness1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -41,6 +43,8 @@ end
 ![lightness example 2](assets/lightness2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -71,6 +75,8 @@ end
 ![lightness example 3](assets/lightness3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -9,6 +9,8 @@ For example, calling `ceil(9.03)` and `ceil(9.97)` both return the value 10.
 ![ceil example 1](assets/ceil1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

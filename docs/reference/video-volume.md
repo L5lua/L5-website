@@ -11,6 +11,8 @@ The parameter, `vol`, is optional. It's a number that sets the volume from 0 (of
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

@@ -11,6 +11,8 @@ The parameter, `n`, is the value to convert. If `n` is a string, then `boolean('
 ![boolean example 1](assets/boolean1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -39,6 +41,8 @@ end
 ![boolean example 2](assets/boolean2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -67,6 +71,8 @@ end
 ![boolean example 3](assets/boolean3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

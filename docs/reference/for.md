@@ -87,6 +87,8 @@ In the second code snippet using Lua's function `ipairs()`, `x` isn't keeping tr
 ![for example 1](assets/for1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -106,6 +108,8 @@ end
 ![for example 2](assets/for2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -125,6 +129,8 @@ end
 ![for example 3](assets/for3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -156,6 +162,8 @@ end
 -- Declare the variable xCoordinates and assign it an array of numbers.
 local xCoordinates = {20, 40, 60, 80}
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -177,6 +185,8 @@ end
 ```lua
 -- Declare the variable xCoordinates and assign it an array of numbers.
 local xCoordinates = {20, 40, 60, 80}
+
+require("L5")
 
 function setup()
   size(100, 100)

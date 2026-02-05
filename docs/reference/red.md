@@ -11,6 +11,8 @@ By default, `red()` returns a color's red value in the range 0 to 255. If the co
 ![red example 1](assets/red1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -38,6 +40,8 @@ end
 ![red example 2](assets/red2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -65,6 +69,8 @@ end
 ![red example 3](assets/red3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

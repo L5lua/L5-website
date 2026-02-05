@@ -9,6 +9,8 @@ A number's absolute value is its distance from zero on the number line. -5 and 5
 ![abs example 1](assets/abs1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

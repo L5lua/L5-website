@@ -15,6 +15,8 @@ The seventh and eighth parameters, `x4` and `y4`, set the last control point. Th
 ![curve example 1](assets/curve1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

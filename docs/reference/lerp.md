@@ -11,7 +11,9 @@ If the value of `amt` is less than 0 or more than 1, `lerp()` will return a numb
 ![lerp example 1](assets/lerp1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("Lerp example")
   background(200)
@@ -48,7 +50,9 @@ local y = 50
 local targetX = 50
 local targetY = 50
 
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

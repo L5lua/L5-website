@@ -13,7 +13,9 @@ The seventh parameter, mode, is optional. It determines the arc's fill style. Th
 ![arc example 1](assets/arc1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -27,6 +29,8 @@ end
 ![Arc example 2](assets/arc2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -41,7 +45,9 @@ end
 ![Arc example 3](assets/arc3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
  size(100, 100)
 
   background(200)
@@ -69,7 +75,9 @@ end
 ![Arc example 4](assets/arc4.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -84,7 +92,9 @@ end
 ![Arc example 5](assets/arc5.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100);
 
   background(200);
@@ -99,7 +109,9 @@ end
 ![Arc example 6](assets/arc6.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -114,7 +126,9 @@ end
 ![Arc example 7](assets/arc7.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -129,7 +143,9 @@ end
 ![Pacman](assets/pacman.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100,100)
 
   describe('A yellow circle on a black background. The circle opens and closes its mouth.')

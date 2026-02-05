@@ -11,6 +11,8 @@ For example, `pow(2, 3)` evaluates the expression
 ![pow example 1](assets/pow1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

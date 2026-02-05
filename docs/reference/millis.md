@@ -9,6 +9,8 @@ Returns the number of milliseconds since a sketch started running.
 ![millis example 1](assets/millis1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -34,6 +36,8 @@ end
 ![millis example 2](assets/millis2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -59,6 +63,8 @@ end
 ![millis example 3](assets/millis3.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

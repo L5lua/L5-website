@@ -7,6 +7,8 @@ Plays a movie one time and stops at the last frame.
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

@@ -15,7 +15,9 @@ The seventh and eighth parameters, x4 and y4, set the last anchor point. The las
 ![bezier 1 example](assets/bezier1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('bezier example')
   background(200)
@@ -58,7 +60,9 @@ local x2 = 10
 local y2 = 10
 local isChanging = false
 
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('bezier example')
   describe(
@@ -116,7 +120,9 @@ end
 ![bezier 3 example](assets/bezier3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('bezier example')
   background('skyblue')

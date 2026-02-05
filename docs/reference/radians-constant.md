@@ -13,6 +13,8 @@ Calling `angleMode(RADIANS)` ensures that angles are measured in units of radian
 ![RADIANS example 1](assets/degrees-constant1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

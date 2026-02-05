@@ -10,6 +10,8 @@ The first parameter, `path`, is always a string with the path to the file. Paths
 
 ```lua
 local myData
+require("L5")
+
 function setup()
   size(100, 100)
   

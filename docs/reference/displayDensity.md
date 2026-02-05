@@ -7,6 +7,8 @@ Returns the display's current pixel density.
 ![displayDensity example 1](assets/displayDensity1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   -- Create a canvas and draw

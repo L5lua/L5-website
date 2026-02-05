@@ -11,6 +11,8 @@ The parameter, `n`, is the character to convert. For example, `unchar('A')`, ret
 ![unchar example 1](assets/unchar1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -37,6 +39,8 @@ end
 ![unchar example 2](assets/unchar2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -16,6 +16,8 @@ Accessing the RGBA values for a point on the canvas requires a little math as sh
 
 ```lua
 
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("pixels example")
@@ -56,6 +58,8 @@ end
 ![pixels example 2](assets/pixels2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("pixels example")
@@ -91,6 +95,8 @@ end
 ![pixels example 3](assets/pixels3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("pixels example")

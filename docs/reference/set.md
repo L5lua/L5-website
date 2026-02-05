@@ -13,6 +13,8 @@ updatePixels() must be called after using `set()` for changes to appear.
 ![set example 1](assets/set1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("set example1")
@@ -35,7 +37,9 @@ end
 ![set example 2](assets/set2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("set example2")
 
@@ -60,7 +64,9 @@ end
 ![set example 3](assets/set3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 end
 
@@ -90,7 +96,9 @@ end
 
 ```lua
 local img
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("set example 4")
   img = loadImage('assets/rockies.jpg')

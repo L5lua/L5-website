@@ -12,6 +12,8 @@ if angleMode() setting (RADIANS or DEGREES).
 ![cos example 1](assets/angleMode5.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -34,6 +36,8 @@ end
 ![cos example 2](assets/cos2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -55,6 +59,8 @@ end
 ![cos example 3](assets/cos3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

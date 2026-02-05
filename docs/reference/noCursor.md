@@ -7,6 +7,8 @@ Hides the cursor from view.
 ![noCursor example 1](assets/noCursor1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   windowTitle('noCursor example')

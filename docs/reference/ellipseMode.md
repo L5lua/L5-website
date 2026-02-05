@@ -17,7 +17,9 @@ The argument passed to `ellipseMode()` must be written in ALL CAPS because the c
 ![ellipseMode example 1](assets/ellipseMode1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -39,7 +41,9 @@ end
 ![ellipseMode example 2](assets/ellipseMode2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

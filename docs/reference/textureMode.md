@@ -15,6 +15,8 @@ The parameter, `mode`, accepts two possible constants. If `NORMAL` is passed, as
 ![textureMode example 1](assets/textureMode1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(400, 400)
   windowTitle("Example of textureMode")

@@ -13,6 +13,8 @@ The keyIsDown() function should be used to check for multiple different key pres
 ![key example 1](assets/key1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -39,6 +41,8 @@ end
 ```lua
 local x = 50
 local y = 50
+
+require("L5")
 
 function setup()
   size(100, 100)

@@ -9,6 +9,8 @@ Calculates the arc tangent of a number.
 ![atan example 1](assets/atan1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   fill(0)
@@ -33,6 +35,8 @@ end
 ![atan example 2](assets/atan2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   fill(0)

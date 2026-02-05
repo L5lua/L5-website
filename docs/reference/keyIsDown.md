@@ -19,6 +19,8 @@ end
 local x = 50
 local y = 50
 
+require("L5")
+
 function setup()
   size(100, 100)
 

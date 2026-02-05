@@ -10,6 +10,8 @@ The parameter `path` is the path to a font file. Paths to local files should be 
 
 ```lua
 local font
+require("L5")
+
 function setup()
   size(100,100)
   fill('deeppink')

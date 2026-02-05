@@ -17,7 +17,9 @@ The parameter must be written in ALL CAPS because Lua is a case-sensitive langua
 ![rectMode example 1](assets/rectMode1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(400, 400)
   rectMode(CORNER)  -- Default rectMode is CORNER
   fill(255)  -- Set fill to white
@@ -34,7 +36,9 @@ end
 ![rectMode example 2](assets/rectMode2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(400, 400)
   rectMode(RADIUS)  -- Set rectMode to RADIUS
   fill(255)  -- Set fill to white

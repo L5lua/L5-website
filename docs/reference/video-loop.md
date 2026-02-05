@@ -9,6 +9,8 @@ Plays a movie continuously looping.
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

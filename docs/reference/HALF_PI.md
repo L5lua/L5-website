@@ -11,6 +11,8 @@ Note: `TWO_PI` radians equals 360 degrees, `PI` radians equals 180 degrees, `HAL
 ![HALF_PI example 1](assets/HALF_PI1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -26,6 +28,8 @@ end
 ![HALF_PI example 2](assets/HALF_PI2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -50,6 +54,8 @@ end
 ![HALF_PI example 3](assets/HALF_PI3.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

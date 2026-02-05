@@ -8,6 +8,8 @@ text() is called.
 ![textWidth example 1](assets/textWidth1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -34,7 +36,9 @@ end
 ![textWidth example 2](assets/textWidth2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

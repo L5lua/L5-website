@@ -13,7 +13,9 @@ default canvas for sketches that don't need it. No graphics can be drawn.
 ## Examples
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   noWindow()
 end
 

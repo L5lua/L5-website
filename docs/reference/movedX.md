@@ -9,6 +9,8 @@ A `Number` system variable that tracks the mouse's horizontal movement.
 ![movedX example 1](assets/movedX1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

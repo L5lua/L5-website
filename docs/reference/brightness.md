@@ -12,6 +12,8 @@ By default, `brightness()` returns a color's HSB brightness in the range 0 to 10
 ![brightness example 1](assets/brightness1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -42,6 +44,8 @@ end
 ![brightness example 2](assets/brightness2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -72,6 +76,8 @@ end
 ![brightness example 3](assets/brightness3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

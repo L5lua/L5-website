@@ -21,7 +21,9 @@ density.
 ![pixelDensity example 1](assets/pixelDensity1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   -- Set the pixel density to 1.
   pixelDensity(1)
 

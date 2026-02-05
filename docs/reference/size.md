@@ -11,6 +11,8 @@ The first two parameters, `width` and `height` set the dimensions of the canvas 
 ![size example 1](assets/size1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -26,7 +28,9 @@ end
 ![size example 2](assets/size2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 50)
   windowTitle("size example")
 

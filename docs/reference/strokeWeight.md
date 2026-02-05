@@ -9,7 +9,9 @@ Using point() with strokeWeight(1) or smaller may draw nothing to the screen, de
 ![strokeWeight example](assets/strokeWeight.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(400, 400)
   strokeWeight(4)  -- Default
   line(80, 80, 320, 80)

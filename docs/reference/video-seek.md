@@ -7,6 +7,8 @@ Jumps to a specified time forward (in seconds) for playback. Calling `:seek()` m
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

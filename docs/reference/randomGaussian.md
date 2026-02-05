@@ -19,6 +19,8 @@ The version of `randomGaussian()` with two parameters interprets the first argum
 ![randomGaussian example 1](assets/randomGaussian1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('randomGaussian example')

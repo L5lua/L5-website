@@ -10,6 +10,8 @@ resizeWindow() changes the value of `height`.
 ![height example 1](assets/height1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   background(200)
 

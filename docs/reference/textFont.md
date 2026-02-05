@@ -11,6 +11,8 @@ The second parameter, `size`, is optional. It sets the font size in pixels. This
 ![textFont example 1](assets/textFont1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   background(200)
@@ -26,6 +28,8 @@ end
 ![textFont example 2](assets/textFont2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100,100)
   background('black')

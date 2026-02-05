@@ -12,6 +12,8 @@ By default, draw() tries to run 60 times per second. Calling noLoop() stops draw
 -- Click the canvas to move the circle.
 local x = 0
 
+require("L5")
+
 function setup()
   size(100, 100)
 

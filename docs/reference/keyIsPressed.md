@@ -7,6 +7,8 @@ A boolean variable that's `true` if any key is currently pressed and `false` if 
 ![keyIsPressed example 1](assets/keyPressed1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -33,6 +35,8 @@ end
 ![keyIsPressed example 2](assets/keyPressed1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -59,6 +63,8 @@ end
 ![keyIsPressed example 3](assets/keyIsPressed3.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

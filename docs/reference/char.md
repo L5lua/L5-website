@@ -11,6 +11,8 @@ The parameter, `n`, is the value to convert. If a number is passed, as in `char(
 ![char example 1](assets/char1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -37,6 +39,8 @@ end
 ![char example 2](assets/char1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -63,6 +67,8 @@ end
 ![char example 3](assets/char3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

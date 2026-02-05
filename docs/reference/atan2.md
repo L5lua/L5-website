@@ -11,7 +11,9 @@ By default, `atan2()` returns values in the range -π (about -3.14) to π (3.14)
 ![atan2 example 1](assets/atan21.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle("atan2 example")
   describe('A rectangle at the top-left of the canvas rotates with mouse movements.')
@@ -34,6 +36,8 @@ end
 ![atan2 example 2](assets/atan22.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

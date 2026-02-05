@@ -9,6 +9,8 @@ Calculates the arc sine of a number.
 ![asin example 1](assets/asin1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -32,6 +34,8 @@ end
 ![asin example 2](assets/asin2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

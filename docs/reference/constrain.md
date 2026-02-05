@@ -7,6 +7,8 @@ Constrains a number between a minimum and maximum value.
 ![constrain example 1](assets/constrain1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -27,7 +29,9 @@ end
 ![constrain example 2](assets/constrain2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe('Two vertical lines. Two circles move horizontally with the mouse. One circle stops at the vertical lines.')

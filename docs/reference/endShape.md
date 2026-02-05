@@ -17,6 +17,8 @@ Transformations such as translate(), rotate(), and scale() don't work between be
 ![endShape example 1](assets/endShape1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

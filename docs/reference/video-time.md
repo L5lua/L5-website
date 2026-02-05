@@ -9,6 +9,8 @@ With specified number argument jumps to a specified time forward (in seconds) fo
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

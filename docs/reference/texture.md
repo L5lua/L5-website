@@ -11,7 +11,9 @@ You will need to specify uv coordinates in each `vertex()`. A uv cordinate indic
 ![texture example 1](assets/texture1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(400, 400)
   windowTitle("texture() example")
   noStroke()

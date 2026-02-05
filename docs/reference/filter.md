@@ -26,6 +26,8 @@ The preset options are:
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("filter() example")
@@ -46,6 +48,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("filter() example")
@@ -66,6 +70,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("filter() example")
@@ -86,6 +92,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("filter() example")
@@ -106,6 +114,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("filter() example")
@@ -126,6 +136,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("filter() example")
@@ -146,6 +158,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("filter() example")

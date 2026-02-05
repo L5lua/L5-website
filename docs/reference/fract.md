@@ -9,6 +9,8 @@ A number's fractional part includes its decimal values. For example, `fract(12.3
 ![fract example 1](assets/fract1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

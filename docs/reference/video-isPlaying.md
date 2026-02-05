@@ -7,6 +7,8 @@ Returns a boolean `true` or `false` depending on whether named video file is cur
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

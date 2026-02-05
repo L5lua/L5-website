@@ -20,6 +20,8 @@ Code placed within `draw()` begins looping after
 ![draw example 1](assets/draw1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -40,6 +42,8 @@ end
 ![draw example 2](assets/draw2.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -61,6 +65,8 @@ end
 
 ```lua
 -- Click the canvas to change the circle's color.
+require("L5")
+
 function setup()
   size(100, 100)
 

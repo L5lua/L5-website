@@ -13,7 +13,9 @@ By default, `green()` returns a color's green value in the range 0 to 255. If th
 ![green example 1](assets/green1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -40,6 +42,8 @@ end
 ![green example 2](assets/green2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -67,7 +71,9 @@ end
 ![green example 3](assets/green3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

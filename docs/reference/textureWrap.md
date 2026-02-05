@@ -13,7 +13,9 @@ For texturing a custom shape each call to vertex() must include 4 arguments, as 
 ```lua
 local img
 
-function setup() 
+require("L5")
+
+function setup()
   size(300, 300)
   img = loadImage("assets/flower.jpg")
   textureMode(NORMAL)

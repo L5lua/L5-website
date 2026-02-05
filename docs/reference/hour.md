@@ -7,6 +7,8 @@ Returns the current hour as a number from 0–23.
 ![hour example 1](assets/hour1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

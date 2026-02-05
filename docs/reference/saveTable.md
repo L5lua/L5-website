@@ -9,6 +9,8 @@ Takes two or three arguments: data, filename, extension. If no extension is give
 saveTable example 1
 
 ```lua
+require("L5")
+
 function setup()
   local data = {
     ['id']=0,
@@ -28,6 +30,8 @@ end
 saveTable example 2
 
 ```lua
+require("L5")
+
 function setup()
   local data = {
     {id=0, species="Panthera leo", name="Lion"},

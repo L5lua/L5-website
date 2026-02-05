@@ -59,6 +59,8 @@ The value `nan` stands for [Not-A-Number](https://www.lua.org/manual/5.2/manual.
 ![Number example 1](assets/Number1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -77,6 +79,8 @@ end
 ![Number example 2](assets/Number2.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

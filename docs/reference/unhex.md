@@ -11,6 +11,8 @@ The first parameter, `n`, is the hex string to convert. For example, `unhex('FF'
 ![unhex example 1](assets/unhex1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -37,6 +39,8 @@ end
 ![unhex example 2](assets/unhex2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

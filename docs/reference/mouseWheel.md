@@ -42,6 +42,8 @@ end
 ```lua
 local circleSize = 0
 
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -68,6 +70,8 @@ end
 
 ```lua
 local direction = ''
+
+require("L5")
 
 function setup()
   size(100, 100)

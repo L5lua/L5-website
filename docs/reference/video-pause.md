@@ -7,6 +7,8 @@ Pauses playing video file.
 ## Examples
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

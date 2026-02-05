@@ -9,6 +9,8 @@ Calculates the arc cosine of a number.
 ![acos example 1](assets/acos1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   fill(0)
@@ -32,7 +34,9 @@ end
 ![acos example 2](assets/acos2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

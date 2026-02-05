@@ -11,6 +11,8 @@ Note: The actual screen width can be computed as `displayWidth * pixelDensity()`
 ![displayWidth example 1](assets/displayWidth1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   -- Set the canvas' width and height
   -- using the display's dimensions.

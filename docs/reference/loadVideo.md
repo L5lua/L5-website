@@ -11,6 +11,8 @@ Loads and returns a video file for simple audio/video playback.
 ![loadVideo example 1](assets/loadVideo1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   windowTitle("loadVideo example")
 

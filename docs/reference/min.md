@@ -9,6 +9,8 @@ Returns the smallest value in a sequence of numbers.
 ![min example 1](assets/min1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -31,6 +33,8 @@ end
 ![min example 2](assets/min2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -31,6 +31,8 @@ stroke() has no effect in `WEBGL` mode.
 ![text example 1](assets/text1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   background(200)
   text('hi', 50, 50)
@@ -42,7 +44,9 @@ end
 ![text example 2](assets/text2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100,100)
   background('black')
   textSize(22)
@@ -62,7 +66,9 @@ end
 ![text example 3](assets/text3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100,100)
   background(200)
   local s = 'The quick brown fox jumps over the lazy dog.'

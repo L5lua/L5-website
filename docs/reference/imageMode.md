@@ -14,6 +14,8 @@ By default, the first two parameters of image() are the x- and y-coordinates of 
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('imageMode example')
@@ -33,6 +35,8 @@ end
 ![imageMode example 2](assets/imageMode2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('imageMode example')
@@ -52,6 +56,8 @@ end
 ![imageMode example 3](assets/imageMode3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('imageMode example')

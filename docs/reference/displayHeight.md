@@ -11,6 +11,8 @@ Note: The actual screen height can be computed as `displayHeight * pixelDensity(
 ![displayHeight example 1](assets/displayHeight1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   -- Set the canvas' width and height
   -- using the display's dimensions.

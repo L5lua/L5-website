@@ -13,6 +13,8 @@ The second parameter, `digits`, is optional. If a number is passed, as in `hex(2
 ![hex example 1](assets/hex1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -39,6 +41,8 @@ end
 ![hex example 2](assets/hex2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -66,6 +70,8 @@ end
 ![hex example 3](assets/hex3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

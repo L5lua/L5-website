@@ -11,6 +11,8 @@ By default, `blue()` returns a color's blue value in the range 0 to 255. If the 
 ![blue example 1](assets/blue1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -38,6 +40,8 @@ end
 ![blue example 2](assets/blue2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -65,7 +69,9 @@ end
 ![blue example 3](assets/blue3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

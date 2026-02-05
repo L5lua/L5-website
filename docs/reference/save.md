@@ -11,6 +11,8 @@ If the user doesn't have write permission for the current directory then it will
 save example 1
 
 ```lua
+require("L5")
+
 function setup()
   fill(0)
   ellipse(random(width),random(height),random(100),random(100))
@@ -25,6 +27,8 @@ end
 save example 2
 
 ```lua
+require("L5")
+
 function setup()
   fill(0)
   ellipse(random(width),random(height),random(100),random(100))

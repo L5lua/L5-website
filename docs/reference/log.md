@@ -9,6 +9,8 @@ Calculates the natural logarithm (the base-e logarithm) of a number.
 ![log example 1](assets/log1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -29,7 +31,9 @@ end
 ![log example 2](assets/log2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

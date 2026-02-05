@@ -22,6 +22,8 @@ Calling `textWrap()` without an argument returns the current style.
 ![textWrap example 1](assets/textWrap1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -41,7 +43,9 @@ end
 ![textWrap example 2](assets/textWrap2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

@@ -11,6 +11,8 @@ By default, functions such as [rotate()](rotate.md) and [sin()](sin.md) expect a
 ![DEGREES example 1](assets/degrees-constant1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

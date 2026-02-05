@@ -11,7 +11,9 @@ The same angle can be expressed in with either unit. For example, 90° is a quar
 ![degrees example 1](assets/degrees1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   fill(0)
   background(200)

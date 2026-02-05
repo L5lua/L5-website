@@ -9,6 +9,8 @@ Squaring a number means multiplying the number by itself. For example, `sq(3)` e
 ![sq example 1](assets/sq1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -29,7 +31,9 @@ end
 ![sq example 2](assets/sq2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

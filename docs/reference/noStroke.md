@@ -9,6 +9,8 @@ Calling `noStroke()` is the same as making the stroke completely transparent, as
 ![noStroke example 1](assets/noStroke1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

@@ -13,6 +13,8 @@ Note: If a value can't be converted to a number, as in `int('giraffe')`, then th
 ![int example 1](assets/int1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -39,6 +41,8 @@ end
 ![int example 2](assets/int2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -65,6 +69,8 @@ end
 ![int example 3](assets/int2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -91,6 +97,8 @@ end
 ![int example 4](assets/int4.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

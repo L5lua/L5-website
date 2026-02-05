@@ -11,6 +11,8 @@ Calling `frameRate()` without an argument returns the current frame rate. The va
 ![frameRate example 1](assets/frameRate1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -41,7 +43,9 @@ end
 ![frameRate example 2](assets/frameRate2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe('A number written in black on a gray background. The number decreases when the mouse is pressed.')

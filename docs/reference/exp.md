@@ -7,6 +7,8 @@ Calculates the value of Euler's number e (2.71828...) raised to the power of a n
 ![exp example 1](assets/exp1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -35,7 +37,9 @@ end
 ![exp example 2](assets/exp2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

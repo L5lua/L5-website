@@ -9,7 +9,9 @@ alpha() extracts the alpha value from a color object, an array of color componen
 ![alpha example 1](assets/alpha1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)
@@ -36,7 +38,9 @@ end
 ![alpha example 2](assets/alpha2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   background(200)

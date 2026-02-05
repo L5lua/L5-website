@@ -14,7 +14,9 @@ Transformations such as translate(), rotate(), and scale() don't work between `b
 ![beginShape example 1](assets/beginShape1.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(400, 400)
   windowTitle("beginShape() example")
   
@@ -32,7 +34,9 @@ end
 ![beginShape example 2](assets/beginShape2.webp)  
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(400, 400)
   windowTitle("beginShape() example")
   

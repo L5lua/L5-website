@@ -9,6 +9,8 @@ Calculates the sine of an angle.
 ![sin example 1](assets/sin1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -31,6 +33,8 @@ end
 ![sin example 2](assets/sin2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -52,6 +56,8 @@ end
 ![sin example 3](assets/cos3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

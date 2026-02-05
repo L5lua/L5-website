@@ -11,7 +11,9 @@ smooth() is active by default. noSmooth() is helpful for scaling up images witho
 ![noSmooth() and smooth() example](assets/smooth.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(400, 400)
   background(0)
 

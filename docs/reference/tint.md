@@ -15,7 +15,9 @@ The version of `tint()` with three parameters interprets them as RGB or HSB valu
 ```lua
 local img
 
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('tint() example')
   -- Load the image.
@@ -38,6 +40,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('tint example')
@@ -60,6 +64,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('tint example')
@@ -82,6 +88,8 @@ end
 
 ```lua
 local img
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle('tint example')

@@ -13,6 +13,8 @@ Note that L5's createGraphics() implementation is similar to Processing rather t
 ![createGraphics example 1](assets/createGraphics1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(400,400)
 

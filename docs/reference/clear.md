@@ -9,6 +9,8 @@ Clears the pixels on the canvas.
 ![clear example 1](assets/clear1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

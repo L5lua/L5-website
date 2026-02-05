@@ -17,6 +17,8 @@ The version of `stroke()` with four parameters interprets them as RGBA, HSBA, or
 ![stroke example 1](assets/stroke1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -33,6 +35,8 @@ end
 ![stroke example 2](assets/stroke2.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -49,6 +53,8 @@ end
 ![stroke example 3](assets/stroke3.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -69,6 +75,8 @@ end
 ![stroke example 4](assets/stroke4.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -86,6 +94,8 @@ end
 ![stroke example 5](assets/stroke5.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -103,6 +113,8 @@ end
 ![stroke example 6](assets/stroke6.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

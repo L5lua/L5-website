@@ -12,6 +12,8 @@ The `mouseButton` variable is either `LEFT`, `RIGHT`, or `CENTER`, depending on 
 
 ```lua
 -- Click on the window to detect the mouseButton
+require("L5")
+
 function setup()
   size(100, 100)
 
@@ -36,7 +38,9 @@ end
 ![mouseButton example 2](assets/mouseButton2.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
 
   describe(

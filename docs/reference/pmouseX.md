@@ -9,6 +9,8 @@ A `Number` system variable that tracks the mouse's previous horizontal position.
 ![pmouseX example 1](assets/pmouseX1.gif)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
 

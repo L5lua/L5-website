@@ -15,6 +15,8 @@ Note: Transformations are reset at the beginning of the draw loop. Calling `rota
 ![rotate example 1](assets/rotate1.webp)
 
 ```lua
+require("L5")
+
 function setup()
   size(100, 100)
   windowTitle("rotate example")
@@ -37,7 +39,9 @@ end
 ![rotate example 2](assets/rotate2.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('rotate() example')
   describe(
@@ -62,7 +66,9 @@ end
 ![rotate example 3](assets/rotate3.webp)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('rotate() example')
   -- Use degrees.
@@ -87,7 +93,9 @@ end
 ![rotate example 4](assets/rotate4.gif)
 
 ```lua
-function setup() 
+require("L5")
+
+function setup()
   size(100, 100)
   windowTitle('rotate() example')
   describe(
