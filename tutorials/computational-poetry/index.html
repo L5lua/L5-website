@@ -1,0 +1,1752 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/tutorials/computational-poetry/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Computational Poetry with L5 - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#computational-poetry-with-l5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Computational Poetry with L5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-nav__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    L5: A Processing Library in Lua
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to L5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../download/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Download
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../L5-for-processingp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#shape" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#color" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#typography" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#image" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#media" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#transform" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#environment" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#rendering" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#math" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#events" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#data" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#structure" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#constants" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#foundation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bug-reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bug Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For developers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../copyleft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copyleft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-l5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is L5?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-your-first-l5-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started: Your First L5 Sketch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-drawing-a-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Drawing a Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-drawing-basic-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Drawing Basic Shapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-drawing-text-on-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Drawing Text on Screen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-creating-an-array-of-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Creating an Array of Strings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-picking-a-random-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Picking a Random String
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-creating-a-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Creating a Grid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-randomly-showing-or-hiding-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Randomly Showing or Hiding Words
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-adding-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Adding Interaction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-it-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making It Your Own
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extension-ideas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extension Ideas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extension Ideas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Animation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-mouse-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Mouse Interaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotating-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotating Text
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#going-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Going Further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#share-your-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Share Your Work!
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="computational-poetry-with-l5">Computational Poetry with L5</h1>
+<h2 id="overview">Overview</h2>
+<p>In this tutorial, you'll learn how to create generative visual poetry using L5, a creative coding library based on p5.js and Processing, but written in Lua. We'll explore how code can arrange words and images to create dynamic compositions that change with every interaction.</p>
+<p><strong>Time Required:</strong> 60 minutes</p>
+<p><strong>Prerequisites:</strong> Previous knowledge working with p5.js or Processing is recommended.</p>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this tutorial, students will be able to:</p>
+<ul>
+<li>Understand the basics of L5 and how it relates to p5.js/Processing</li>
+<li>Draw text and shapes to the screen using code</li>
+<li>Create and manipulate arrays of strings</li>
+<li>Use randomness to create generative compositions</li>
+<li>Build a grid-based layout system</li>
+<li>Combine text, randomness, and interaction to create computational poetry</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>To get started with L5, you'll need to set it up on your computer:</p>
+<ul>
+<li><strong>Mac users:</strong> <a href="https://l5lua.org/download/install-mac">L5 Setup for Mac</a></li>
+<li><strong>Windows users:</strong> <a href="https://l5lua.org/download/install-windows">L5 Setup for Windows</a></li>
+</ul>
+<p>Once you have L5 installed, you're ready to begin.</p>
+<h2 id="what-is-l5">What is L5?</h2>
+<p>L5 is a creative coding library that brings the simplicity and approachability of p5.js and Processing to the Lua programming language. If you've used p5.js or Processing before, you'll find L5 familiar - it uses the same basic structure with <code>setup()</code> and <code>draw()</code> functions, and similar function names for drawing shapes, working with color, and handling interaction.</p>
+<p>The main difference is that L5 uses Lua syntax, which is known for being clean and beginner-friendly. Lua uses simple keywords like <code>function</code>, <code>end</code>, and <code>for</code> that make code easy to read.</p>
+<h2 id="getting-started-your-first-l5-sketch">Getting Started: Your First L5 Sketch</h2>
+<p>Every L5 sketch starts with requiring the library. Create a new file and type:</p>
+<pre><code class="language-lua">require 'L5'
+
+function setup()
+  -- Your setup code goes here
+end
+</code></pre>
+<p>The <code>setup()</code> function runs once when your program starts. This is where we'll put code that only needs to happen at the beginning.</p>
+<h2 id="step-1-drawing-a-background">Step 1: Drawing a Background</h2>
+<p>Let's start by setting a background color. Add this inside your <code>setup()</code> function:</p>
+<pre><code class="language-lua">require 'L5'
+
+function setup()
+  background('white')
+end
+</code></pre>
+<p>Run your sketch. You should see a white canvas. Try changing <code>'white'</code> to other colors like <code>'lightblue'</code>, <code>'pink'</code>, or <code>'lavender'</code>. You can use any of the <a href="https://www.w3schools.com/colors/colors_names.asp">HTML Color Names</a>, or RGB numbers like <code>background(255, 0, 255)</code> or hexadecimal: <code>background('#7FFFD4')</code>.</p>
+<h2 id="step-2-drawing-basic-shapes">Step 2: Drawing Basic Shapes</h2>
+<p>L5 can draw shapes just like p5.js. Let's add a circle:</p>
+<pre><code class="language-lua">require 'L5'
+
+function setup()
+  background('white')
+  fill('black')
+  circle(100, 100, 50)
+end
+</code></pre>
+<p>The <code>fill()</code> function sets the color for shapes, and <code>circle(x, y, diameter)</code> draws a circle at position (100, 100) with a diameter of 50 pixels.</p>
+<p>Try drawing other shapes:
+- <code>rect(x, y, width, height)</code> - draws a rectangle
+- <code>ellipse(x, y, width, height)</code> - draws an ellipse
+- <code>line(x1, y1, x2, y2)</code> - draws a line</p>
+<h2 id="step-3-drawing-text-on-screen">Step 3: Drawing Text on Screen</h2>
+<p>Now let's draw some text instead of shapes:</p>
+<pre><code class="language-lua">require 'L5'
+
+function setup()
+  background('white')
+  fill('black')
+  textSize(32)
+  text('hello', 100, 100)
+end
+</code></pre>
+<p>The <code>text()</code> function draws text at a specific position. The first parameter is the string to display, and the next two are the x and y coordinates.</p>
+<p>Try changing:
+- The word in quotes
+- The numbers (position)
+- The <code>textSize()</code> value
+- Add <code>textAlign(CENTER, CENTER)</code> before the text to change alignment</p>
+<h2 id="step-4-creating-an-array-of-strings">Step 4: Creating an Array of Strings</h2>
+<p>Instead of just one word, let's create a collection of words we can choose from. In Lua, we use curly braces <code>{}</code> to create arrays (called "tables" in Lua):</p>
+<pre><code class="language-lua">require 'L5'
+
+words = {&quot;eye&quot;, &quot;nose&quot;, &quot;mouth&quot;, &quot;ear&quot;, &quot;brain&quot;}
+
+function setup()
+  background('white')
+  fill('black')
+  textSize(32)
+  text(words[1], 100, 100)
+end
+</code></pre>
+<p>The array <code>words</code> holds multiple strings. We can access them using square brackets with a number. <strong>Important:</strong> Lua arrays start at index 1, not 0!</p>
+<p>Try displaying different words by changing <code>words[1]</code> to <code>words[2]</code>, <code>words[3]</code>, etc.</p>
+<h2 id="step-5-picking-a-random-string">Step 5: Picking a Random String</h2>
+<p>Instead of always showing the same word, let's pick one randomly:</p>
+<pre><code class="language-lua">require 'L5'
+
+words = {&quot;eye&quot;, &quot;nose&quot;, &quot;mouth&quot;, &quot;ear&quot;, &quot;brain&quot;}
+
+function setup()
+  background('white')
+  fill('black')
+  textSize(32)
+  text(random(words), 100, 100)
+end
+</code></pre>
+<p>The <code>random()</code> function can pick a random item from an array when you pass it an array. Run your sketch multiple times - you should see different words!</p>
+<h2 id="step-6-creating-a-grid">Step 6: Creating a Grid</h2>
+<p>Now we'll use loops to create a grid of positions where words could appear. We'll use two variables to control the grid spacing:</p>
+<pre><code class="language-lua">require 'L5'
+
+words = {&quot;eye&quot;, &quot;nose&quot;, &quot;mouth&quot;, &quot;ear&quot;, &quot;brain&quot;}
+
+function setup()
+  background('white')
+  blockW = width/10
+  blockH = height/10
+
+  fill('black')
+  textSize(24)
+
+  for y=1,height,blockH do
+    for x=1,width,blockW do
+      text(random(words), x, y)
+    end
+  end
+end
+</code></pre>
+<p>Let's break down the loop:</p>
+<ul>
+<li><code>for y=1,height,blockH do</code> means "start at 1, go up to the canvas height, increasing by blockH each time"</li>
+<li>The nested loop does the same for x</li>
+<li><code>width</code> and <code>height</code> are built-in variables that give you the canvas dimensions</li>
+</ul>
+<p>This creates a grid of words across your entire canvas.</p>
+<h2 id="step-7-randomly-showing-or-hiding-words">Step 7: Randomly Showing or Hiding Words</h2>
+<p>Right now we're showing a word at every grid position. Let's make it more interesting by only sometimes showing a word:</p>
+<pre><code class="language-lua">require 'L5'
+
+words = {&quot;eye&quot;, &quot;nose&quot;, &quot;mouth&quot;, &quot;ear&quot;, &quot;brain&quot;, &quot;arm&quot;, &quot;leg&quot;, &quot;head&quot;, &quot;foot&quot;}
+
+function setup()
+  background('white')
+  blockW = width/10
+  blockH = height/10
+
+  fill('black')
+  textAlign(RIGHT, BOTTOM)
+  textSize(24)
+
+  for y=1,height,blockH do
+    for x=1,width,blockW do
+      if random() &gt; 0.9 then
+        text(random(words), x, y)
+      end
+    end
+  end
+end
+</code></pre>
+<p>The <code>if random() &gt; 0.9 then</code> line checks if a random number (between 0 and 1) is greater than 0.9. This means only about 10% of the grid positions will show a word.</p>
+<p>Try changing <code>0.9</code> to different values:
+- <code>0.5</code> = 50% of positions show words
+- <code>0.7</code> = 30% of positions show words
+- <code>0.95</code> = only 5% of positions show words</p>
+<h2 id="step-8-adding-interaction">Step 8: Adding Interaction</h2>
+<p>Let's make it so clicking the mouse regenerates the composition:</p>
+<pre><code class="language-lua">require 'L5'
+
+words = {&quot;eye&quot;, &quot;nose&quot;, &quot;mouth&quot;, &quot;ear&quot;, &quot;brain&quot;, &quot;arm&quot;, &quot;leg&quot;, &quot;head&quot;, &quot;foot&quot;}
+
+function setup()
+  background('white')
+  blockW = width/10
+  blockH = height/10
+
+  fill('black')
+  textAlign(RIGHT, BOTTOM)
+  textSize(24)
+
+  for y=1,height,blockH do
+    for x=1,width,blockW do
+      if random() &gt; 0.9 then
+        text(random(words), x, y)
+      end
+    end
+  end
+end
+
+function mousePressed()
+  setup()
+end
+</code></pre>
+<p>The <code>mousePressed()</code> function runs whenever you click the mouse. By calling <code>setup()</code> again, we redraw everything with new random positions!</p>
+<h2 id="making-it-your-own">Making It Your Own</h2>
+<p>Now that you have the basic structure, try customizing it:</p>
+<ol>
+<li><strong>Change the words:</strong> Replace the body parts with your own theme</li>
+<li>Emotions: "joy", "anger", "fear", "sadness"</li>
+<li>Colors: "crimson", "azure", "golden", "silver"</li>
+<li>
+<p>Use words from a poem you wrote</p>
+</li>
+<li>
+<p><strong>Adjust the density:</strong> Change the <code>0.9</code> value to make it more or less crowded</p>
+</li>
+<li>
+<p><strong>Experiment with text alignment:</strong> Try <code>LEFT</code>, <code>RIGHT</code>, <code>CENTER</code> for horizontal and <code>TOP</code>, <code>CENTER</code>, <code>BOTTOM</code> for vertical</p>
+</li>
+<li>
+<p><strong>Change the grid:</strong> Make <code>blockW</code> and <code>blockH</code> smaller for a finer grid, or larger for bigger gaps</p>
+</li>
+<li>
+<p><strong>Add color:</strong> Try <code>fill('red')</code> or use RGB values like <code>fill(255, 0, 0)</code></p>
+</li>
+</ol>
+<h2 id="extension-ideas">Extension Ideas</h2>
+<p>Ready to go further? Try these challenges:</p>
+<h3 id="adding-animation">Adding Animation</h3>
+<p>Instead of only drawing in <code>setup()</code>, you can use the <code>draw()</code> function to create continuous animation:</p>
+<pre><code class="language-lua">function draw()
+  background('white')
+  -- your grid code here
+end
+</code></pre>
+<p>This will create a constantly changing composition!</p>
+<h3 id="using-mouse-interaction">Using Mouse Interaction</h3>
+<p>Make your composition respond to the mouse position:</p>
+<pre><code class="language-lua">textSize(mouseX / 10)  -- Text size changes with mouse X position
+</code></pre>
+<p>This can cause freezing if mouseX is 0 at the beginning of the sketch, so we can constrain it to have a minimum value.</p>
+<pre><code class="language-lua">textSize(constrain(mouseX,10,width) / 10)
+</code></pre>
+<p>Now the size will change but never get smaller than 10.</p>
+<p>Or only show words near the mouse:</p>
+<pre><code class="language-lua">if dist(x, y, mouseX, mouseY) &lt; 100 then
+  text(random(words), x, y)
+end
+</code></pre>
+<h3 id="adding-images">Adding Images</h3>
+<p>L5 can also work with images. First, load an image in <code>setup()</code>:</p>
+<pre><code class="language-lua">img = loadImage('path/to/your/image.jpg')
+</code></pre>
+<p>Then draw it in your grid instead of (or alongside) text:</p>
+<pre><code class="language-lua">if random() &gt; 0.9 then
+  if random() &gt; 0.5 then
+    text(random(words), x, y)
+  else
+    image(img, x, y, 50, 50)
+  end
+end
+</code></pre>
+<h3 id="rotating-text">Rotating Text</h3>
+<p>Add rotation to make text appear at different angles:</p>
+<pre><code class="language-lua">push()
+translate(x, y)
+rotate(random() * TWO_PI)
+text(random(words), 0, 0)
+pop()
+</code></pre>
+<h2 id="vocabulary">Vocabulary</h2>
+<ul>
+<li><strong>Generative:</strong> Art or designs created by following a set of rules or algorithms, often involving randomness</li>
+<li><strong>Computational Poetry:</strong> Using code and algorithms to create, arrange, or manipulate text as a form of poetic expression</li>
+<li><strong>Array/Table:</strong> A collection of values stored together (in Lua, called a "table")</li>
+<li><strong>Algorithm:</strong> A set of step-by-step instructions to solve a problem or create something</li>
+<li><strong>Parameter:</strong> A value you pass into a function to customize how it works</li>
+<li><strong>Random:</strong> Unpredictable; choosing something without a pattern</li>
+<li><strong>Grid:</strong> A layout system based on evenly-spaced rows and columns</li>
+<li><strong>Iteration:</strong> Repeating a process multiple times (like in a loop)</li>
+</ul>
+<h2 id="going-further">Going Further</h2>
+<p>Computational poetry is a rich field with many approaches. Research these artists and techniques:</p>
+<ul>
+<li><strong>Concrete poetry:</strong> Poetry where the visual arrangement is as important as the words</li>
+<li><strong>Blackout poetry:</strong> Creating new poems by selectively revealing words from existing text</li>
+<li><strong>Erasure poetry:</strong> Similar to blackout poetry, removing words to create new meaning</li>
+<li><strong>Artists to explore:</strong> Allison Parrish, Nick Montfort, Lillian-Yvonne Bertram</li>
+<li><strong>Online computational poetry:</strong> <a href="https://taper.badquar.to/">Taper</a>, <a href="https://thehtml.review">The HTML Review</a>, <a href="https://randomwalk.club/">Random Walk</a></li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://l5lua.org/reference">L5 Documentation</a></li>
+<li><a href="https://l5lua.org/tutorials">More L5 Tutorials</a></li>
+<li><a href="https://l5lua.org/examples">L5 Examples</a></li>
+</ul>
+<h2 id="share-your-work">Share Your Work!</h2>
+<p>Created something interesting? Share it with the <a href="https://discourse.processing.org/c/l5/29">L5 category</a> on the Processing Discourse forum or with #L5 on social media. We'd love to see what you make.</p>
+<hr />
+<p><em>This tutorial was created for CCFest and is available under a Creative Commons Attribution 4.0 International License.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

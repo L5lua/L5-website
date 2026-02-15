@@ -1,0 +1,1619 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/tutorials/arrays-tables/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Arrays (Ordered Tables) - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arrays-ordered-tables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arrays (Ordered Tables)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-nav__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    L5: A Processing Library in Lua
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to L5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../download/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Download
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-mac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Mac
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/install-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install for Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../L5-for-processingp5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L5 for Processing-p5.js programmers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#shape" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#color" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#typography" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Typography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#image" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#media" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Media
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#transform" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#environment" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#rendering" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#math" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#io" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#events" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#data" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#structure" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#constants" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/#foundation" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bug-reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bug Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For developers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../copyleft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copyleft
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays-ordered-tables_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrays (Ordered Tables)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-array-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing Array Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrays-and-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrays and Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The # Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Random Initialization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-tables-2d-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested Tables (2D Arrays)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-snake-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Snake Trail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arrays-ordered-tables">Arrays (Ordered Tables)</h1>
+<p><strong>Previous tutorial</strong>: <a href="../for-loops/">For Loops</a></p>
+<p>You now know how to use variables, create functions, use if statements, create animations, get user input, and use for loops. This tutorial introduces <strong>arrays</strong> (ordered tables in Lua), which let you store multiple values in a single variable!</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Let's say you want to draw multiple circles that bounce around the screen. You might start with code like this:</p>
+<p><img alt="circles bounce around the screen" src="/assets/tutorials/arrays-tables1.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+circle1X = 100
+circle1Y = 100
+circle1SpeedX = 2
+circle1SpeedY = 1
+
+circle2X = 200
+circle2Y = 150
+circle2SpeedX = -1
+circle2SpeedY = 2
+
+circle3X = 150
+circle3Y = 200
+circle3SpeedX = 1
+circle3SpeedY = -2
+
+function setup()
+  size(300, 300)
+end
+
+function draw()
+  background(220)
+
+  -- Move and draw circle 1
+  circle1X = circle1X + circle1SpeedX
+  circle1Y = circle1Y + circle1SpeedY
+  if circle1X &lt; 0 or circle1X &gt; width then circle1SpeedX = circle1SpeedX * -1 end
+  if circle1Y &lt; 0 or circle1Y &gt; height then circle1SpeedY = circle1SpeedY * -1 end
+  circle(circle1X, circle1Y, 20)
+
+  -- Move and draw circle 2
+  circle2X = circle2X + circle2SpeedX
+  circle2Y = circle2Y + circle2SpeedY
+  if circle2X &lt; 0 or circle2X &gt; width then circle2SpeedX = circle2SpeedX * -1 end
+  if circle2Y &lt; 0 or circle2Y &gt; height then circle2SpeedY = circle2SpeedY * -1 end
+  circle(circle2X, circle2Y, 20)
+
+  -- Move and draw circle 3
+  circle3X = circle3X + circle3SpeedX
+  circle3Y = circle3Y + circle3SpeedY
+  if circle3X &lt; 0 or circle3X &gt; width then circle3SpeedX = circle3SpeedX * -1 end
+  if circle3Y &lt; 0 or circle3Y &gt; height then circle3SpeedY = circle3SpeedY * -1 end
+  circle(circle3X, circle3Y, 20)
+end
+</code></pre>
+<p>This is very repetitive! And what if you wanted 10 circles? Or 100?</p>
+<h2 id="arrays-ordered-tables_1">Arrays (Ordered Tables)</h2>
+<p>An <strong>array</strong> is an ordered table in Lua - a table that holds multiple values in a specific sequence.</p>
+<p>To create an ordered table in Lua, use curly brackets <code>{}</code>:</p>
+<pre><code class="language-lua">circleX = {100, 200, 150}
+</code></pre>
+<p>This creates a table named <code>circleX</code> that holds three values: <code>100</code>, <code>200</code>, and <code>150</code>.</p>
+<h2 id="accessing-array-elements">Accessing Array Elements</h2>
+<p>To access an element in a table, use square brackets <code>[]</code> with an index:</p>
+<pre><code class="language-lua">print(circleX[1])  -- prints 100
+print(circleX[2])  -- prints 200
+print(circleX[3])  -- prints 150
+</code></pre>
+<p><strong>Important:</strong> In Lua, arrays start at index <code>1</code>, not <code>0</code>!</p>
+<h2 id="arrays-and-loops">Arrays and Loops</h2>
+<p>Arrays become powerful when combined with for loops. Instead of writing repetitive code for each circle, you can use a loop:</p>
+<p><img alt="circles bounce around the screen" src="/assets/tutorials/arrays-tables1.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+circleX = {100, 200, 150}
+circleY = {100, 150, 200}
+circleSpeedX = {2, -1, 1}
+circleSpeedY = {1, 2, -2}
+
+function setup()
+  size(300, 300)
+end
+
+function draw()
+  background(220)
+
+  for i = 1, 3 do
+    -- Move circle
+    circleX[i] = circleX[i] + circleSpeedX[i]
+    circleY[i] = circleY[i] + circleSpeedY[i]
+
+    -- Bounce off edges
+    if circleX[i] &lt; 0 or circleX[i] &gt; width then
+      circleSpeedX[i] = circleSpeedX[i] * -1
+    end
+    if circleY[i] &lt; 0 or circleY[i] &gt; height then
+      circleSpeedY[i] = circleSpeedY[i] * -1
+    end
+
+    -- Draw circle
+    circle(circleX[i], circleY[i], 20)
+  end
+end
+</code></pre>
+<p>Now the code is much shorter and easier to work with!</p>
+<h2 id="the-operator">The # Operator</h2>
+<p>Instead of hardcoding the number of elements, you can use the <code>#</code> operator to get the length of a table:</p>
+<pre><code class="language-lua">for i = 1, #circleX do
+  -- code here
+end
+</code></pre>
+<p>This makes it easy to add or remove elements without changing your loop!</p>
+<h2 id="adding-elements">Adding Elements</h2>
+<p>You can add elements to a table using <code>table.insert()</code>. This takes two arguments: the name of the table, and the item you want to insert at the end:</p>
+<pre><code class="language-lua">table.insert(tableName, value)  -- adds to end
+</code></pre>
+<p>Optionally, you can specify an index as the second argument to insert the new element at a specific position in the table:</p>
+<pre><code class="language-lua">table.insert(tableName, index, value)  -- inserts at specific position
+</code></pre>
+<p>Here's an example:</p>
+<p><img alt="3 circles are drawn where the mouse cursor is pressed" src="/assets/tutorials/arrays-tables2.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+circleX = {}
+circleY = {}
+
+function setup()
+  size(300, 300)
+  background(220)
+end
+
+function draw()
+  -- Don't clear background - leave a trail
+end
+
+function mousePressed()
+  table.insert(circleX, mouseX)
+  table.insert(circleY, mouseY)
+
+  -- Draw all circles
+  for i = 1, #circleX do
+    circle(circleX[i], circleY[i], 30)
+  end
+end
+</code></pre>
+<p>This program adds a circle wherever you click!</p>
+<h2 id="removing-elements">Removing Elements</h2>
+<p>You can remove elements using <code>table.remove()</code>. This works similarly to <code>table.insert()</code> - you pass it the table name, and optionally an index:</p>
+<pre><code class="language-lua">table.remove(tableName)        -- removes last element
+table.remove(tableName, index) -- removes element at specific position
+</code></pre>
+<p>If you don't specify an index, it removes the last element. If you do specify an index, it removes the element at that position.</p>
+<p>Here's an example:</p>
+<p><img alt="3 circles are added to the window, then disappear in reverse order" src="/assets/tutorials/arrays-tables3.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+circleX = {}
+circleY = {}
+
+function setup()
+  size(300, 300)
+end
+
+function draw()
+  background(220)
+
+  -- Draw all circles
+  for i = 1, #circleX do
+    circle(circleX[i], circleY[i], 30)
+  end
+end
+
+function mousePressed()
+  -- Add circle at mouse position
+  table.insert(circleX, mouseX)
+  table.insert(circleY, mouseY)
+end
+
+function keyPressed()
+  -- Remove last circle when any key is pressed
+  if #circleX &gt; 0 then
+    table.remove(circleX)
+    table.remove(circleY)
+  end
+end
+</code></pre>
+<p>Click to add circles, press any key to remove the last one!</p>
+<h2 id="random-initialization">Random Initialization</h2>
+<p>You can use loops to fill arrays with random values:</p>
+<p><img alt="10 circles are spread around the window" src="/assets/tutorials/arrays-tables4.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+circleX = {}
+circleY = {}
+circleSize = {}
+
+function setup()
+  size(300, 300)
+
+  -- Create 10 random circles
+  for i = 1, 10 do
+    circleX[i] = random(width)
+    circleY[i] = random(height)
+    circleSize[i] = random(10, 50)
+  end
+end
+
+function draw()
+  background(220)
+
+  -- Draw all circles
+  for i = 1, #circleX do
+    circle(circleX[i], circleY[i], circleSize[i])
+  end
+end
+</code></pre>
+<p>This creates 10 circles at random positions with random sizes!</p>
+<h2 id="nested-tables-2d-arrays">Nested Tables (2D Arrays)</h2>
+<p>You can create tables of tables (2D arrays) for grid-based data:</p>
+<p><img alt="a grid of various grayscale squares" src="/assets/tutorials/arrays-tables5.webp" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+grid = {}
+
+function setup()
+  size(300, 300)
+
+  -- Create a 10x10 grid
+  for row = 1, 10 do
+    grid[row] = {}
+    for col = 1, 10 do
+      grid[row][col] = random(255)
+    end
+  end
+end
+
+function draw()
+  for row = 1, 10 do
+    for col = 1, 10 do
+      fill(grid[row][col])
+      rect((col - 1) * 30, (row - 1) * 30, 30, 30)
+    end
+  end
+end
+</code></pre>
+<p>This creates a grid of randomly colored squares!</p>
+<h2 id="example-snake-trail">Example: Snake Trail</h2>
+<p>Here's a complete example that creates a trail that follows the mouse:</p>
+<p><img alt="a snakelike chain of circles follows the cursor" src="/assets/tutorials/arrays-tables6.gif" /></p>
+<pre><code class="language-lua">require(&quot;L5&quot;)
+
+trailX = {}
+trailY = {}
+maxLength = 20
+
+function setup()
+  size(300, 300)
+end
+
+function draw()
+  background(220)
+
+  -- Add current mouse position
+  table.insert(trailX, mouseX)
+  table.insert(trailY, mouseY)
+
+  -- Remove oldest position if trail is too long
+  if #trailX &gt; maxLength then
+    table.remove(trailX, 1)
+    table.remove(trailY, 1)
+  end
+
+  -- Draw trail
+  for i = 1, #trailX do
+    size = (i / #trailX) * 30
+    circle(trailX[i], trailY[i], size)
+  end
+end
+</code></pre>
+<p>This creates a trail that follows your mouse, with circles getting bigger toward the mouse!</p>
+<h2 id="practice">Practice</h2>
+<p>Congratulations! You've now learned the fundamentals of arrays through ordered tables in L5. Here are some ideas to practice with arrays:</p>
+<ul>
+<li>Create a drawing program that stores all your strokes and can replay them</li>
+<li>Make a simple particle system with many moving circles</li>
+<li>Create a "snake" game where the snake grows as it eats food</li>
+<li>Build a simple animation with multiple objects moving in patterns</li>
+<li>Make a starfield with twinkling stars</li>
+<li>Create a rain animation with many falling drops</li>
+<li>Build a simple physics simulation with bouncing balls</li>
+</ul>
+<p><strong>Next tutorial</strong>: <a href="../using-objects/">Using Objects</a></p>
+<hr />
+<p><em>This tutorial is adapted from <a href="https://happycoding.io/tutorials/p5js/arrays">Arrays</a> by <a href="https://happycoding.io">Happy Coding</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
