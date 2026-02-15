@@ -123,7 +123,21 @@ function intersectPoint(aX1, aY1, aX2, aY2, bX1, bY1, bX2, bY2)
 end
 ```
 
+## Related References
+
+* [if](/reference/if)
+* [line()](/reference/line)
+* [draw()](/reference/draw)
+* [frameRate()](/reference/frameRate)
+* [random()](/reference/random)
+
 ## Related Examples
 
 * [10print](10print.md) - An implementation of the classic maze-drawing algorithm
-* [Conway's Game of Life](conways-life.md) - An implementation of the zero-player game and simulation formulated by mathematician John Conway
+* [Animation with Events](animation-and-variables-animation-with-events.md) - Pause and resume animation.
+* [Basic Pong](basic-pong.md) - A simple program demonstrating a basic implementation of pong with enemy AI player
+* [Conditions](animation-and-variables-conditions.md) - Use if and else statements to make decisions while your sketch runs.
+* [Copy Image Data](imported-media-copy-image-data.md) - Paint from an image file onto the canvas.
+* [Conway's Game Of Life](conways-life.md) - An implementation of the zero-player game and simulation formulated by mathematician John Conway
+* [Minimum Spanning Tree](min-span-tree.md) - An example of implementing Prim's algorithm for finding the shortest lengths to connect all randomly placed dots
+

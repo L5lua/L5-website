@@ -202,3 +202,12 @@ end
 * [function](/reference/function)
 * [local](/reference/local)
 * [mouseDragged()](/reference/mouseDragged)
+
+## Related Examples
+
+* [10print](10print.md) - An implementaton of the famous 1980s one-liner maze-drawing program
+* [Animation with Events](animation-and-variables-animation-with-events.md) - Pause and resume animation.
+* [Basic Pong](basic-pong.md) - A simple program demonstrating a basic implementation of pong with enemy AI player
+* [Minimum Spanning Tree](min-span-tree.md) - An example of implmenting Prim's algorithm for finding the shortest lengths to connect all randomly placed dots
+* [Walking lines](walking-lines.md) - Visualizes randomly drawn lines bouncing around a box with their intersecting points highlighted
+

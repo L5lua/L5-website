@@ -70,3 +70,6 @@ end
 * [Conditions](animation-and-variables-conditions.md) - Use if and else statements to make decisions while your sketch runs.
 * [Copy Image Data](imported-media-copy-image-data.md) - Paint from an image file onto the canvas.
 * [Conway's Game Of Life](conways-life.md) - An implementation of the zero-player game and simulation formulated by mathematician John Conway
+* [Minimum Spanning Tree](min-span-tree.md) - An example of implementing Prim's algorithm for finding the shortest lengths to connect all randomly placed dots
+* [Walking lines](walking-lines.md) - Visualizes randomly drawn lines bouncing around a box with their intersecting points highlighted
+

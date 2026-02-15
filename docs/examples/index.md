@@ -15,6 +15,7 @@
 * [Walking Lines](walking-lines.md) - Animated intersecting lines
 * [10Print](10print.md) - An implementation of the classic maze-drawing algorithm
 * [Conway's Game Of Life](conways-life.md) - An implementation of the zero-player game and simulation formulated by mathematician John Conway
+* [Minimum Spanning Tree](min-span-tree.md) - An example of implementing Prim's algorithm for finding the shortest lengths to connect all randomly placed dots
 
 ## Imported Media
 
