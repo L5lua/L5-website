@@ -1,4 +1,4 @@
-# mouseIsPressed()
+# mouseIsPressed
  
 A `Boolean` system variable that's `true` if the mouse is pressed and
 `false` if not.
