@@ -68,22 +68,17 @@ function draw()
     end
 end
 
-function keyPressed()
-    -- If the key is between 'A'(65) to 'Z' and 'a' to 'z'(122)
-    local keyByte = string.byte(key)
-
-    if (keyByte >= string.byte('A') and keyByte <= string.byte('Z')) or
-        (keyByte >= string.byte('a') and keyByte <= string.byte('z')) then
-        local keyIndex
-        if keyByte <= string.byte('Z') then
-            keyIndex = keyByte - string.byte('A')
-            letterHeight = maxHeight
-            fill(colors[keyIndex])
-        else
-            keyIndex = keyByte - string.byte('a')
-            letterHeight = minHeight
-            fill(colors[keyIndex])
-        end
+function textinput(text)    
+    local alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    
+    if string.match(key, "^[A-Z]$") then
+        keyIndex = string.find(alphabet, key) - 1
+        letterHeight = maxHeight
+        fill(colors[keyIndex])
+    elseif string.match(key, "^[a-z]$") then
+        keyIndex = string.find(alphabet, string.upper(key)) - 1
+        letterHeight = minHeight
+        fill(colors[keyIndex])
     else
         fill(0)
         letterHeight = 10
