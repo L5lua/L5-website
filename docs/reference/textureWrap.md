@@ -1,14 +1,10 @@
 # textureWrap()
 
-Changes the way textures behave when a shape’s uv coordinates go beyond the texture.
-
-In order for texture() to work, a shape needs a way to map the points on its surface to the pixels in an image. Custom shapes created with vertex() require texture mappings to be passed as uv coordinates.
-
-For texturing a custom shape each call to vertex() must include 4 arguments, as in `vertex(x, y, u, v)`, to map the vertex at coordinates `(x, y)` to the pixel at coordinates `(u, v)` within an image. 
+Defines if textures repeat or draw once within a texture map. The two parameters are CLAMP (the default behavior) and REPEAT. 
 
 ## Examples
 
-![textureWrap example 1](assets/textureWrap1.webp)
+![textureWrap example 1](assets/textureWrap1.gif)
 
 ```lua
 local img
@@ -51,13 +47,14 @@ textureWrap(wrap)
 
 ## Parameters
 
-wrap: Either CLAMP or REPEAT.
+wrap: Either CLAMP (default) or REPEAT.
 
 ## Related
 
+* [beginShape()](beginShape.md)
+* [endShape()](endShape.md)
 * [texture()](texture.md)
 * [textureMode()](textureMode.md)
-
 
 ---
 

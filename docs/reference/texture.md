@@ -1,8 +1,8 @@
 # texture()
 
-Sets a texture to be applied to vertex points. The `texture()` function must be called between `beginShape()` and `endShape()` and before any calls to `vertex()`. 
+Sets a texture to be applied to vertex points. 
 
-You will need to specify uv coordinates in each `vertex()`. A uv cordinate indicates the placement of the mesh texture onto the shape, normally between 0 and 1.
+To properly wrap custom shapes you will need to specify uv coordinates in each `vertex()`. A uv cordinate indicates the placement of the mesh texture onto the shape. These can be specified normalized or as pixels with `textureMode()`.
 
 *Note: Works similar to Processing's implementation rather than p5.js.*
 
@@ -46,7 +46,6 @@ texture(image)
 * [beginShape()](beginShape.md)
 * [endShape()](endShape.md)
 * [vertex()](vertex.md)
-
 
 ---
 

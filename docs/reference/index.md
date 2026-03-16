@@ -94,6 +94,12 @@ An offline version of this documentation is available for [download](/download/#
 * [set()](set.md)
 * [updatePixels()](updatePixels.md)
 
+### Textures
+
+* [texture()](texture.md)
+* [textureMode()](textureMode.md)
+* [textureWrap()](textureWrap.md)
+
 ## Media
 
 ### Video

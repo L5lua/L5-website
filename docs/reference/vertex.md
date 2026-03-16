@@ -7,7 +7,7 @@ beginShape() and
 endShape() functions.
 
 The first two parameters, `x` and `y`, set the x- and y-coordinates of the
-vertex.
+vertex. Two additional parameters `u` and `v` must be added for any custom shape with an image texture. These map the coordinates of the source texture image, and can be specified in pixels (`IMAGE`, the default mode) or normalized (`NORMAL`) with `textureMode()`.
 
 ## Examples
 
@@ -40,24 +40,51 @@ function setup()
 end
 ```
 
+![vertex example 2](assets/textureMode1.webp)
+
+```
+require("L5")
+
+function setup()
+  size(400, 400)
+  windowTitle("Example of textureMode")
+  noStroke()
+  img = loadImage("assets/flower.jpg")
+  beginShape()
+  texture(img)
+
+  -- flower image is 3100x3100 pixels
+  vertex(40, 80, 0, 0)
+  vertex(320, 20, 3100, 0)
+  vertex(380, 360, 3100, 3100)
+  vertex(160, 380, 0, 3100)
+  endShape()
+  describe("wrapping a flower texture around a polygon and specified u,v mapping")
+end
+```
+
 ## Syntax
 
 ```lua
 vertex(x, y)
+vertex(x, y, u, v)
 ```
 
 ## Parameters
 
-| Parameter | |
-| - | -- |
-| x | Number: x-coordinate of the vertex. |
-| y | Number: y-coordinate of the vertex. |
+| Parameter |                                                       |
+| -         | --                                                    |
+| x         | Number: x-coordinate of the vertex.                   |
+| y         | Number: y-coordinate of the vertex.                   |
+| u         | Number: horizontal coordinate of the texture mapping. |
+| v         | Number: vertical coordinate of the texture mapping.   |
 
 ## Related
 
 * [beginShape()](beginShape.md)
 * [endShape()](endShape.md)
-
+* [texture()](texture.md)
+* [textureMode()](textureMode.md)
 
 ---
 
