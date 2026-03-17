@@ -1,25 +1,6 @@
 # Basic Pong
 
-This is a basic implementation of Pong in L5. 
-
-It demonstrates:
-
-* [table](/reference/table)-based game objects
-* mouse input
-* simple AI
-* collision detection
-* score tracking
-* game loop structure
-* use of randomness
-
-From here, you can add additional features such as:
-
-* speeding up the ball on each paddle hit until a player scores 10 points to win
-* a win/lose screen that appears when a player gets 10 points, showing who won and final scores. Click to reset the game and start again.
-* smarter enemy AI that better anticipates the direction of the ball's movement
-* more players - try adding player 3 and 4 along the top and bottom. Each player should have 2 keys for moving their player paddle.
-
-For more ideas, check out Pippin Barr's [PONGS](https://pippinbarr.com/pongs/info/).
+This is a simple implementation of Pong in L5 with table-based game objects, mouse input, minimal "AI" opponent, collision detection and basic game loop. 
 
 ![animation of a game of pong with 2 player paddles trying to hit the red ball](/assets/examples/basic-pong.gif "A basic game of pong with 2 player paddles trying to hit a red ball")
 

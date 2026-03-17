@@ -6,11 +6,7 @@ Daily rituals uses L5's [loadStrings()](/reference/loadStrings) function to load
 
 The [text file can be downloaded](https://gist.github.com/lee2sman/43709f948a2c4be1132774e082a5ee0a) for use with the L5 program, or you can write your own. Be sure to place it in the same folder of your Daily Rituals project. It should have at least 31 lines of text. The font file [Frijole-Regular](https://fonts.google.com/specimen/Frijole) can be downloaded and placed in the same folder.
 
-The program labels the window with the current day, loads the font and sets up text styling. Then it loads the lines of text from the text file into an array with as many elements as total days in a month. Finally, it draws some random lines for texture, grabs the current day of the month, and displays the day's ritual. Try logging your daily practice.
-
-After trying out the program, consider changing the rituals, font, altering the time period, even building a way to save your own response to the ritual prompts, turning it into a game, or making your own totally new derivation on the idea.
-
-Enjoy it.
+The program labels the window with the current day, loads the font and sets up text styling. Then it loads the lines of text from the text file into an array with as many elements as total days in a month. Finally, it draws some random lines for texture, grabs the current day of the month, and displays the day's ritual. 
 
 ![the text 'Close Your Eyes and Think of a Past Rainstorm - Sound, Taste. Name it.'](/assets/examples/daily-rituals.webp "The text: Close Your Eyes and Think of a Past Rainstorm - Sound, Taste. Name it.")
 
