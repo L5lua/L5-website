@@ -1,20 +1,6 @@
 # Mouse Press
 
-This example creates a crosshair that follows the mouse position. The stroke color changes when the mouse button is pressed, creating an inverted visual effect.
-
-It demonstrates:
-
-- the `mouseIsPressed` built-in variable to check if mouse button is held down
-- creating dynamic visual feedback based on input state
-- simple shapes (lines) controlled by mouse position
-- conditional rendering based on input state
-
-From here, you can try:
-
-- drawing more complex shapes instead of just lines
-- creating different visual modes based on mouse state
-- adding trails or previous positions to create patterns
-- adding keyboard modifiers to change behavior
+Move the mouse to position the shape. Press the mouse button to invert the color. Note that L5 and p5.js both have a `mouseIsPressed` boolean, which is different than in Processing's *mousePressed* convention.
 
 ![animation of a crosshair that changes color when mouse button is pressed](/assets/examples/mouse-press.gif "A white and black crosshair following the mouse that inverts colors when the mouse button is pressed")
 
@@ -32,7 +18,7 @@ function setup()
 end
 
 function draw()
-    if (mouseIsPressed) then
+    if mouseIsPressed then
         stroke(255)
     else
         stroke(0)
@@ -42,3 +28,16 @@ function draw()
     line(mouseX, mouseY - 66, mouseX, mouseY + 66)
 end
 ```
+
+## Related Examples
+
+* [Constrain](constrain.md)
+* [Easing](easing.md)
+* [Keyboard](keyboard.md)
+* [Keyboard Functions](keyboard-functions.md)
+* [Milliseconds](milliseconds.md)
+* [Mouse 2D](mouse-2d.md)
+
+---
+
+Adapted from Processing examples. Adapted to L5 2025. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

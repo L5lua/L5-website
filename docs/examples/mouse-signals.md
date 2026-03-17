@@ -1,24 +1,6 @@
 # Mouse Signals
 
-This example visualizes mouse input signals in real-time by displaying three continuous signal graphs: mouse X position, mouse Y position, and mouse button press state.
-
-It demonstrates:
-
-- using tables/arrays to store historical data
-- creating shifting buffer patterns (circular array technique)
-- the modulo operator for array indexing
-- visualizing continuous data streams
-- `mouseIsPressed` for button state tracking
-- converting time-series data into visual waveforms
-
-From here, you can try:
-
-- adding more signals (keyboard input, time-based values, etc.)
-- using different visualization methods (bars, curves, dots)
-- recording and playback of signal data
-- analyzing signal patterns programmatically
-- creating audio visualization based on mouse signals
-- displaying statistical information about the signals
+Move and click the mouse to generate signals. The top row is the signal from "mouseX", the middle row is the signal from "mouseY", and the bottom row is the signal from "mousePressed".
 
 ![animation of three waveforms tracking mouse movement and clicks](/assets/examples/mouse-signals.gif "Three horizontal signal graphs showing mouse X position, mouse Y position, and mouse button state as continuous waveforms")
 
@@ -88,3 +70,16 @@ function draw()
     end
 end
 ```
+
+## Related Examples
+
+* [Constrain](constrain.md)
+* [Easing](easing.md)
+* [Keyboard](keyboard.md)
+* [Keyboard Functions](keyboard-functions.md)
+* [Milliseconds](milliseconds.md)
+* [Mouse 1D](mouse-1d.md)
+
+---
+
+Adapted from Processing examples. Adapted to L5 2025. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

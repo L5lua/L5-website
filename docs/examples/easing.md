@@ -1,21 +1,6 @@
 # Easing
 
-This example demonstrates smooth animation by moving a shape toward the mouse position with easing. The shape doesn't jump directly to the cursor but gradually glides toward it.
-
-It demonstrates:
-
-- creating smooth, natural-looking motion
-- calculating the difference between current and target positions
-- applying easing factors to create gradual movement
-- following the mouse position without snap
-- simple animation principles
-
-From here, you can try:
-
-- varying the easing value to create different speeds and smoothness levels
-- having multiple shapes with different easing values
-- creating easing toward different target positions (not just the mouse)
-- implementing other interpolation methods like lerp or acceleration/velocity
+Move the mouse across the screen and the symbol will follow. Between drawing each frame of the animation, the program calculates the difference between the position of the symbol and the cursor. If the distance is larger than 1 pixel, the symbol moves part of the distance (0.05) from its current position toward the cursor.
 
 ![animation of a circle smoothly following the mouse cursor](/assets/examples/easing.gif "A white circle that glides toward the mouse cursor with smooth easing")
 
@@ -50,3 +35,16 @@ function draw()
     ellipse(x, y, 66)
 end
 ```
+
+## Related Examples
+
+* [Clock](clock.md)
+* [Constrain](constrain.md)
+* [Keyboard](keyboard.md)
+* [Keyboard Functions](keyboard-functions.md)
+* [Milliseconds](milliseconds.md)
+* [Mouse 1D](mouse1d.md)
+
+---
+
+Adapted from Processing examples. Adapted to L5 2025. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

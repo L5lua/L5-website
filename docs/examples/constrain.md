@@ -2,21 +2,6 @@
 
 This example demonstrates constraining a shape's movement within a bounded area. A circle follows the mouse with easing applied, keeping it within a rectangular box.
 
-It demonstrates:
-
-- the `constrain()` function to limit values within a range
-- smooth motion with easing
-- mouse tracking with gradual animation
-- using `abs()` to check for minimum movement thresholds
-- different drawing modes with `ellipseMode()` and `rectMode()`
-
-From here, you can try:
-
-- creating multiple constrained objects that interact with each other
-- using different easing values to create different speeds
-- constraining to circular or other shaped boundaries
-- adding keyboard controls to move the constrained object
-
 ![animation of a circle following the mouse within a bounded box](/assets/examples/constrain.gif "A white circle that follows the mouse while staying constrained within a rectangular boundary")
 
 ```lua
@@ -60,3 +45,16 @@ function draw()
     ellipse(mx, my, radius, radius)
 end
 ```
+
+## Related examples
+
+* [Clock](clock.md)
+* [Easing](easing.md)
+* [Keyboard](keyboard.md)
+* [Keyboard Functions](keyboard-functions.md)
+* [Milliseconds](milliseconds.md)
+* [Mouse 1D](mouse1d.md)
+
+---
+
+Adapted from Processing examples. Adapted to L5 2025. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

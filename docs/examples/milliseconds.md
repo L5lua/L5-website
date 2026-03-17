@@ -1,21 +1,6 @@
 # Milliseconds
 
-This example uses the `millis()` function to create color patterns that change based on elapsed time. Different vertical strips cycle through colors at different rates using the modulo operator.
-
-It demonstrates:
-
-- the `millis()` function to track elapsed time in milliseconds
-- using the modulo operator (`%`) to create repeating time patterns
-- the `colorMode()` function for dynamic color range control
-- scaling and subdividing the screen
-- creating time-based animation without explicit frame counting
-
-From here, you can try:
-
-- using milliseconds to animate object positions or sizes
-- creating sound visualization based on elapsed time
-- making patterns that synchronize to specific time intervals
-- combining milliseconds with other time functions like `second()` and `minute()`
+A millisecond is 1/1000 of a second. Processing keeps track of the number of milliseconds a program has run. By modifying this number with the modulo(%) operator, different patterns in time are created.
 
 ![animation of vertical color strips cycling at different rates](/assets/examples/milliseconds.gif "Vertical colored stripes that cycle through colors at different speeds based on elapsed milliseconds")
 
@@ -39,3 +24,16 @@ function draw()
     end
 end
 ```
+
+## Related Examples
+
+* [Clock](clock.md)
+* [Constrain](constrain.md)
+* [Easing](easing.md)
+* [Keyboard](keyboard.md)
+* [Keyboard Functions](keyboard-functions.md)
+* [Mouse 1D](mouse1d.md)
+
+---
+
+Adapted from Processing examples. Adapted to L5 2025. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

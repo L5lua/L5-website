@@ -16,14 +16,6 @@ And here, following in tradition, we attempt yet another port of the original 10
 
 A main structure in this implementation are nested loops. This classic programming pattern is used everywhere from grid-based and patterned artworks to top down and sidescrolling tiled 2D videogames. The inner loop of incrementing x values advances the blocks across the page all the way to the right, where at that point the y value advances one block down the page, and begins looping through the x values again, drawing to the right, finally stopping drawing one complete iteration of the maze upon reaching the bottom of the window before drawing anew top to bottom again on the successive frame.
 
-Ways you can build on the 10print code:
-
-* Add color to the maze
-* Alter the randomness percentage to be more likely to draw one kind of line or the other
-* Change the block output to other line forms or shapes to make other kinds of mazes 
-* Figure out an implementation that iteratively adds one line per frame rather than drawing the whole maze grid at once
-* Apply more ideas you read about from [10Print](https://10print.org/) and ideas of your own
-
 ![a maze of changing corridor size](/assets/examples/10print.gif)
 
 ```lua

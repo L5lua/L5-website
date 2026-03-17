@@ -1,25 +1,6 @@
 # Storing Input
 
-This example records mouse positions over time and displays them as a trail of circles. The most recent positions are drawn largest, creating a smooth motion trail effect.
-
-It demonstrates:
-
-- storing historical data in arrays
-- implementing a circular buffer pattern
-- using modulo operator (`%`) for array wrapping
-- the `frameCount` variable for frame tracking
-- creating motion trails with decreasing opacity/size
-- efficient memory usage by reusing array slots
-
-From here, you can try:
-
-- adding color variation to the trail based on age
-- implementing trails for multiple objects
-- using trails for collision detection
-- creating fade-out effects for old trail points
-- storing different types of data (velocity, acceleration, etc.)
-- playback of recorded input sequences
-- using trails to visualize object paths over time
+Move the mouse across the screen to change the position of the circles. The positions of the mouse are recorded into an array and played back every frame. Between each frame, the newest value are added to the end of each array and the oldest value is deleted.
 
 ![animation of mouse trail showing translucent circles](/assets/examples/storing-input.gif "A trail of translucent circles following the mouse cursor, with larger circles representing more recent positions")
 
@@ -64,3 +45,16 @@ function draw()
     end
 end
 ```
+
+## Related Examples
+
+* [Constrain](constrain.md)
+* [Easing](easing.md)
+* [Keyboard](keyboard.md)
+* [Milliseconds](milliseconds.md)
+* [Mouse 1D](mouse-1d.md)
+* [Mouse 2D](mouse-2d.md)
+
+---
+
+Adapted from Processing examples. Adapted to L5 2025. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

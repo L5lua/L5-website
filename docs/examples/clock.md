@@ -1,21 +1,6 @@
 # Clock
 
-This example displays the current time as an analog clock using sine and cosine functions to position the clock hands.
-
-It demonstrates:
-
-- reading the current time with `second()`, `minute()`, and `hour()`
-- using trigonometric functions (`sin()` and `cos()`) to position elements in circular patterns
-- the `map()` function to convert time values to angles
-- drawing multiple elements at different scales
-- using `HALF_PI` to rotate angle calculations
-
-From here, you can try:
-
-- adding a digital time display alongside the analog clock
-- creating a 12-hour vs 24-hour clock toggle
-- adding decorative elements like numbers around the clock face
-- animating the transition between hour, minute, and second hands
+The current time can be read with the `second()`, `minute()`, and `hour()` functions. In this example, `sin()` and `cos()` values are used to set the position of the hands.
 
 ![animation of an analog clock displaying the current time](/assets/examples/clock.gif "An analog clock with moving hour, minute, and second hands")
 
@@ -78,3 +63,16 @@ function draw()
     end
 end
 ```
+
+## Related Examples
+
+* [Constrain](constrain.md)
+* [Easing](easing.md)
+* [Keyboard](keyboard.md)
+* [Keyboard Functions](keyboard-functions.md)
+* [Milliseconds](milliseconds.md)
+* [Mouse 1D](mouse1d.md)
+
+---
+
+Adapted from Processing examples. Adapted to L5 2025. Licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
