@@ -29,7 +29,7 @@ This compressed folder contains the *L5.lua* library, a starter *main.lua* file 
 
 **Latest version:** [Download L5.lua](https://raw.githubusercontent.com/L5lua/L5/main/L5.lua)
 
-**Stable release (v0.1.5):** [Download L5.lua v0.1.5](https://raw.githubusercontent.com/L5lua/L5/v0.1.5/L5.lua)
+**Stable release (v0.1.6):** [Download L5.lua v0.1.6](https://raw.githubusercontent.com/L5lua/L5/v0.1.6/L5.lua)
 
 ### Source code
 
