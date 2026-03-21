@@ -32,7 +32,7 @@ end
 * [Easing](easing.md)
 * [Keyboard](keyboard.md)
 * [Keyboard Functions](keyboard-functions.md)
-* [Mouse 1D](mouse1d.md)
+* [Mouse 1D](mouse-1d.md)
 
 ---
 

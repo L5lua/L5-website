@@ -53,7 +53,7 @@ end
 * [Keyboard](keyboard.md)
 * [Keyboard Functions](keyboard-functions.md)
 * [Milliseconds](milliseconds.md)
-* [Mouse 1D](mouse1d.md)
+* [Mouse 1D](mouse-1d.md)
 
 ---
 

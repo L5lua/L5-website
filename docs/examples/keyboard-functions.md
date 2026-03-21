@@ -92,7 +92,7 @@ end
 * [Easing](easing.md)
 * [Keyboard](keyboard.md)
 * [Milliseconds](milliseconds.md)
-* [Mouse 1D](mouse1d.md)
+* [Mouse 1D](mouse-1d.md)
 
 ---
 
