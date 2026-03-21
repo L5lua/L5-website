@@ -1,5 +1,11 @@
 # Installation on Mac
 
+## Video Tutorial
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ehs-fLQ5gfk?si=Cf-zsDI4APY6R8Wl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Text and Screenshot Tutorial
+
 This tutorial walks you through installing L5 with the Love (Love2d) framework on your Macintosh computer.
 
 1. Go to the [Love website](https://love2d.org) and click to download the 64-bit zipped Mac program.
