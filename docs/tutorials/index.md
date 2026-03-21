@@ -17,6 +17,7 @@
 
 ## More tutorials
 
+* [Computational Poetry with L5](computational-poetry.md) - A workshop tutorial created for [CCFest 2026](https://ccfest.rocks)
 * [Data Structure Garden](data-structure-garden.md) - Another tutorial on how to use objects and arrays
 * [Video](video.md) - An intro to video formats, and loading and playing videos with L5
 

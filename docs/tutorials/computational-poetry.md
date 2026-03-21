@@ -2,7 +2,9 @@
 
 ## Overview
 
-In this tutorial, you'll learn how to create generative visual poetry using L5, a creative coding library based on p5.js and Processing, but written in Lua. We'll explore how code can arrange words and images to create dynamic compositions that change with every interaction.
+This is a beginner-level tutorial for participants in the [CCFest 2026](https://ccfest.rocks) online conference.
+
+In this tutorial, you'll learn how to create generative visual poetry using L5, a creative coding library based on p5.js and Processing, but written in Lua. We'll explore how code can arrange words and images to create dynamic compositions.
 
 **Time Required:** 60 minutes
 
@@ -10,7 +12,7 @@ In this tutorial, you'll learn how to create generative visual poetry using L5, 
 
 ## Learning Objectives
 
-By the end of this tutorial, students will be able to:
+By the end of this tutorial, students should be able to:
 
 - Understand the basics of L5 and how it relates to p5.js/Processing
 - Draw text and shapes to the screen using code
@@ -19,59 +21,87 @@ By the end of this tutorial, students will be able to:
 - Build a grid-based layout system
 - Combine text, randomness, and interaction to create computational poetry
 
-## Setup
+## What is L5?
+
+L5 is a creative coding library that brings the simplicity and approachability of p5.js and Processing to the Lua programming language. If you've used p5.js or Processing before, you'll find L5 familiar - it uses the same basic structure with `setup()` and `draw()` functions, and similar function names for drawing shapes, working with color, and handling interaction.
+
+L5 uses Lua syntax, which is known for being clean and beginner-friendly. Lua uses simple keywords like `function`, `end`, and `for` that make code easy to read.
+
+L5 is heavily inspired by [permacomputing](https://permacomputing.net/), a growing movement responding to environmental and social conditions in computing. L5 is designed to be able to work on a wide variety of computers, to help prevent issues like needing to constantly upgrade, to work against "planned obsolescence", to consider constraints on consumption. The goal is for L5 to be a convivial tool that you can continue to use for years, with programs continuing to work long into the future.
+
+While this is the goal, L5 is *alpha* software. The first version was released in December 2025. It has bugs, and does not fully implement all of Processing/p5. A number of people are working on the language to improve it.
+
+## Installation
 
 To get started with L5, you'll need to set it up on your computer:
 
 - **Mac users:** [L5 Setup for Mac](https://l5lua.org/download/install-mac)
 - **Windows users:** [L5 Setup for Windows](https://l5lua.org/download/install-windows)
 
-Once you have L5 installed, you're ready to begin.
+Next you need a code editor to write your code. If you already use a code editor, use the one you're familiar with. If you have never used a code editor on your own computer, you can pick one like Visual Studio Code, SublimeText, or a dedicated Lua IDE like ZeroBrane Studio. 
+If you don't have any IDE installed on your computer you can even use your built-in plaintext editor TextEdit on macOS in plain text mode, or Notepad on Windows. But keep in mind they are barebones environments without additional features like syntax highlighting that make it easier to write code.
 
-## What is L5?
+Once you have 1) Love2d installed 2) L5-Starter downloaded and unzipped 3) and you've tested launching Love2d and making sure you've given your computer approval to launch it, then you're ready to go.
 
-L5 is a creative coding library that brings the simplicity and approachability of p5.js and Processing to the Lua programming language. If you've used p5.js or Processing before, you'll find L5 familiar - it uses the same basic structure with `setup()` and `draw()` functions, and similar function names for drawing shapes, working with color, and handling interaction.
-
-The main difference is that L5 uses Lua syntax, which is known for being clean and beginner-friendly. Lua uses simple keywords like `function`, `end`, and `for` that make code easy to read.
+To test it all out: Try dragging **the folder** L5-Starter on top of the Love2d application file. It should launch and you should see a gold window appear. If it doesn't launch, you either didn't drag the folder or you need to give your computer permission to run an *un-signed application*, meaning that the developer didn't pay Apple to pre-approve this software (on macOS), or that you're giving Windows permission to run this downloaded program.
 
 ## Getting Started: Your First L5 Sketch
 
-Every L5 sketch starts with requiring the library. Create a new file and type:
+Every L5 sketch starts with requiring the L5 library file, which you'll see in the first line. We can start by looking at the L5-Starter sketch. Inside the folder, open up the *main.lua* file.
+
+You can open it in your favorite code editor like Visual Studio Code or SublimeText, or use the built-in Notepad on Windows or TextEdit on macOS.
 
 ```lua
-require 'L5'
+require("L5")
 
 function setup()
-  -- Your setup code goes here
+  size(400, 400)
+
+  -- Set the program title
+  windowTitle("Basic sketch")
+
+  describe('Draws a yellow background')
+end
+
+function draw()
+  -- Fills the background with the color yellow
+  background(255, 215, 0)
 end
 ```
 
-The `setup()` function runs once when your program starts. This is where we'll put code that only needs to happen at the beginning.
+The `setup()` function runs once when your program starts. This is where we'll put code that only needs to happen at the beginning. `windowTitle()` specifies the nae for the title bar. `describe()` is an optional function for a text description of your program.
 
-## Step 1: Drawing a Background
+The lines beginning with `--` are comments: notes to yourself or anyone reading your code, but they will be ignored by the compiler when you ask it to run your program.
 
-Let's start by setting a background color. Add this inside your `setup()` function:
+## Step 1: Changing the Background
+
+Run your sketch by dragging and dropping the L5-starter folder on top of the Love application. You should see a window open and a golden yellow background. 
+
+Now let's go back to our code. Let's start by changing the background color. Modify the background inside your `draw()` function. You can use RGB values:
+Try changing `'gold'` to other colors like `'lightblue'`, `'pink'`, or `'lavender'`. You can use any of the [HTML Color Names](https://www.w3schools.com/colors/colors_names.asp), or RGB numbers like `background(255, 0, 255)` or hexadecimal: `background('#7FFFD4')`.
+
 
 ```lua
-require 'L5'
-
-function setup()
-  background('white')
-end
+background('purple')
 ```
-
-Run your sketch. You should see a white canvas. Try changing `'white'` to other colors like `'lightblue'`, `'pink'`, or `'lavender'`. You can use any of the [HTML Color Names](https://www.w3schools.com/colors/colors_names.asp), or RGB numbers like `background(255, 0, 255)` or hexadecimal: `background('#7FFFD4')`.
 
 ## Step 2: Drawing Basic Shapes
 
 L5 can draw shapes just like p5.js. Let's add a circle:
 
-```lua
-require 'L5'
+Add this code inside your draw:
 
-function setup()
-  background('white')
-  fill('black')
+```lua
+  fill('gold')
+  circle(100, 100, 50)
+```
+
+So your draw() function should now look like:
+
+```lua
+function draw()
+  -- Fills the background with the color yellow
+  fill('gold')
   circle(100, 100, 50)
 end
 ```
@@ -83,16 +113,20 @@ Try drawing other shapes:
 - `ellipse(x, y, width, height)` - draws an ellipse
 - `line(x1, y1, x2, y2)` - draws a line
 
+If you have any previous experience wih Processing or p5.js you should feel right at home.
+
 ## Step 3: Drawing Text on Screen
 
-Now let's draw some text instead of shapes:
+**Let's remove our older code and replace it with this small program, where everything is written inside just the setup() function:**
+
+We'll draw some text instead of shapes:
 
 ```lua
-require 'L5'
+require('L5')
 
 function setup()
-  background('white')
-  fill('black')
+  background('mintcream')
+  fill('lawngreen')
   textSize(32)
   text('hello', 100, 100)
 end
@@ -111,7 +145,7 @@ Try changing:
 Instead of just one word, let's create a collection of words we can choose from. In Lua, we use curly braces `{}` to create arrays (called "tables" in Lua):
 
 ```lua
-require 'L5'
+require('L5')
 
 words = {"eye", "nose", "mouth", "ear", "brain"}
 
@@ -132,7 +166,7 @@ Try displaying different words by changing `words[1]` to `words[2]`, `words[3]`,
 Instead of always showing the same word, let's pick one randomly:
 
 ```lua
-require 'L5'
+require('L5')
 
 words = {"eye", "nose", "mouth", "ear", "brain"}
 
@@ -146,12 +180,14 @@ end
 
 The `random()` function can pick a random item from an array when you pass it an array. Run your sketch multiple times - you should see different words!
 
+Question: What would happen if this code was inside *draw()* instead of *setup()*, and how could you fix it?
+
 ## Step 6: Creating a Grid
 
 Now we'll use loops to create a grid of positions where words could appear. We'll use two variables to control the grid spacing:
 
 ```lua
-require 'L5'
+require('L5')
 
 words = {"eye", "nose", "mouth", "ear", "brain"}
 
@@ -184,7 +220,7 @@ This creates a grid of words across your entire canvas.
 Right now we're showing a word at every grid position. Let's make it more interesting by only sometimes showing a word:
 
 ```lua
-require 'L5'
+require('L5')
 
 words = {"eye", "nose", "mouth", "ear", "brain", "arm", "leg", "head", "foot"}
 
@@ -219,7 +255,7 @@ Try changing `0.9` to different values:
 Let's make it so clicking the mouse regenerates the composition:
 
 ```lua
-require 'L5'
+require('L5')
 
 words = {"eye", "nose", "mouth", "ear", "brain", "arm", "leg", "head", "foot"}
 
@@ -265,29 +301,22 @@ Now that you have the basic structure, try customizing it:
 
 5. **Add color:** Try `fill('red')` or use RGB values like `fill(255, 0, 0)`
 
-## Extension Ideas
+## Ways to extend 
 
-Ready to go further? Try these challenges:
-
-### Adding Animation
-
-Instead of only drawing in `setup()`, you can use the `draw()` function to create continuous animation:
+* Incorporate animation in `draw()` to change your sketch over time
 
 ```lua
 function draw()
-  background('white')
-  -- your grid code here
+  x = millis() / 5
+  text(specialName, x, 200) -- Text will move to the right
 end
 ```
 
-This will create a constantly changing composition!
-
-### Using Mouse Interaction
-
-Make your composition respond to the mouse position:
+* Make your composition respond to the mouse position
 
 ```lua
-textSize(mouseX / 10)  -- Text size changes with mouse X position
+-- Text size changes with mouse X position
+--textSize(mouseX / 10)  -- Don't run this yet! 
 ```
 
 This can cause freezing if mouseX is 0 at the beginning of the sketch, so we can constrain it to have a minimum value.
@@ -342,21 +371,14 @@ pop()
 
 - **Generative:** Art or designs created by following a set of rules or algorithms, often involving randomness
 - **Computational Poetry:** Using code and algorithms to create, arrange, or manipulate text as a form of poetic expression
-- **Array/Table:** A collection of values stored together (in Lua, called a "table")
-- **Algorithm:** A set of step-by-step instructions to solve a problem or create something
+- **Array/Table:** A collection of values stored together. In most languages this is called an array. In Lua, we say it is an *ordered* table. Each item in the table has a number (an order), starting at 1.
 - **Parameter:** A value you pass into a function to customize how it works
 - **Random:** Unpredictable; choosing something without a pattern
-- **Grid:** A layout system based on evenly-spaced rows and columns
 - **Iteration:** Repeating a process multiple times (like in a loop)
 
 ## Going Further
 
-Computational poetry is a rich field with many approaches. Research these artists and techniques:
-
-- **Concrete poetry:** Poetry where the visual arrangement is as important as the words
-- **Blackout poetry:** Creating new poems by selectively revealing words from existing text
-- **Erasure poetry:** Similar to blackout poetry, removing words to create new meaning
-- **Artists to explore:** Allison Parrish, Nick Montfort, Lillian-Yvonne Bertram
+- **Artists to explore:** [Allison Parrish](https://www.decontextualize.com/), [Nick Montfort](https://nickm.com/), [Lillian-Yvonne Bertram](https://www.lillianyvonnebertram.com/)
 - **Online computational poetry:** [Taper](https://taper.badquar.to/), [The HTML Review](https://thehtml.review), [Random Walk](https://randomwalk.club/)
 
 ## Resources
@@ -367,7 +389,7 @@ Computational poetry is a rich field with many approaches. Research these artist
 
 ## Share Your Work!
 
-Created something interesting? Share it with the [L5 category](https://discourse.processing.org/c/l5/29) on the Processing Discourse forum or with #L5 on social media. We'd love to see what you make.
+Created something interesting? Need help polishing your code? Check out the new [L5 category](https://discourse.processing.org/c/l5/29) on the Processing Discourse forum. 
 
 ---
 
