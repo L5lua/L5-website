@@ -53,6 +53,7 @@ nav:
       - Foundation: reference/#foundation
   - Tutorials: tutorials/index.md
   - Examples: examples/index.md
+  - Forum: https://discourse.processing.org/c/l5/
   - Bug Reports: bug-reports.md
   - Contributing: contributing.md
   - For developers: how.md
