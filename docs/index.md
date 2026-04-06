@@ -32,6 +32,10 @@ function mousePressed()
 end
 ```
 
+## How L5 Works
+
+L5 is a Lua library. Your L5 code runs inside **[Love2D](https://www.love2d.org/)**, a free open-source game framework. Think of Love2D as the engine and L5 as the creative coding toolkit on top. You download both: Love2D to run programs, and L5 to write them using a Processing-style API.
+
 ## Overview
 
 L5 brings the familiar Processing creative coding environment to Lua, offering some of the best aspects of both Processing and p5.js with some twists of its own. But you don't need to know Processing already to get started with L5. L5 is built on top of the Love2D framework, and offers near-instant loading times and excellent performance while maintaining the intuitive API that makes [Processing](https://processing.org/) accessible to artists and designers. *L5 is not an official implementation of Processing or the Processing Foundation. It is a community-created project.*
