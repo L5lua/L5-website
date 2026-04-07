@@ -11,4 +11,4 @@ This tutorial walks you through installing L5 with the Love (Love2d) framework o
 7. You should see a window open with a flying bird-shaped balloon and clouds, verifying that Love is now properly installed on your computer. **At this point you can close the window.**
 8. Back in your downloads folder, **extract the L5-starter.zip file** the same way you extracted the Love zip file. Then **drag the L5-starter folder onto the love.exe application**. It should now launch and you should see a new window open with your code sketch.
 
-**Next steps:** You've installed Love and have L5 on your computer and verified you can run your own programs. Check out [Getting Started](/getting-started) or the [tutorials](index.md) to learn more.
+**Next steps:** You've installed Love and have L5 on your computer and verified you can run your own programs. Check out [Getting Started](/getting-started) or the [tutorials](/tutorials/) to learn more.

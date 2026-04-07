@@ -27,4 +27,4 @@ This tutorial walks you through installing L5 with the Love (Love2d) framework o
 9. Back in your downloads folder, **drag the L5-starter folder onto the Love application in the folder**. It should now launch and you should see a new window open with your code sketch.
 ![A yellow background window appearing on top of folder holding L5 Starter and love application](/assets/tutorials/install/mac9.webp "A yellow background window appearing on top of folder holding L5 Starter and love application")
 
-**Next steps:** You've installed Love and have L5 on your computer and verified you can run your own programs. Check out [Getting Started](/getting-started) or the [tutorials](index.md) to learn more about where you can edit your code and run it.
+**Next steps:** You've installed Love and have L5 on your computer and verified you can run your own programs. Check out [Getting Started](/getting-started) or the [tutorials](/tutorials/) to learn more about where you can edit your code and run it.
