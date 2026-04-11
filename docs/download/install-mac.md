@@ -11,7 +11,7 @@ This tutorial walks you through installing L5 with the Love (Love2d) framework o
 1. Love is the underlying Framework that will allow L5 code to run on your computer. So we start by installing Love. Go to the [Love website](https://love2d.org) and click to download the 64-bit zipped Mac program.
 ![Love2d website with downloads](/assets/tutorials/install/mac1.webp "Love2d website with downloads")
 2. Click **"Allow"** if it asks 'Do you want to allow downloads on "love2d.org"?' It should download to your *Downloads* folder by default.
-![Alert box asking permission to download Love2d](/assets/tutorials/install/mac2.webp "Alert box asking permission to install Love2d")
+![Alert box asking permission to download Love2d](/assets/tutorials/install/mac2test.webp "Alert box asking permission to install Love2d")
 3. Now on your desktop (called "Finder" on macOS) open up your *Downloads* folder. You can right click and choose Open (see screenshot) or double click on Love to launch it. 
 ![Folder with love application and L5 Starter folder](/assets/tutorials/install/mac3.webp "Folder with love application and L5 Starter folder")
 4. A warning popup box opens to say the program and code is not verified by Apple since you will be writing your own custom code. If you can choose Open because you turned off restrictions, then choose Open! Otherwise, **DO NOT** move to the trash. 
@@ -23,7 +23,7 @@ This tutorial walks you through installing L5 with the Love (Love2d) framework o
 7. From the L5lua.org Download page, [download the L5 Starter project](/L5-starter.zip).
 ![L5 website download page with L5 Starter](/assets/tutorials/install/mac7.webp "L5 website download page with L5 Starter")
 8. Click **"Allow"** if it asks 'Do you want to allow downloads on "l5lua.org"?'
-![Alert box asking permission to download L5-Starter](/assets/tutorials/install/mac8.webp "Alert box asking permission to download L5 Starter")
+![Alert box asking permission to download L5-Starter](/assets/tutorials/install/mac8test.webp "Alert box asking permission to download L5 Starter")
 9. Back in your downloads folder, **drag the L5-starter folder onto the Love application in the folder**. It should now launch and you should see a new window open with your code sketch.
 ![A yellow background window appearing on top of folder holding L5 Starter and love application](/assets/tutorials/install/mac9.webp "A yellow background window appearing on top of folder holding L5 Starter and love application")
 

@@ -48,5 +48,5 @@ After downloading, extract the ZIP and serve the folder with a local web server.
 
 ## Running your programs
 
-To get started running L5 check out [Getting Started](/getting-started) or the [tutorials](index.md) to learn more.
+To get started running L5 check out [Getting Started](/getting-started) or the [tutorials](/tutorials/) to learn more.
 
