@@ -36,7 +36,7 @@ sudo xbps-install -S love
 
 ### Additional options to install Love
 
-Love can also be installed in OpenSUSE, Gentoo, Solus, NixOS, via FlatPak on any distribution with Flatpak, or as a portable AppImage or built from source. See the [Love2d](https://love2d.org) website or check your package manager for more information.
+Love can also be found in the package manager for [most other distributions](https://repology.org/project/love/versions), including BSD and Haiku OS, or installed via [FlatPak](https://flathub.org/en/apps/org.love2d.love2d), or as a portable AppImage or built from source. See the [Love2d](https://love2d.org) website or check your package manager for more information.
 
 ## Download the L5 Starter project
 
