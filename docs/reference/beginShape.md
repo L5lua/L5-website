@@ -9,7 +9,7 @@ The value of the `kind` parameter tells it which types of shapes to create from 
 
 After calling the `beginShape()`, a series of `vertex()` commands must follow. To stop drawing the shape, call `endShape()`. 
 
-A texture can also be wrapped around a shape with an applied `texture()`.  The `texture()` function declares the texture to apply to the geometry and the `u` and `v`` coordinates set define the mapping of this texture to the form. By default, the coordinates used for u and v are specified in relation to the image's size in pixels, but this relation can be changed with `textureMode()`.
+A texture can also be wrapped around a shape with an applied `texture()`.  The `texture()` function declares the texture to apply to the geometry and the `u` and `v` coordinates set define the mapping of this texture to the form. By default, the coordinates used for u and v are specified in relation to the image's size in pixels, but this relation can be changed with `textureMode()`.
 
 ## Examples
 
