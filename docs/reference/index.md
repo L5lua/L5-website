@@ -80,6 +80,7 @@ An offline version of this documentation is available for [download](/download/#
 * [image()](image.md)
 * [imageMode()](imageMode.md)
 * [loadImage()](loadImage.md)
+* [mask()](mask.md)
 * [noTint()](noTint.md)
 * [tint()](tint.md)
 
