@@ -1,4 +1,4 @@
-site_name: "L5: A Processing Library in Lua"
+site_name: 'L5: A Processing Library in Lua'
 site_url: https://l5lua.org
 validation:
   absolute_links: ignore
@@ -15,7 +15,10 @@ theme:
   font: false
   favicon: assets/L5-logo-blob.png
   features:
-    - navigation.indexes
+    - navigation.tracking # URL address bar
+    - navigation.prune # Render only visible navigation
+    - toc.follow # Follow navigation
+    - toc.integrate # rendering nav bar to the left
     - content.code.copy # Copy button
     - content.code.select # Allow selecting code
   custom_dir: overrides
@@ -25,15 +28,19 @@ extra_css:
   - stylesheets/extra.css
 extra:
   generator: false
+# Added for collapsible tabs for installations
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
 nav:
-  - Welcome to L5: index.md
-  - Download:
-      - Download: download/index.md
-      - Install for Mac: download/install-mac.md
-      - Install for Windows: download/install-windows.md
-      - Install for Linux: download/install-linux.md
-  - Getting Started: getting-started.md
-  - L5 for Processing-p5.js programmers: L5-for-processingp5.md
+  - Home: index.md
+  - Getting Started: download/index.md
+  - Learn:
+      - Tutorials: tutorials/index.md
+      - Examples: examples/index.md
+      - L5 for Processing-p5.js programmers: L5-for-processingp5.md
   - Reference:
       - Reference Summary: reference/index.md
       - Shape: reference/#shape
@@ -51,11 +58,11 @@ nav:
       - Structure: reference/#structure
       - Constants: reference/#constants
       - Foundation: reference/#foundation
-  - Tutorials: tutorials/index.md
-  - Examples: examples/index.md
-  - Forum: https://discourse.processing.org/c/l5/
-  - Bug Reports: bug-reports.md
-  - Contributing: contributing.md
-  - For developers: how.md
-  - Copyleft: copyleft.md
+  - Contributing:
+      - How To: contributing.md
+      - Forum: https://discourse.processing.org/c/l5/
+      - Bug Reports: bug-reports.md
   - Blog: https://notapipe.itch.io/l5/devlog
+  - About:
+      - For developers: how.md
+      - Copyleft: copyleft.md

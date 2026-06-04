@@ -121,5 +121,5 @@ The Reference was written with the beginner in mind, but may still take some eff
 
 ### Where to go next
 
-From here, check out [A complete introduction to programming with L5](/tutorials/#a-complete-introduction-to-programming-with-l5).
+From here, check out [A complete introduction to programming with L5](/tutorials/).
 
