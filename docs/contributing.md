@@ -9,7 +9,7 @@
 
 Thanks for your interest in contributing to **L5**! Contributions of all kinds are welcome — from code and documentation to tutorials, examples, and teaching.
 
-We are inspired by the _[all contributors](https://github.com/all-contributors/all-contributors.github.io)_ approach to contribution to open source projects:
+We are inspired by the **[all contributors](https://github.com/all-contributors/all-contributors.github.io)** approach to contribution to open source projects:
 
 > Our community values contributions of all forms and seeks to expand the meaning of the word contributor as far and wide as possible. It includes documentation, teaching, writing code, making art, writing, design, activism, organizing, curating, or anything else you might imagine. --_from [p5.js Contributor Guidelines](https://p5js.org/contribute/contributor_guidelines/)_
 
@@ -17,7 +17,7 @@ If you’re new to open source, don’t worry. This guide explains **which repos
 
 ## Step 1: Decide what you want to contribute
 
-L5 has **two main repositories**. Which one you use depends on _what you’re working on_.
+L5 has **two main repositories**. Which one you use depends on **what you’re working on**.
 
 ### L5 - The library itself
 
@@ -74,7 +74,7 @@ Most contributors work directly on the `main` branch of **their fork**.
 
 ### Example (command line)
 
-After forking the repo on GitHub, clone _your fork_:
+After forking the repo on GitHub, clone **your fork**:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/L5-website.git
@@ -102,7 +102,7 @@ Finally, open a Pull Request on GitHub from your fork to the main repository.
 - **Create educational content** like zines or video tutorials
 - **Develop add-on libraries** or document Lua ecosystem integration
 
-We follow the _All Contributors_ philosophy:
+We follow the **All Contributors** philosophy:
 
 > Our community values contributions of all forms and seeks to expand the meaning of the word contributor.
 

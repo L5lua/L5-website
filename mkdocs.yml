@@ -17,6 +17,7 @@ theme:
   features:
     - navigation.tracking # URL address bar
     - navigation.prune # Render only visible navigation
+    - navigation.path # Breadcrumbs for beginning of filename
     - toc.follow # Follow navigation
     - toc.integrate # rendering nav bar to the left
     - content.code.copy # Copy button
@@ -30,10 +31,8 @@ extra:
   generator: false
 # Added for collapsible tabs for installations
 markdown_extensions:
-  - pymdownx.superfences
-  - pymdownx.details
-  - pymdownx.tabbed:
-      alternate_style: true
+  - toc:
+      toc_depth: 3
 nav:
   - Home: index.md
   - Getting Started: download/index.md

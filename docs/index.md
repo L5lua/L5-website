@@ -4,9 +4,9 @@
 
 L5 is a fun, fast, cross-platform, and lightweight implementation of the **[Processing API](https://processing.org/)** in **[Lua](https://www.lua.org/)**. It is a free and open source coding library to make interactive artwork on the computer, aimed at artists, designers, and anyone that wants a flexible way to prototype art, games, toys, and other software experiments in code.
 
-> Processing is not a single programming language, but an arts-centric system for learning, teaching, and making visual form with code. _-[Processing.py reference](https://py.processing.org/reference/)_
+> Processing is not a single programming language, but an arts-centric system for learning, teaching, and making visual form with code. **-[Processing.py reference](https://py.processing.org/reference/)**
 
-L5 brings the familiar Processing creative coding environment to Lua, offering some of the best aspects of both Processing and p5.js with some twists of its own. But you don't need to know Processing already to get started with L5. L5 is built on top of the Love2D framework, and offers near-instant loading times and excellent performance. _L5 is not an official implementation of Processing or the Processing Foundation. It is a community-created project._
+L5 brings the familiar Processing creative coding environment to Lua, offering some of the best aspects of both Processing and p5.js with some twists of its own. But you don't need to know Processing already to get started with L5. L5 is built on top of the Love2D framework, and offers near-instant loading times and excellent performance. **L5 is not an official implementation of Processing or the Processing Foundation. It is a community-created project.**
 
 Beyond running fast on modern machines, L5 is optimized for older and lower-powered devices, minimizing resource usage to keep creative coding accessible to everyone. This helps with our goal of building resilient, long-lasting software projects. L5 is built in Lua, a robust but lightweight, long-running, lightning-fast, extensible language, that works on desktop, phone, and tablet.
 
