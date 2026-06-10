@@ -70,5 +70,4 @@ love .
 It should now launch and you should see a new window open with your code sketch running.
 <img src="/assets/tutorials/install/linux1.webp" alt="A yellow background window appearing on top of folder holding L5 Starter and love application" title="A yellow background window appearing on top of folder holding L5 Starter and love application" width="600" />
 
-**Next steps:** You've installed Love and have L5 on your computer and verified you can run your own programs. Check out [Getting Started](/getting-started) or the [tutorials](/tutorials/) to learn more.
-
+**Next steps:** You've installed Love and have L5 on your computer and verified you can run your own programs. Check out other ways to [run your own programs](running.md).

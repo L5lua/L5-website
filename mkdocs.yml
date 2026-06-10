@@ -32,31 +32,20 @@ extra:
 # Added for collapsible tabs for installations
 markdown_extensions:
   - toc:
-      toc_depth: 3
+      toc_depth: 2
 nav:
   - Home: index.md
-  - Getting Started: download/index.md
+  - Getting Started: 
+      - download/index.md
+      - Mac: download/install-mac.md
+      - Windows: download/install-windows.md
+      - Linux: download/install-linux.md
+      - Running Your Programs: download/running.md
   - Learn:
       - Tutorials: tutorials/index.md
       - Examples: examples/index.md
       - L5 for Processing-p5.js programmers: L5-for-processingp5.md
-  - Reference:
-      - Reference Summary: reference/index.md
-      - Shape: reference/#shape
-      - Color: reference/#color
-      - Typography: reference/#typography
-      - Image: reference/#image
-      - Media: reference/#media
-      - Transform: reference/#transform
-      - Environment: reference/#environment
-      - Rendering: reference/#rendering
-      - Math: reference/#math
-      - IO: reference/#io
-      - Events: reference/#events
-      - Data: reference/#data
-      - Structure: reference/#structure
-      - Constants: reference/#constants
-      - Foundation: reference/#foundation
+  - Reference: reference/index.md
   - Contributing:
       - How To: contributing.md
       - Developer Resources: how.md     

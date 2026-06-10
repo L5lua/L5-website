@@ -1,4 +1,4 @@
-## Welcome to L5
+# Welcome to L5
 
 <img src="assets/L5-logo-blob.png">
 
