@@ -42,10 +42,294 @@ nav:
       - Linux: download/install-linux.md
       - Running Your Programs: download/running.md
   - Learn:
-      - Tutorials: tutorials/index.md
-      - Examples: examples/index.md
-      - L5 for Processing-p5.js programmers: L5-for-processingp5.md
-  - Reference: reference/index.md
+      - Tutorials: 
+          - tutorials/index.md
+          - First Steps: tutorials/first-steps.md
+          - Welcome to Coding: tutorials/welcome-to-coding.md
+          - Calling Functions: tutorials/calling-functions.md
+          - Using Variables: tutorials/using-variables.md
+          - Creating Functions: tutorials/creating-functions.md
+          - If Statements: tutorials/if-statements.md
+          - Animation: tutorials/animation.md
+          - Input: tutorials/input.md
+          - For Loops: tutorials/for-loops.md
+          - Arrays (Ordered Tables): tutorials/arrays-tables.md
+          - Using Objects: tutorials/using-objects.md
+      - Examples: 
+          - Complete List of Examples: examples/index.md
+          - Shapes and Colors:
+              - Shape Primitives: examples/shape-primitives.md
+              - Shapes And Color: examples/shapes-and-color.md
+          - Animations and Variables:
+              - Doodle Draw: examples/doodle-draw.md
+              - Drawing Lines: examples/animation-and-variables-drawing-lines.md
+              - Animation With Events: examples/animation-and-variables-animation-with-events.md
+              - Conditions: examples/animation-and-variables-conditions.md
+              - Basic Pong: examples/basic-pong.md
+              - Walking Lines: examples/walking-lines.md
+              - Metaballs: examples/metaballs.md
+              - 10print: examples/10print.md
+              - Conway's Game of Life: examples/conways-life.md
+              - Minimum Spanning Tree: examples/min-span-tree.md
+              - Easing: examples/easing.md
+              - Clock: examples/clock.md
+              - Milliseconds: examples/milliseconds.md
+          - Input and Interaction:
+              - Mouse 1d: examples/mouse-1d.md
+              - Mouse 2d: examples/mouse-2d.md
+              - Mouse Press: examples/mouse-press.md
+              - Mouse Functions: examples/mouse-functions.md
+              - Mouse Signals: examples/mouse-signals.md
+              - Storing Input: examples/storing-input.md
+              - Keyboard: examples/keyboard.md
+              - Keyboard Functions: examples/keyboard-functions.md
+              - Constrain: examples/constrain.md
+          - Imported Media:
+              - Daily Rituals: examples/daily-rituals.md
+              - Words: examples/imported-media-words.md
+              - Copy Image Data: examples/imported-media-copy-image-data.md
+              - Image Transparency: examples/imported-media-image-transparency.md
+              - Video Player: examples/imported-media-video.md
+              - Create Graphics Offscreen: examples/createGraphics-offscreen.md
+          - Object-Orientation:
+              - Random Robot Objects: examples/random-robot-objects.md
+      - L5 for Processing-p5.js programmers: tutorials/L5-for-processingp5.md
+  - Reference: 
+      - reference/index.md
+      - Shape:
+        - 2D Primitives:
+          - Arc: reference/arc.md
+          - Circle: reference/circle.md
+          - Ellipse: reference/ellipse.md
+          - Line: reference/line.md
+          - Point: reference/point.md
+          - Quad: reference/quad.md
+          - Rect: reference/rect.md
+          - Square: reference/square.md
+          - Triangle: reference/triangle.md
+        - Attributes:
+          - EllipseMode: reference/ellipseMode.md
+          - NoSmooth: reference/noSmooth.md
+          - RectMode: reference/rectMode.md
+          - Smooth: reference/smooth.md
+          - StrokeJoin: reference/strokeJoin.md
+          - StrokeWeight: reference/strokeWeight.md
+        - Curves:
+          - Bezier: reference/bezier.md
+          - Curve: reference/curve.md
+        - Vertex:
+          - BeginShape: reference/beginShape.md
+          - EndShape: reference/endShape.md
+          - Vertex: reference/vertex.md
+      - Color:
+        - Creating and Reading:
+          - Alpha: reference/alpha.md
+          - Blue: reference/blue.md
+          - Brightness: reference/brightness.md
+          - Color Object: reference/color-object.md
+          - Green: reference/green.md
+          - Hue: reference/hue.md
+          - LerpColor: reference/lerpColor.md
+          - Lightness: reference/lightness.md
+          - Red: reference/red.md
+        - Setting:
+          - Background: reference/background.md
+          - Clear: reference/clear.md
+          - ColorMode: reference/colorMode.md
+          - Fill: reference/fill.md
+          - NoFill: reference/noFill.md
+          - NoStroke: reference/noStroke.md
+          - Stroke: reference/stroke.md
+      - Typography:
+        - Attributes:
+          - TextAlign: reference/textAlign.md
+          - TextSize: reference/textSize.md
+          - TextWidth: reference/textWidth.md
+          - TextWrap: reference/textWrap.md
+        - Loading and Displaying:
+          - LoadFont: reference/loadFont.md
+          - Text: reference/text.md
+          - TextFont: reference/textFont.md
+      - Image:
+        - Loading and Displaying:
+          - Image: reference/image.md
+          - ImageMode: reference/imageMode.md
+          - LoadImage: reference/loadImage.md
+          - Mask: reference/mask.md
+          - NoTint: reference/noTint.md
+          - Tint: reference/tint.md
+        - Pixels:
+          - Blend: reference/blend.md
+          - Copy: reference/copy.md
+          - Filter: reference/filter.md
+          - Get: reference/get.md
+          - LoadPixels: reference/loadPixels.md
+          - Pixels: reference/pixels.md
+          - Set: reference/set.md
+          - UpdatePixels: reference/updatePixels.md
+        - Textures:
+          - Texture: reference/texture.md
+          - TextureMode: reference/textureMode.md
+          - TextureWrap: reference/textureWrap.md
+      - Media:
+        - Video:
+          - LoadVideo: reference/loadVideo.md
+          - Video GetWidth: reference/video-getWidth.md
+          - Video GetHeight: reference/video-getHeight.md
+          - Video IsPlaying: reference/video-isPlaying.md
+          - Video Loop: reference/video-loop.md
+          - Video NoLoop: reference/video-noLoop.md
+          - Video Play: reference/video-play.md
+          - Video Pause: reference/video-pause.md
+          - Video Seek: reference/video-seek.md
+          - Video Stop: reference/video-stop.md
+          - Video Time: reference/video-time.md
+          - Video Volume: reference/video-volume.md
+      - Transform:
+        - ApplyMatrix: reference/applyMatrix.md
+        - ResetMatrix: reference/resetMatrix.md
+        - Rotate: reference/rotate.md
+        - Scale: reference/scale.md
+        - Translate: reference/translate.md
+      - Environment:
+        - Cursor: reference/cursor.md
+        - DeltaTime: reference/deltaTime.md
+        - Describe: reference/describe.md
+        - DisplayDensity: reference/displayDensity.md
+        - DisplayHeight: reference/displayHeight.md
+        - DisplayWidth: reference/displayWidth.md
+        - Focused: reference/focused.md
+        - FrameCount: reference/frameCount.md
+        - FrameRate: reference/frameRate.md
+        - Fullscreen: reference/fullscreen.md
+        - Height: reference/height.md
+        - NoCursor: reference/noCursor.md
+        - PixelDensity: reference/pixelDensity.md
+        - Print: reference/print.md
+        - PrintToScreen: reference/printToScreen.md
+        - Width: reference/width.md
+        - WindowResized: reference/windowResized.md
+        - WindowTitle: reference/windowTitle.md
+      - Rendering:
+        - Size: reference/size.md
+        - CreateGraphics: reference/createGraphics.md
+        - NoCanvas: reference/noCanvas.md
+        - ResizeWindow: reference/resizeWindow.md
+      - Math:
+        - Calculation:
+          - Abs: reference/abs.md
+          - Ceil: reference/ceil.md
+          - Constrain: reference/constrain.md
+          - Dist: reference/dist.md
+          - Exp: reference/exp.md
+          - Floor: reference/floor.md
+          - Fract: reference/fract.md
+          - Lerp: reference/lerp.md
+          - Log: reference/log.md
+          - Map: reference/map.md
+          - Max: reference/max.md
+          - Min: reference/min.md
+          - Norm: reference/norm.md
+          - Pow: reference/pow.md
+          - Round: reference/round.md
+          - Sq: reference/sq.md
+          - Sqrt: reference/sqrt.md
+        - Noise:
+          - Noise: reference/noise.md
+        - Random:
+          - Random: reference/random.md
+          - RandomGaussian: reference/randomGaussian.md
+          - RandomSeed: reference/randomSeed.md
+        - Trigonometry:
+          - Acos: reference/acos.md
+          - AngleMode: reference/angleMode.md
+          - Asin: reference/asin.md
+          - Atan: reference/atan.md
+          - Atan2: reference/atan2.md
+          - Cos: reference/cos.md
+          - Degrees: reference/degrees.md
+          - Radians: reference/radians.md
+          - Sin: reference/sin.md
+          - Tan: reference/tan.md
+      - IO:
+        - Input:
+          - LoadStrings: reference/loadStrings.md
+          - LoadTable: reference/loadTable.md
+        - Output:
+          - Save: reference/save.md
+          - SaveStrings: reference/saveStrings.md
+          - SaveTable: reference/saveTable.md
+        - Time and Date:
+          - Day: reference/day.md
+          - Hour: reference/hour.md
+          - Millis: reference/millis.md
+          - Minute: reference/minute.md
+          - Month: reference/month.md
+          - Second: reference/second.md
+          - Year: reference/year.md
+      - Events:
+        - Keyboard:
+          - Key: reference/key.md
+          - KeyIsDown: reference/keyIsDown.md
+          - KeyIsPressed: reference/keyIsPressed.md
+          - KeyPressed: reference/keyPressed.md
+          - KeyReleased: reference/keyReleased.md
+          - KeyTyped: reference/keyTyped.md
+        - Mouse:
+          - MouseButton: reference/mouseButton.md
+          - MouseClicked: reference/mouseClicked.md
+          - MouseDragged: reference/mouseDragged.md
+          - MouseIsPressed: reference/mouseIsPressed.md
+          - MouseMoved: reference/mouseMoved.md
+          - MousePressed: reference/mousePressed.md
+          - MouseReleased: reference/mouseReleased.md
+          - MouseWheel: reference/mouseWheel.md
+          - MouseX: reference/mouseX.md
+          - MouseY: reference/mouseY.md
+          - MovedX: reference/movedX.md
+          - MovedY: reference/movedY.md
+          - PmouseX: reference/pmouseX.md
+          - PmouseY: reference/pmouseY.md
+      - Data:
+        - Conversion:
+          - Boolean Function: reference/boolean-function.md
+          - Byte: reference/byte.md
+          - Char: reference/char.md
+          - Float: reference/float.md
+          - Hex: reference/hex.md
+          - Int: reference/int.md
+          - Str: reference/str.md
+          - Unchar: reference/unchar.md
+          - Unhex: reference/unhex.md
+      - Structure:
+        - Draw: reference/draw.md
+        - IsLooping: reference/isLooping.md
+        - Loop: reference/loop.md
+        - NoLoop: reference/noLoop.md
+        - Pop: reference/pop.md
+        - Push: reference/push.md
+        - Redraw: reference/redraw.md
+        - Setup: reference/setup.md
+      - Constants:
+        - Degrees Constant: reference/degrees-constant.md
+        - HALF PI: reference/HALF_PI.md
+        - HSB: reference/HSB.md
+        - HSL: reference/HSL.md
+        - PI: reference/PI.md
+        - QUARTER PI: reference/QUARTER_PI.md
+        - Radians Constant: reference/radians-constant.md
+        - TAU: reference/TAU.md
+        - TWO PI: reference/TWO_PI.md
+        - VERSION: reference/VERSION.md
+      - Foundation:
+        - For: reference/for.md
+        - Function: reference/function.md
+        - If: reference/if.md
+        - Local: reference/local.md
+        - Table: reference/table.md
+        - Boolean: reference/Boolean.md
+        - Number: reference/Number.md
+        - While: reference/while.md
   - Contributing:
       - How To: contributing.md
       - Developer Resources: how.md     

@@ -117,7 +117,7 @@ end
 
 ## Related Examples
 
-* [Shape Primitives](shapes-and-color-shape-primitives.md) - Draw 2D shapes.
+* [Shape Primitives](shape-primitives.md) - Draw 2D shapes.
 
 ---
 

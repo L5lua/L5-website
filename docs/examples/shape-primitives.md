@@ -70,7 +70,7 @@ end
 
 ## Related Examples
 
-* [Color](shapes-and-color-color.md) - Add color to your sketch.
+* [Color](shapes-and-color.md) - Add color to your sketch.
 
 ---
 

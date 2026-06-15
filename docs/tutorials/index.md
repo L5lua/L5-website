@@ -1,6 +1,8 @@
-# Tutorials
+# A Complete Introduction to Programming with L5
 
-**A complete introduction to programming with L5**
+This is a list for beginners to learn coding with Lua for the first time. It is recommended to go through each tutorial *in order* to establish a foundational understanding of programming. 
+
+If you are coming from Processing / p5, you can skip to [L5 for Processing/p5 programmers](L5-for-processingp5.md)
 
 1. [First Steps](first-steps.md) - Welcome to L5! This introduction covers the basics of setting up L5 on your computer.
 2. [Welcome to Coding](welcome-to-coding.md)

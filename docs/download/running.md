@@ -81,4 +81,4 @@ In the Terminal, you can run `love path/to/L5-starter`. Or if you are in the fol
 
 *Instructions adapted from [Love2d wiki: Getting Started](https://www.love2d.org/wiki/Getting_Started), GNU Free Documentation License 1.3.*
 
-Amazing! Now you are ready to start learning with [First Steps](../tutorials/first-steps.md). If you are familiar with Lua, p5.js, or Processing already, you should take a look at [L5 for Processing-p5.js Programmers](../L5-for-processingp5.md).
+Amazing! Now you are ready to start learning with [First Steps](../tutorials/first-steps.md). If you are familiar with Lua, p5.js, or Processing already, you should take a look at [L5 for Processing-p5.js Programmers](../tutorials/L5-for-processingp5.md).

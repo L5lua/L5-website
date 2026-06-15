@@ -1,9 +1,16 @@
+<style>
+   /* special formatting just for this document */
+  .md-nav--primary .md-nav__link[for=__toc] ~ .md-nav {
+    display: none;
+  }
+</style>
+
 # Examples
 
 ## Shapes and Colors
 
-- [Shape Primitives](shapes-and-color-shape-primitives.md) - Draw 2D shapes
-- [Color](shapes-and-color-color.md) - Add color to your sketch
+- [Shape Primitives](shape-primitives.md) - Draw 2D shapes
+- [Color](shapes-and-color.md) - Add color to your sketch
 
 ## Animations and Variables
 
