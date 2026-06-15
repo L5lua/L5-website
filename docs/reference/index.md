@@ -1,11 +1,4 @@
-<style>
-   /* special formatting just for this document */
-  .md-nav--primary .md-nav__link[for=__toc] ~ .md-nav {
-    display: none;
-  }
-</style>
-
-# Reference 
+# Reference  Index
 
 An offline version of this documentation is available for [download](/download/#offline-documentation).
 

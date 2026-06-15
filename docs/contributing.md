@@ -1,10 +1,3 @@
-<style>
-   /* special formatting just for this document */
-  .md-nav--primary .md-nav__link[for=__toc] ~ .md-nav {
-    display: none;
-  }
-</style>
-
 # Contributing to L5 ❤️
 
 Thanks for your interest in contributing to **L5**! Contributions of all kinds are welcome — from code and documentation to tutorials, examples, and teaching.
