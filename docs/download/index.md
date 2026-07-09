@@ -25,7 +25,7 @@ The [L5 repository](https://github.com/L5lua/L5) is accessible for anyone intere
 
 **Latest version of L5.lua:** [Download L5.lua](https://raw.githubusercontent.com/L5lua/L5/main/L5.lua)
 
-## Offline Documentation
+### Offline Documentation
 
 This L5 documentation site is available for download to run offline, with or without images.
 
