@@ -4,6 +4,24 @@ There are two ways to run a L5 program -- one method is using the desktop and th
 
 IDEs such as ZeroBrane Studio, Sublime Text, VS Code, Notepad++, and SciTE all support launching LÖVE programs (the engine to run our L5 scripts), though require additional setup configuration not covered here.
 
+## Using the L5 extension
+
+If you are using a text editor such as VSCodium or VSCode, you can install an extension that will allow you to run your sketches by pushing a button.
+
+First, in VSCodium or VSCode, open the extension menu and install L5:
+
+![Open the extension menu on the left side and search L5 on the top](/assets/tutorials/install/codium-extension.webp "Open the extension menu on the left side and search L5 on the top")
+
+Once it is installed and you have already created a `main.lua` file (or you downloaded the L5-starter folder), a new button appears in the bottom left corner.
+
+![Run L5 button in the bottom left corner](/assets/tutorials/install/run-l5.webp "Run L5 button in the bottom left corner")
+
+When you want to see your sketch in action, press "Run L5". You can close the window or push the "Stop" button to stop running your sketch. 
+
+![Close the sketch by closing the window or by pressing Stop](/assets/tutorials/install/stop-l5.webp "Close the sketch by closing the window or by pressing Stop")
+
+You can read more about the settings of the extension in the [extension docs](https://github.com/L5lua/L5-vscode-extension#l5-extension). You can also download it directly from the [OpenVSX Marketplace](https://open-vsx.org/extension/l5lua/l5) or the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=l5.l5). 
+
 ## Running L5 from the desktop
 
 The easiest way to run your L5 program is to drag the **folder** containing your main.lua onto the Love2d application. Remember to drag the **folder** containing `main.lua`, and not `main.lua` itself.

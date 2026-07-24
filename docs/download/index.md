@@ -6,6 +6,7 @@ L5 programs run using LÖVE (also called Love2d), a free, open-source framework.
 
 Covered by this download tutorial:
 
+- Download and Install a text editor
 - Download and Install Love2d
 - Download and Open L5 Starter Folder
 
