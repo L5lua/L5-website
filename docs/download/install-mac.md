@@ -16,7 +16,16 @@ document.getElementById('yt').addEventListener('click', function(e) {
 
 ## Text and Screenshot Tutorial
 
-1. Love is the underlying Framework that will allow L5 code to run on your computer. So we start by installing Love. Go to the [Love website](https://love2d.org) and click to download the 64-bit zipped Mac program.
+### Install a Text Editor
+
+1. We will first need a text editor, which is where we write the actual L5 code on our computer. For Mac, we suggest downloading [VSCodium](https://vscodium.com/) or [VSCode](https://code.visualstudio.com/), but any preferred text editor is fine. **Note**: If you use iCloud, VSCodium will have significant lag and it is recommended to install VSCode instead. 
+2. Install the L5 extension by opening the extensions tab and search for L5
+![Open the extension menu on the left side and search L5 on the top](/assets/tutorials/install/codium-extension.webp "Open the extension menu on the left side and search L5 on the top")
+
+
+### Install Love2d
+
+1. Love is the underlying Framework that will allow L5 code to run on your computer. Go to the [Love website](https://love2d.org) and click to download the 64-bit zipped Mac program.
 ![Love2d website with downloads](/assets/tutorials/install/mac1.webp "Love2d website with downloads")
 2. Click **"Allow"** if it asks 'Do you want to allow downloads on "love2d.org"?' It should download to your *Downloads* folder by default.  
 ![Alert box asking permission to download Love2d](/assets/tutorials/install/mac2.webp "Alert box asking permission to install Love2d")
