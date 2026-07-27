@@ -1,6 +1,6 @@
 # loadTable()
  
-Reads the contents of a file or URL and creates a table object with its values. The file's path should be specified relative to the sketch's folder. The file format can be a comma-separated (in CSV format), a tab-separated value (in TSV format), or a lua table (as a lua file). Table only looks for a header row if the 'header' option is included.
+Reads the contents of a file and creates a table object with its values. The file's path should be specified relative to the sketch's folder. The file format can be a comma-separated (in CSV format), a tab-separated value (in TSV format), or a lua table (as a lua file). Table only looks for a header row if the 'header' option is included.
 
 `#table` always returns the total rows in the imported table.
 
