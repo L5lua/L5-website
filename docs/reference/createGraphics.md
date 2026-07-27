@@ -6,7 +6,7 @@ Creates an offscreen canvas that can be rendered to the window later.
 
 The first two parameters, `width` and `height`, are optional. They set the dimensions of the offscreen canvas object. For example, calling `createGraphics(900, 500)` creates an offscreen canvas that's 900×500 pixels. By default the offscreen canvas is the same size as the window.
 
-Note that L5's createGraphics() implementation is similar to Processing rather than p5.js. All drawing to the offscreen buffer should happen between the `:beginDraw()` and `:endDraw()` methods and can be display in the window with `:getCanvas()`.
+Note that L5's createGraphics() implementation is similar to Processing rather than p5.js. All drawing to the offscreen buffer should happen between the `:beginDraw()` and `:endDraw()` methods.
 
 ## Examples
 
@@ -33,7 +33,7 @@ end
 
 function mousePressed()
   -- display offscreenCanvas on screen
-  image(offscreenCanvas:getCanvas(), 0,0,width,height)
+  image(offscreenCanvas, 0,0,width,height)
 end
 ```
 
