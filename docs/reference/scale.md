@@ -6,7 +6,7 @@ By default, shapes are drawn at their original scale. A rectangle that's 50 pixe
 
 The first way to call `scale()` uses numbers to set the amount of scaling. The first parameter, `s`, sets the amount to scale each axis. For example, calling `scale(2)` stretches the x-, y-, and z-axes by a factor of 2. The next parameter, `y` is optional. It sets the amount to scale the y-axis. For example, calling `scale(2, 0.5)` stretches the x-axis by a factor of 2, and shrinks the y-axis by a factor of 0.5.
 
-By default, transformations accumulate. For example, calling `scale(1)` twice has the same effect as calling `scale(2)` once. The push() and pop() functions
+By default, transformations accumulate. For example, calling `scale(2)` twice has the same effect as calling `scale(4)` once. The push() and pop() functions
 can be used to isolate transformations within distinct drawing groups.
 
 Note: Transformations are reset at the beginning of the draw loop. Calling `scale(2)` inside the draw() function won't cause shapes to grow continuously.
