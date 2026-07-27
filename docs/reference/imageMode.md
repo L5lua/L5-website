@@ -84,7 +84,7 @@ imageMode(mode)
 
 | Parameter |                                                            |
 | -         | --------------------------------------------------         |
-| mode      | Constant: either CORNER (default), CORNERS, CENTER, RADIUS |
+| mode      | Constant: either CORNER (default), CORNERS, CENTER |
 
 
 ## Related
