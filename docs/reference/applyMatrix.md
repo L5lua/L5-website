@@ -4,7 +4,7 @@ Applies a transformation matrix to the coordinate system.
 
 Transformations such as translate(), rotate(), and scale() use matrix-vector multiplication behind the scenes. A table of numbers, called a matrix, encodes each transformation. The values in the matrix then multiply each point on the canvas, which is represented by a vector.
 
-`applyMatrix()` allows for many transformations to be applied at once attempts to replicate the behavior of the p5.js implementation.
+`applyMatrix()` allows for many transformations to be applied at once. Attempts to replicate the behavior of the p5.js implementation.
 
 There are two ways to call `applyMatrix()` in two dimensions.
 
