@@ -4,7 +4,7 @@ Returns random numbers that can be tuned to feel organic.
 
 Values returned by random() and randomGaussian() can change by large amounts between function calls. By contrast, values returned by `noise()` can be made "smooth". Calls to `noise()` with similar inputs will produce similar outputs. `noise()` is used to create textures, motion, shapes, terrains, and so on. Ken Perlin invented `noise()` while animating the original <em>Tron</em> film in the 1980s.
 
-*The version of noise in L5 varies from p5.js and Processing. It returns [simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) for 2 and 3 input arguments.* Simplex noise is an algorithm designed in 2001 by Ken Perlin to address limitations in his classic noise function, notably relating to speed, complexity and higher order dimensions.
+*The version of noise in L5 varies from p5.js and Processing. It returns [simplex noise](https://en.wikipedia.org/wiki/Simplex_noise) for 1 and 2 input arguments.* Simplex noise is an algorithm designed in 2001 by Ken Perlin to address limitations in his classic noise function, notably relating to speed, complexity and higher order dimensions.
 
 `noise()` always returns values between 0 and 1. It returns the same value for a given input while a sketch is running. `noise()` produces different results each time a sketch runs. <s>The noiseSeed() function can be used to generate the same sequence of Perlin noise values each time a sketch runs.</s>
 
