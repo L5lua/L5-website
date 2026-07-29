@@ -16,6 +16,8 @@ The version of `noise()` with two parameters computes noise values in two dimens
 
 The version of `noise()` with three parameters computes noise values in three dimensions. These dimensions can be thought of as space, as in `noise(x, y, z)`, or space and time, as in `noise(x, y, t)`. *Note that the version of `noise()` that takes [3 parameters](https://love2d.org/wiki/love.math.noise) actually computes the original Perlin noise algorithm, not Simplex*.
 
+**Important**: The output of `noise()` might be constant if only using integers as arguments. Be sure to use floats to get varying return values. See [love.math.noise](https://www.love2d.org/wiki/love.math.noise).
+
 ## Examples
 
 ![noise example 1](assets/noise1.webp)
