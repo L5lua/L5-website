@@ -1,18 +1,18 @@
 # Running Your Programs
 
-There are two ways to run a L5 program -- one method is using the desktop and the other uses the command line interface (CLI). If you are new to computing or are unsure about the CLI, then run from the desktop!
+There are several different ways to run a L5 program: through VSCodium / VS Code, using the desktop, or through the command line interface (CLI). If you are new to computing or are unsure about the CLI, then we recommend the L5 extension in VSCodium / VSCode or running from the desktop.
 
 ## Using the L5 extension
 
-If you are using a text editor such as VSCodium or VSCode, you can install an extension that will allow you to run your sketches by pushing a button.
+If you are using a text editor such as VSCodium or Visual Studio Code (VS Code), you can install an extension that will allow you to run your sketches by pushing a button.
 
-If you haven't installed the extension yet, in VSCodium or VSCode, open the extension menu and install L5:
+If you haven't installed the extension yet, in VSCodium or VS Code, open the extension menu and install L5:
 
-![Open the extension menu on the left side and search L5 on the top](/assets/tutorials/install/codium-extension1.webp "Open the extension menu on the left side and search L5 on the top")
+![Open the extension menu on the left side and search L5 on the top](/assets/tutorials/install/extension1.webp "Open the extension menu on the left side and search L5 on the top")
 
-![Search for L5 in the search bar](/assets/tutorials/install/codium-extension2.webp "Search for L5 in the search bar")
+![Search for L5 in the search bar](/assets/tutorials/install/extension2.webp "Search for L5 in the search bar")
 
-![Press install](/assets/tutorials/install/codium-extension3.webp "Press install")
+![Press install](/assets/tutorials/install/extension3.webp "Press install")
 
 Once it is installed and you have already created a `main.lua` file (or you downloaded the L5-starter folder), a new button appears in the bottom left corner.
 
@@ -26,6 +26,8 @@ You can read more about the settings of the extension in the [extension docs](ht
 
 ## Running L5 from the desktop
 
+Start by downloading the [L5 Starter](http://l5lua.org/L5-starter.zip), a folder containing the L5.lua library file and a starter main.lua file with a simple L5 program. Right click and extract (Windows, Linux)) or uncompress (macOS) the folder.
+
 The easiest way to run your L5 program is to drag the **folder** containing your main.lua onto the Love2d application. Remember to drag the **folder** containing `main.lua`, and not `main.lua` itself.
 
 It should launch and open a new window with your sketch running in it, or print an error message. If you're running the L5 Starter program, you should see a square window with a yellow background. Congratulations.
@@ -36,71 +38,74 @@ It should launch and open a new window with your sketch running in it, or print 
 
 ## Running L5 from the command line
 
+### Windows CLI
 
-=== "Windows CLI"
+You can launch your programs from the command line and add the `--console` flag to be able to see print() and error() output as well:
 
-    You can launch your programs from the command line and add the `--console` flag to be able to see print() and error() output as well:
+```
+"C:\Program Files\LOVE\love.exe" --console 
+"C:\Users\<YourUsername>\Desktop\L5-starter"
+```
+Replace `<YourUsername>` and `Desktop\L5-starter` with your actual username and the location of your program folder.
 
-    ```
-    "C:\Program Files\LOVE\love.exe" --console 
-    "C:\Users\<YourUsername>\Desktop\L5-starter"
-    ```
-    Replace `<YourUsername>` and `Desktop\L5-starter` with your actual username and the location of your program folder.
+### macOS CLI
 
-=== "macOS CLI"
+There are a few extra steps to smoothly set up command line usage for L5 in the command line on Mac. 
 
-    There are a few extra steps to smoothly set up command line usage for L5 in the command line on Mac. 
+If Love is installed in your applications folder you can run:
 
-    If Love is installed in your applications folder you can run:
+```sh
+open -n -a love "~/path/to/my-program"
+```
 
-    ```sh
-    open -n -a love "~/path/to/my-program"
-    ```
+This will not send debugging and print information to the Terminal nor any `describe()` text. To see printed text in the command line you need to run the Love program from Applications, like this:
 
-    This will not send debugging and print information to the Terminal nor any `describe()` text. To see printed text in the command line you need to run the Love program from Applications, like this:
+```sh
+/Applications/love.app/Contents/MacOS/love ~/path/to/my-program
+```
 
-    ```sh
-    /Applications/love.app/Contents/MacOS/love ~/path/to/my-program
-    ```
+You can set up an alias in your Terminal session to call the binary when you use love by adding an alias to your `~/.zshrc` file (Z shell configuration file).
 
-    You can set up an alias in your Terminal session to call the binary when you use love by adding an alias to your `~/.zshrc` file (Z shell configuration file).
+Open the file with:
 
-    Open the file with:
+```sh
+open -a TextEdit ~/.zshrc
+```
 
-    ```sh
-    open -a TextEdit ~/.zshrc
-    ```
+You may have to create the file first if it does not yet exist.
 
-    You may have to create the file first if it does not yet exist.
+```sh
+touch ~/.zshrc
+```
 
-    ```sh
-    touch ~/.zshrc
-    ```
+Then paste in the following code and save the file:
 
-    Then paste in the following code and save the file:
+```bash
+# alias to love
+alias love="/Applications/love.app/Contents/MacOS/love"
+```
 
-    ```sh
-    # alias to love
-    alias love="/Applications/love.app/Contents/MacOS/love"
-    ```
+Now you can call love from the command line like Linux and Windows:
 
-    Now you can call love from the command line like Linux and Windows:
+```sh
+love ~/path/to/my-program
+```
 
-    ```sh
-    love ~/path/to/my-program
-    ```
+If this doesn't works you should reload the .zshrc file and then try running the program again.
 
-    If this doesn't works you should reload the .zshrc file and then try running the program again.
+```sh
+source ~/.zshrc
+love ~/path/to/my-program
+```
 
-    ```sh
-    source ~/.zshrc
-    love ~/path/to/my-program
-    ```
+### Linux CLI
 
-=== "Linux CLI"
+In the Terminal, you can run `love path/to/L5-starter`. Or if you are in the folder with your program, run `love .` to launch your project from the current directory.
 
-    In the Terminal, you can run `love path/to/L5-starter`. Or if you are in the folder with your program, run `love .` to launch your project from the current directory.
+It should now launch and you should see a new window open with your code sketch running.
+<img src="/assets/tutorials/install/linux1.webp" alt="A yellow background window appearing on top of folder holding L5 Starter and love application" title="A yellow background window appearing on top of folder holding L5 Starter and love application" width="600" />
 
-    *Instructions adapted from [Love2d wiki: Getting Started](https://www.love2d.org/wiki/Getting_Started), GNU Free Documentation License 1.3.*
+Now you are ready to start learning with [First Steps](../tutorials/first-steps.md). If you are familiar with Lua, p5.js, or Processing already, you should take a look at [L5 for Processing-p5.js Programmers](../tutorials/L5-for-processingp5.md).
 
-Amazing! Now you are ready to start learning with [First Steps](../tutorials/first-steps.md). If you are familiar with Lua, p5.js, or Processing already, you should take a look at [L5 for Processing-p5.js Programmers](../tutorials/L5-for-processingp5.md).
+*Instructions adapted from [Love2d wiki: Getting Started](https://www.love2d.org/wiki/Getting_Started), GNU Free Documentation License 1.3.*
+  
