@@ -2,15 +2,17 @@
 
 There are two ways to run a L5 program -- one method is using the desktop and the other uses the command line interface (CLI). If you are new to computing or are unsure about the CLI, then run from the desktop!
 
-IDEs such as ZeroBrane Studio, Sublime Text, VS Code, Notepad++, and SciTE all support launching LÖVE programs (the engine to run our L5 scripts), though require additional setup configuration not covered here.
-
 ## Using the L5 extension
 
 If you are using a text editor such as VSCodium or VSCode, you can install an extension that will allow you to run your sketches by pushing a button.
 
-First, in VSCodium or VSCode, open the extension menu and install L5:
+If you haven't installed the extension yet, in VSCodium or VSCode, open the extension menu and install L5:
 
-![Open the extension menu on the left side and search L5 on the top](/assets/tutorials/install/codium-extension.webp "Open the extension menu on the left side and search L5 on the top")
+![Open the extension menu on the left side and search L5 on the top](/assets/tutorials/install/codium-extension1.webp "Open the extension menu on the left side and search L5 on the top")
+
+![Search for L5 in the search bar](/assets/tutorials/install/codium-extension2.webp "Search for L5 in the search bar")
+
+![Press install](/assets/tutorials/install/codium-extension3.webp "Press install")
 
 Once it is installed and you have already created a `main.lua` file (or you downloaded the L5-starter folder), a new button appears in the bottom left corner.
 
@@ -20,7 +22,7 @@ When you want to see your sketch in action, press "Run L5". You can close the wi
 
 ![Close the sketch by closing the window or by pressing Stop](/assets/tutorials/install/stop-l5.webp "Close the sketch by closing the window or by pressing Stop")
 
-You can read more about the settings of the extension in the [extension docs](https://github.com/L5lua/L5-vscode-extension#l5-extension). You can also download it directly from the [OpenVSX Marketplace](https://open-vsx.org/extension/l5lua/l5) or the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=l5.l5). 
+You can read more about the settings of the extension in the [extension docs](https://github.com/L5lua/L5-vscode-extension#l5-extension). You can also download it directly from the [OpenVSX Marketplace](https://open-vsx.org/extension/l5lua/l5) or the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=l5lua.l5lua). 
 
 ## Running L5 from the desktop
 
@@ -34,69 +36,71 @@ It should launch and open a new window with your sketch running in it, or print 
 
 ## Running L5 from the command line
 
-### Windows Command line
-You can launch your programs from the command line and add the `--console` flag to be able to see print() and error() output as well:
 
-```
-"C:\Program Files\LOVE\love.exe" --console 
-"C:\Users\<YourUsername>\Desktop\L5-starter"
-```
-Replace `<YourUsername>` and `Desktop\L5-starter` with your actual username and the location of your program folder.
+=== "Windows CLI"
 
-### macOS Command Line
+    You can launch your programs from the command line and add the `--console` flag to be able to see print() and error() output as well:
 
-There are a few extra steps to smoothly set up command line usage for L5 in the command line on Mac. 
+    ```
+    "C:\Program Files\LOVE\love.exe" --console 
+    "C:\Users\<YourUsername>\Desktop\L5-starter"
+    ```
+    Replace `<YourUsername>` and `Desktop\L5-starter` with your actual username and the location of your program folder.
 
-If Love is installed in your applications folder you can run:
+=== "macOS CLI"
 
-```sh
-open -n -a love "~/path/to/my-program"
-```
+    There are a few extra steps to smoothly set up command line usage for L5 in the command line on Mac. 
 
-This will not send debugging and print information to the Terminal nor any `describe()` text. To see printed text in the command line you need to run the Love program from Applications, like this:
+    If Love is installed in your applications folder you can run:
 
-```sh
-/Applications/love.app/Contents/MacOS/love ~/path/to/my-program
-```
+    ```sh
+    open -n -a love "~/path/to/my-program"
+    ```
 
-You can set up an alias in your Terminal session to call the binary when you use love by adding an alias to your `~/.zshrc` file (Z shell configuration file).
+    This will not send debugging and print information to the Terminal nor any `describe()` text. To see printed text in the command line you need to run the Love program from Applications, like this:
 
-Open the file with:
+    ```sh
+    /Applications/love.app/Contents/MacOS/love ~/path/to/my-program
+    ```
 
-```sh
-open -a TextEdit ~/.zshrc
-```
+    You can set up an alias in your Terminal session to call the binary when you use love by adding an alias to your `~/.zshrc` file (Z shell configuration file).
 
-You may have to create the file first if it does not yet exist.
+    Open the file with:
 
-```sh
-touch ~/.zshrc
-```
+    ```sh
+    open -a TextEdit ~/.zshrc
+    ```
 
-Then paste in the following code and save the file:
+    You may have to create the file first if it does not yet exist.
 
-```sh
-# alias to love
-alias love="/Applications/love.app/Contents/MacOS/love"
-```
+    ```sh
+    touch ~/.zshrc
+    ```
 
-Now you can call love from the command line like Linux and Windows:
+    Then paste in the following code and save the file:
 
-```sh
-love ~/path/to/my-program
-```
+    ```sh
+    # alias to love
+    alias love="/Applications/love.app/Contents/MacOS/love"
+    ```
 
-If this doesn't works you should reload the .zshrc file and then try running the program again.
+    Now you can call love from the command line like Linux and Windows:
 
-```sh
-source ~/.zshrc
-love ~/path/to/my-program
-```
+    ```sh
+    love ~/path/to/my-program
+    ```
 
-### Linux Command line
+    If this doesn't works you should reload the .zshrc file and then try running the program again.
 
-In the Terminal, you can run `love path/to/L5-starter`. Or if you are in the folder with your program, run `love .` to launch your project from the current directory.
+    ```sh
+    source ~/.zshrc
+    love ~/path/to/my-program
+    ```
 
-*Instructions adapted from [Love2d wiki: Getting Started](https://www.love2d.org/wiki/Getting_Started), GNU Free Documentation License 1.3.*
+=== "Linux CLI"
+
+    In the Terminal, you can run `love path/to/L5-starter`. Or if you are in the folder with your program, run `love .` to launch your project from the current directory.
+
+    *Instructions adapted from [Love2d wiki: Getting Started](https://www.love2d.org/wiki/Getting_Started), GNU Free Documentation License 1.3.*
 
 Amazing! Now you are ready to start learning with [First Steps](../tutorials/first-steps.md). If you are familiar with Lua, p5.js, or Processing already, you should take a look at [L5 for Processing-p5.js Programmers](../tutorials/L5-for-processingp5.md).

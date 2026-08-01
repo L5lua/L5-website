@@ -31,15 +31,15 @@ extra:
   generator: false
 # Added for collapsible tabs for installations
 markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       toc_depth: 2
 nav:
   - Home: index.md
   - Getting Started: 
       - download/index.md
-      - Mac: download/install-mac.md
-      - Windows: download/install-windows.md
-      - Linux: download/install-linux.md
       - Running Your Programs: download/running.md
   - Learn:
       - Tutorials: 
