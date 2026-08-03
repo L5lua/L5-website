@@ -4,8 +4,6 @@ Sets the font size when text() is called.
 
 Note: Font size is measured in pixels.
 
-Calling `textSize()` without an argument returns the current size.
-
 ## Examples
 
 ![textSize example 1](assets/textSize1.webp)
