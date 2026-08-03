@@ -22,5 +22,6 @@ If you are coming from Processing / p5, you can skip to [L5 for Processing/p5 pr
 - [Computational Poetry with L5](computational-poetry.md) - A workshop tutorial created for [CCFest 2026](https://ccfest.rocks)
 - [Data Structure Garden](data-structure-garden.md) - Another tutorial on how to use objects and arrays
 - [Video](video.md) - An intro to video formats, and loading and playing videos with L5
+- [Programming L5 on iOS](iOS.md) - A working method for programming and running L5 programs on iOS devices
 
 *Have an idea for a tutorial you'd like to see? Or have one to contribute? L5 is new and could use some help building out its tutorials. Check out [Contributing](/contributing) for more information on writing and submitting your own.*
