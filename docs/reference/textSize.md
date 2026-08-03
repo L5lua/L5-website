@@ -1,6 +1,6 @@
 # textSize()
 
-Sets the font size when text() is called.
+Sets the font size when text() is called, or gets the font size if no argument given.
 
 Note: Font size is measured in pixels.
 
@@ -38,16 +38,25 @@ end
 textSize(size)
 ```
 
+```lua
+textSize()
+```
+
 ## Parameters
 
 | Parameter | |
 | - | -- |
 | size | Number: size of the letters in units of pixels. |
 
+## Returns
+
+Number: If no argument given, returns size of a letter in current font, in units of pixels.
+
 ## Related
 
 * [text()](text.md)
 * [textAlign()](textAlign.md)
+* [textWidth()](textWidth.md)
 * [loadFont()](loadFont.md)
 
 
