@@ -1,10 +1,32 @@
 # Running Your Programs
 
-There are two ways to run a L5 program -- one method is using the desktop and the other uses the command line interface (CLI). If you are new to computing or are unsure about the CLI, then run from the desktop!
+There are several different ways to run a L5 program: through VSCodium / VS Code, using the desktop, or through the command line interface (CLI). If you are new to computing or are unsure about the CLI, then we recommend the L5 extension in VSCodium / VSCode or running from the desktop.
 
-IDEs such as ZeroBrane Studio, Sublime Text, VS Code, Notepad++, and SciTE all support launching LÖVE programs (the engine to run our L5 scripts), though require additional setup configuration not covered here.
+## Using the L5 extension
+
+If you are using a text editor such as VSCodium or Visual Studio Code (VS Code), you can install an extension that will allow you to run your sketches by pushing a button.
+
+If you haven't installed the extension yet, in VSCodium or VS Code, open the extension menu and install L5:
+
+![Open the extension menu on the left side and search L5 on the top](/assets/tutorials/install/extension1.webp "Open the extension menu on the left side and search L5 on the top")
+
+![Search for L5 in the search bar](/assets/tutorials/install/extension2.webp "Search for L5 in the search bar")
+
+![Press install](/assets/tutorials/install/extension3.webp "Press install")
+
+Once it is installed and you have already created a `main.lua` file (or you downloaded the L5-starter folder), a new button appears in the bottom left corner.
+
+![Run L5 button in the bottom left corner](/assets/tutorials/install/run-l5.webp "Run L5 button in the bottom left corner")
+
+When you want to see your sketch in action, press "Run L5". You can close the window or push the "Stop" button to stop running your sketch. 
+
+![Close the sketch by closing the window or by pressing Stop](/assets/tutorials/install/stop-l5.webp "Close the sketch by closing the window or by pressing Stop")
+
+You can read more about the settings of the extension in the [extension docs](https://github.com/L5lua/L5-vscode-extension#l5-extension). You can also download it directly from the [OpenVSX Marketplace](https://open-vsx.org/extension/l5lua/l5) or the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=l5lua.l5lua). 
 
 ## Running L5 from the desktop
+
+Start by downloading the [L5 Starter](http://l5lua.org/L5-starter.zip), a folder containing the L5.lua library file and a starter main.lua file with a simple L5 program. Right click and extract (Windows, Linux)) or uncompress (macOS) the folder.
 
 The easiest way to run your L5 program is to drag the **folder** containing your main.lua onto the Love2d application. Remember to drag the **folder** containing `main.lua`, and not `main.lua` itself.
 
@@ -16,7 +38,8 @@ It should launch and open a new window with your sketch running in it, or print 
 
 ## Running L5 from the command line
 
-### Windows Command line
+### Windows CLI
+
 You can launch your programs from the command line and add the `--console` flag to be able to see print() and error() output as well:
 
 ```
@@ -25,7 +48,7 @@ You can launch your programs from the command line and add the `--console` flag 
 ```
 Replace `<YourUsername>` and `Desktop\L5-starter` with your actual username and the location of your program folder.
 
-### macOS Command Line
+### macOS CLI
 
 There are a few extra steps to smoothly set up command line usage for L5 in the command line on Mac. 
 
@@ -57,7 +80,7 @@ touch ~/.zshrc
 
 Then paste in the following code and save the file:
 
-```sh
+```bash
 # alias to love
 alias love="/Applications/love.app/Contents/MacOS/love"
 ```
@@ -75,10 +98,14 @@ source ~/.zshrc
 love ~/path/to/my-program
 ```
 
-### Linux Command line
+### Linux CLI
 
 In the Terminal, you can run `love path/to/L5-starter`. Or if you are in the folder with your program, run `love .` to launch your project from the current directory.
 
-*Instructions adapted from [Love2d wiki: Getting Started](https://www.love2d.org/wiki/Getting_Started), GNU Free Documentation License 1.3.*
+It should now launch and you should see a new window open with your code sketch running.
+<img src="/assets/tutorials/install/linux1.webp" alt="A yellow background window appearing on top of folder holding L5 Starter and love application" title="A yellow background window appearing on top of folder holding L5 Starter and love application" width="600" />
 
-Amazing! Now you are ready to start learning with [First Steps](../tutorials/first-steps.md). If you are familiar with Lua, p5.js, or Processing already, you should take a look at [L5 for Processing-p5.js Programmers](../tutorials/L5-for-processingp5.md).
+Now you are ready to start learning with [First Steps](../tutorials/first-steps.md). If you are familiar with Lua, p5.js, or Processing already, you should take a look at [L5 for Processing-p5.js Programmers](../tutorials/L5-for-processingp5.md).
+
+*Instructions adapted from [Love2d wiki: Getting Started](https://www.love2d.org/wiki/Getting_Started), GNU Free Documentation License 1.3.*
+  
