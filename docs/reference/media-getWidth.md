@@ -1,10 +1,33 @@
 # :getWidth()
 
-Returns width of the named loaded video file.
+Returns height of the named loaded image or video.
 
 **Note: Currently L5 can only work with ogv (Ogg Theora) video files. Use an external program such as [Handbrake](https://handbrake.fr) or ffmpeg (command line) to convert mp4, avi, mkv, and mov codecs first.**
 
 ## Examples
+
+![image :getWidth() example 1](assets/loadImage1.webp)
+
+```lua
+local img
+require("L5")
+
+function setup()
+  size(100, 100)
+  windowTitle('image :getWidth() example')
+  
+  -- Load the image
+  img = loadImage('assets/flower.jpg')
+  -- Draw the image.
+  image(img, 0, 0, width, height)
+  -- Print the width of the image source, not the window
+  print(img:getWidth())
+
+  describe('Image of a pink flower in bloom.')
+end
+```
+
+Video :getWidth() Example 
 
 ```lua
 require("L5")
@@ -31,21 +54,23 @@ end
 
 ## Syntax
 
+
 ```lua
-videofile:getWidth()
+image:getWidth()
+```
+
+```lua
+video:getWidth()
 ```
 
 ## Returns
 
-Number: width of video file
+Number: width of loaded image or video 
 
 ## Related
 
+* [loadImage()](loadImage.md)
 * [loadVideo()](loadVideo.md)
 * [image()](image.md)
-* [:getHeight()](video-getHeight.md)
-* [:loop()](video-loop.md)
-* [:pause()](video-pause.md)
-* [:seek()](video-seek.md)
-
+* [:getHeight()](media-getHeight.md)
 

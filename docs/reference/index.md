@@ -88,6 +88,8 @@ An offline version of this documentation is available for [download](/download/#
 
 * [image()](image.md)
 * [imageMode()](imageMode.md)
+* [:getWidth()](media-getWidth.md)
+* [:getHeight()](media-getHeight.md)
 * [loadImage()](loadImage.md)
 * [mask()](mask.md)
 * [noTint()](noTint.md)
@@ -115,8 +117,8 @@ An offline version of this documentation is available for [download](/download/#
 ### Video
 
 * [loadVideo()](loadVideo.md)
-* [:getWidth()](video-getWidth.md)
-* [:getHeight()](video-getHeight.md)
+* [:getWidth()](media-getWidth.md)
+* [:getHeight()](media-getHeight.md)
 * [:isPlaying()](video-isPlaying.md)
 * [:loop()](video-loop.md)
 * [:noLoop()](video-noLoop.md)
@@ -149,7 +151,6 @@ An offline version of this documentation is available for [download](/download/#
 * [fullscreen()](fullscreen.md)
 * [height](height.md)
 * [noCursor()](noCursor.md)
-* <s>[pixelDensity()](#)</s> (Not Implemented)
 * [print()](print.md)
 * [printToScreen()](printToScreen.md)
 * [width](width.md)
@@ -158,10 +159,8 @@ An offline version of this documentation is available for [download](/download/#
 
 ## Rendering
 
-* <s>[blendMode()](#)</s> (Not Implemented)
 * [size()](size.md)
 * [createGraphics()](createGraphics.md)
-* <s>[noCanvas()](#)</s> (Not Implemented)
 * [resizeWindow()](resizeWindow.md)
 
 ## Math
@@ -189,7 +188,6 @@ An offline version of this documentation is available for [download](/download/#
 ### Noise
 
 * [noise()](noise.md)
-* <s>[noiseSeed()](#)</s> (Not Implemented)
 
 ### Random
 
@@ -214,15 +212,12 @@ An offline version of this documentation is available for [download](/download/#
 
 ### Input
 
-* <s>[loadJSON()](#)</s> (Not Implemented)
 * [loadStrings()](loadStrings.md)
 * [loadTable()](loadTable.md)
-* <s>[loadXML()](#)</s> (Not Implemented)
 
 ### Output
 
 * [save()](save.md)
-* <s>[saveJSON()](#)</s> (Not Implemented)
 * [saveStrings()](saveStrings.md)
 * [saveTable()](saveTable.md)
 
