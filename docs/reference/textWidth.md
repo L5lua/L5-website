@@ -78,9 +78,11 @@ textWidth(str)
 ## Related
 
 * [textAlign()](textAlign.md)
+* [textAscent()](textAscent.md)
+* [textDescent()](textDescent.md)
 * [textFont()](textFont.md)
+* [textHeight()](textHeight.md)
 * [textWrap()](textWrap.md)
-
 
 ---
 

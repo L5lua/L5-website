@@ -71,7 +71,10 @@ An offline version of this documentation is available for [download](/download/#
 
 ### Attributes
 
+* [textAscent()](textAscent.md)
 * [textAlign()](textAlign.md)
+* [textDescent()](textDescent.md)
+* [textHeight()](textHeight.md)
 * [textSize()](textSize.md)
 * [textWidth()](textWidth.md)
 * [textWrap()](textWrap.md)
