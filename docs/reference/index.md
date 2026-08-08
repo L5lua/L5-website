@@ -279,6 +279,7 @@ An offline version of this documentation is available for [download](/download/#
 ## Structure
 
 * [draw()](draw.md)
+* [exit()](exit.md)
 * [isLooping()](isLooping.md)
 * [loop()](loop.md)
 * [noLoop()](noLoop.md)
