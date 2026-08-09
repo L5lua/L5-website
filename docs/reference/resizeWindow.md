@@ -2,9 +2,9 @@
  
 Resizes the canvas to a given width and height.
 
-`resizeWindow()` immediately clears the canvas and calls redraw(). 
+`resizeWindow()` clears the drawing surface and calls windowResized(). 
 
-The two parameters, `width` and `height`, set the dimensions of the resized window. They are also the values of the width and height system variables. For example, calling `resizeWindow(300, 500)` resizes the window to 300×500 pixels, then sets `width` to 300 and `height` 500.
+The two parameters, `width` and `height`, set the dimensions of the resized window. They are also the values of the width and height system variables. For example, calling `resizeWindow(300, 500)` resizes the window to 300×500 pixels, then sets `width` to 300 and `height` to 500.
 
 ## Examples
 
