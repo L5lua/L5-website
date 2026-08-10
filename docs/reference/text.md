@@ -2,29 +2,11 @@
 
 Draws text to the canvas.
 
-The first parameter, `str`, is the text to be drawn. The second and third
-parameters, `x` and `y`, set the coordinates of the text's bottom-left
-corner. See textAlign() for other ways to
-align text.
+The first parameter, `str`, is the text to be drawn. The second and third parameters, `x` and `y`, set the left edge of text and its baseline. See textAlign() for other ways to align text.
 
-The fourth and fifth parameters, `maxWidth` and `maxHeight`, are optional.
-They set the dimensions of the invisible rectangle containing the text. By
-default, they set its  maximum width and height. See
-rectMode() for other ways to define the
-rectangular text box. Text will wrap to fit within the text box. Text
-outside of the box won't be drawn.
+The fourth parameter, `maxWidth` is optional. It sets the dimensions of the invisible rectangle containing the text. By default, it sets its  maximum width. Text will wrap to fit within the width of the text box. 
 
-Text can be styled a few ways. Call the fill()
-function to set the text's fill color. Call
-stroke() and
-strokeWeight() to set the text's outline.
-Call textSize() and
-textFont() to set the text's size and font,
-respectively.
-
-Note: `WEBGL` mode only supports fonts loaded with
-loadFont(). Calling
-stroke() has no effect in `WEBGL` mode.
+Text color can be set with `fill()`. Text size and font can be set with `textSize()` and `textFont()`.
 
 ## Examples
 
@@ -91,14 +73,16 @@ text(str, x, y, w)
 | str       | String/object/Number/Boolean: text to be displayed |
 | x         | Number: x coordinate of the text box               |
 | y         | Number: y coordinate of the text box               |
+| w         | Number: width of the text box                      |
 
 ## Related
 
+* [fill()](fill.md)
 * [textWidth()](textWidth.md)
 * [textAlign()](textAlign.md)
 * [textFont()](textFont.md)
+* [textSize()](textSize.md)
 * [loadFont()](loadFont.md)
-
 
 
 ---
