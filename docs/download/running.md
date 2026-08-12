@@ -14,11 +14,31 @@ If you haven't installed the extension yet, in VSCodium or VS Code, open the ext
 
 ![Press install](/assets/tutorials/install/extension3.webp "Press install")
 
-Once it is installed and you have already created a `main.lua` file (or you downloaded the L5-starter folder), a new button appears in the bottom left corner.
+Click to download the [L5-starter folder](/L5-starter.zip) and extract it. In your text editor, click open folder and navigate to the L5-starter folder. 
+
+![Open folder](/assets/tutorials/install/open-folder.webp "Open folder")
+
+Once it is installed and you have already created a `main.lua` file (or you downloaded the L5-starter folder), a new button appears in the bottom left corner. If the button does not appear, make sure you have opened a single folder that contains `main.lua` and `L5.lua`.
 
 ![Run L5 button in the bottom left corner](/assets/tutorials/install/run-l5.webp "Run L5 button in the bottom left corner")
 
-When you want to see your sketch in action, press "Run L5". You can close the window or push the "Stop" button to stop running your sketch. 
+If you are running the extension for the first time, it will prompt you to open your extension settings. 
+
+![Open extension settings](/assets/tutorials/install/extension-open-settings.webp "Open extension settings")
+
+In the settings panel that opens, you will need to specify the path to Love in the input text box at the bottom. The *path* is where Love exists on your computer. 
+
+* **Windows**: The path is already provided in the text box and you do not need to change anything. 
+* **Linux**: Use `love` if installed globally or the full path, usually `/usr/bin/love`
+* **Mac**: By default, Love will be in your Downloads folder. In Finder, drag Love from Downloads to your Applications folder. In the VSCode settings, change the path to `/Applications/love.app/Content/MacOS/love`
+
+![Change the text in the text box to your OS path](/assets/tutorials/install/extension-path1.webp "Change the text in the text box to your OS path")
+
+When you want to see your sketch in action, press "Run L5". 
+
+![Run L5](/assets/tutorials/install/run-l5.webp "Run L5")
+
+You can close the window or push the "Stop" button to stop running your sketch. 
 
 ![Close the sketch by closing the window or by pressing Stop](/assets/tutorials/install/stop-l5.webp "Close the sketch by closing the window or by pressing Stop")
 
@@ -80,7 +100,7 @@ touch ~/.zshrc
 
 Then paste in the following code and save the file:
 
-```bash
+```sh
 # alias to love
 alias love="/Applications/love.app/Contents/MacOS/love"
 ```

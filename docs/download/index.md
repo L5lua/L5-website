@@ -56,7 +56,7 @@ L5 uses the Love framework to power its library. There are current installation 
 
     **Video Tutorial**
 
-    <a href="https://www.youtube.com/watch?v=Ehs-fLQ5gfk" id="yt"><img src="/assets/tutorials/install/youtube.webp" width="560" height="315" alt="Play video"></a>
+    <a href="https://youtu.be/AP1zTY_w9IU" id="yt"><img src="/assets/tutorials/install/video.webp" width="560" height="315" alt="Play video"></a>
 
     **Text and Screenshot Tutorial**
 
@@ -72,10 +72,7 @@ L5 uses the Love framework to power its library. There are current installation 
     ![System settings showing the Privacy and Security settings. Scroll down to Security and next to "love" was blocked to protect your mac, click to "Open Anyway".](/assets/tutorials/install/mac5.webp 'Alert box stating macOS cannot verify the developer of love. The correct option is Open')
     6. Now go back to your Downloads folder and **Double click** on Love. We only need to do this once! It's to verify Love works on your computer, which will allow L5 to run your custom code. You should see a window open with a flying bird-shaped balloon and clouds, verifying that Love is now properly installed on your computer. **At this point you can close the window.** Usually on a Mac we place our applications into the Applications folder, so you may want to move it there. 
     ![A flying bird-shaped balloon and cartoon clouds](/assets/tutorials/install/mac6.webp 'A flying bird-shaped balloon and cartoon clouds')
-    7. From the L5lua.org Download page, [download the L5 Starter project](/L5-starter.zip).
-    ![L5 website download page with L5 Starter](/assets/tutorials/install/mac7.webp "L5 website download page with L5 Starter")
-    8. Click **"Allow"** if it asks 'Do you want to allow downloads on "l5lua.org"?'  
-    ![Alert box asking permission to download L5-Starter](/assets/tutorials/install/mac8.webp "Alert box asking permission to download L5 Starter")
+    7. After that, move your Love application to your applications folder. 
 
 === "Install Linux"
 
@@ -139,9 +136,11 @@ L5 uses the Love framework to power its library. There are current installation 
 <script>
 document.getElementById('yt').addEventListener('click', function(e) {
   e.preventDefault();
-  this.outerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/Ehs-fLQ5gfk?autoplay=1" allow="autoplay" allowfullscreen></iframe>';
+  this.outerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/AP1zTY_w9IU?autoplay=1" allow="autoplay" allowfullscreen></iframe>';
 });
 </script>
+
+---
 
 Congratulations! You've now installed Love and have the L5 Starter on your computer. 
 
