@@ -18,6 +18,14 @@ Once it is installed and you have already created a `main.lua` file (or you down
 
 ![Run L5 button in the bottom left corner](/assets/tutorials/install/run-l5.webp "Run L5 button in the bottom left corner")
 
+If you are running the extension for the first time, it will prompt you to open your extension settings. 
+
+![Open extension settings](/assets/tutorials/install/extension-open-settings.webp "Open extension settings")
+
+Then, you need to change the path in the text box to whichever is specified in your computer. 
+
+![Change the text in the text box to your OS path](/assets/tutorials/install/extension-path1.webp "Change the text in the text box to your OS path")
+
 When you want to see your sketch in action, press "Run L5". You can close the window or push the "Stop" button to stop running your sketch. 
 
 ![Close the sketch by closing the window or by pressing Stop](/assets/tutorials/install/stop-l5.webp "Close the sketch by closing the window or by pressing Stop")
@@ -80,7 +88,7 @@ touch ~/.zshrc
 
 Then paste in the following code and save the file:
 
-```bash
+```sh
 # alias to love
 alias love="/Applications/love.app/Contents/MacOS/love"
 ```
