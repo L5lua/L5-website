@@ -1,6 +1,6 @@
 # blend()
 
-Copies a region of pixels from one image to another.
+Copies a region of pixels from one image to another. Defaults to the currently active window if omitted.
 
 The first parameter, `srcImage`, is the image object to blend.
 
