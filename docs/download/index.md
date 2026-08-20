@@ -41,6 +41,8 @@ L5 uses the Love framework to power its library. There are current installation 
 
     This tutorial walks you through installing L5 with the Love (Love2d) framework on your Windows computer.
 
+    <a href="https://youtu.be/n_4buhBBWYA" id="yt-windows"><img src="/assets/tutorials/install/windows-tutorial.webp" width="560" height="315" alt="Play video"></a>
+
     1. Go to the [Love website](https://love2d.org) and click to download the 64-bit zipped Windows program.
     2. Your browser may show a warning. Click **"Keep"** or **"Save anyway"** to proceed with the download. It will download to your _Downloads_ folder by default.
     3. From the L5lua.org Download page, [download the L5 Starter project](/L5-starter.zip).
@@ -137,6 +139,10 @@ L5 uses the Love framework to power its library. There are current installation 
 document.getElementById('yt').addEventListener('click', function(e) {
   e.preventDefault();
   this.outerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/AP1zTY_w9IU?autoplay=1" allow="autoplay" allowfullscreen></iframe>';
+});
+document.getElementById('yt-windows').addEventListener('click', function(e) {
+  e.preventDefault();
+  this.outerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/n_4buhBBWYA?autoplay=1" allow="autoplay" allowfullscreen></iframe>';
 });
 </script>
 
