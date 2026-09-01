@@ -152,7 +152,11 @@ Congratulations! You've now installed Love and have the L5 Starter on your compu
 
 **Next, see how to [run your L5 programs](running.md).** 
 
-You can also download the L5 source code and the offline documentation below.
+You can also download the L5 Starter project folder, source code and the offline documentation below.
+
+### L5 Starter
+
+This is the current version of [L5 Starter](https://l5lua.org/L5-starter.zip), a folder containing L5.lua, a starter main.lua file and README.txt.
 
 ### Source code
 
