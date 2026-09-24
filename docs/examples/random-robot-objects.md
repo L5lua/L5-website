@@ -64,7 +64,7 @@ function setup()
     table.insert(robots, Robot:new())
   end
   
-  describe('Random robots moving around the screen. They steal the yellow box when they overlap with it.")
+  describe('Random robots moving around the screen. They steal the yellow box when they overlap with it.')
 end
 
 function draw()
