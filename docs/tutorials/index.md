@@ -23,5 +23,6 @@ If you are coming from Processing / p5, you can skip to [L5 for Processing/p5 pr
 - [Data Structure Garden](data-structure-garden.md) - Another tutorial on how to use objects and arrays
 - [Video](video.md) - An intro to video formats, and loading and playing videos with L5
 - [Programming L5 on iOS](iOS.md) - A working method for programming and running L5 programs on iOS devices
+- [Distributing your L5 project](distributing.md) - Your options for packaging up your L5 project to run on other computers
 
 *Have an idea for a tutorial you'd like to see? Or have one to contribute? L5 is new and could use some help building out its tutorials. Check out [Contributing](/contributing) for more information on writing and submitting your own.*
