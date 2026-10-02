@@ -1,0 +1,555 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://l5lua.org/tutorials/distributing/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/L5-logo-blob.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Distributing your L5 project - L5: A Processing Library in Lua</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="gold" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#distributing-your-l5-project" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="L5: A Processing Library in Lua" class="md-header__button md-logo" aria-label="L5: A Processing Library in Lua" data-md-component="logo">
+      
+  <img src="../../assets/L5-logo-blob.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L5: A Processing Library in Lua
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Distributing your L5 project
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                         
+<nav class="md-nav
+md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+	<ul class="md-nav__list" data-md-scrollfix>
+		  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../download/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+   
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learn
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+   
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+   
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../contributing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+   
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://notapipe.itch.io/l5/devlog" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ➘ Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+ 
+	</ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="distributing-your-l5-project">Distributing your L5 project</h1>
+<p>There are several methods for distributing projects made with L5.</p>
+<p>Your options are:</p>
+<ol>
+<li>Distribute your L5 project as a <em>love</em> file that anyone with LOVE installed can run</li>
+<li>Distribute your L5 project <em>fused</em> with the LOVE application for macOS and/or for Windows, including needed library files, which creates an executable application so someone doesn't have to separately install LOVE on their machine.</li>
+<li>Use a LoveJS Builder to compile your project as a webassembly html file that can be hosted online and played from a website (such as on Itch.io)</li>
+</ol>
+<h2 id="distributing-a-love-file">Distributing a <em>love</em> file</h2>
+<p>This is the simplest distribution method.</p>
+<p>Because L5 is built with LOVE, anyone who has LOVE installed on their computer can run your L5 project.</p>
+<p>Here's how to take your project and make it into a <em>love</em> file so that others can run it.</p>
+<p>The main idea is you want to take your project files (including L5.lua, main.lua and anything else) and compress them into a <code>.zip file</code>, then rename the extension from <code>.zip</code> to <code>.love</code>. <strong>Tip:</strong> Make sure you don't just zip your folder but instead zip up the <strong>contents of your L5 project's folder</strong>!</p>
+<h3 id="windows">Windows</h3>
+<p>Inside your project folder, select all of the project files, then right click and choose <em>Send to &gt; Compressed zip folder</em>. It will create that zipped file right there. Then right click on it and choose to rename it. Change the <code>.zip</code> ending to <code>.love</code>. If you don't see the zip extension, you can choose the View Menu &gt; Show &gt; Filename Extensions.</p>
+<h3 id="mac">Mac</h3>
+<p>Inside your project folder, select the files (and any needed asset folders), right-click/Ctrl+click and pick <em>Compress n items</em>. Then rename the resulting <code>.zip</code> file to have a <code>.love</code> ending.</p>
+<p>Alternatively, you can use the terminal. Navigate inside the project folder. You can do this by opening the Terminal, typing <code>cd</code> (that's cd with a space after) and then drag in the folder you want to navigate to and then hit enter.</p>
+<p>Then type in and run the following (hit enter after typing or copy/pasting this exactly):</p>
+<pre><code>zip -r ProjectName.love .
+</code></pre>
+<p>Change the ProjectName to whatever your project name should be. You can find that love file on your desktop/file system and upload that.</p>
+<h3 id="linux">Linux</h3>
+<p>Assuming your current directory is ProjectName/ you can create the <code>.love</code> file from the command line directly by navigating to the folder and using:</p>
+<pre><code>zip -r ProjectName.love .
+</code></pre>
+<p>Once you have this <em>love</em> file, you can share your projects on a USB or upload it online. Anyone with LOVE on their computer can run your L5 program as a <em>love</em> file.</p>
+<h2 id="distributing-an-application-for-macos-or-windows">Distributing an application for macOS or Windows</h2>
+<p>Once you have packed project into a .love file you can create a project executable that directly runs your project. The advantage of this is that you can send your project to someone else's computer and they don't need to have already installed LOVE on their machine. You will fuse your love file to the LOVE application, which you can then distribute to others.</p>
+<h3 id="windows_1">Windows</h3>
+<p>For this you have to append your .love file to the love.exe file that comes with the official LÖVE .zip file. The resulting file is your program executable.</p>
+<p>Once you have your program executable you can pack it together with all the other DLL files of the official LÖVE .zip file into a new .zip file and share this with the world. </p>
+<p>See <a href="https://www.love2d.org/wiki/Game_Distribution#Creating_a_Windows_Executable">Instructions for creating a Windows executable</a> for full details.</p>
+<h3 id="macos">macOS</h3>
+<p>See <a href="https://www.love2d.org/wiki/Game_Distribution#Creating_a_macOS_Application">Creating a macOS Application</a> for details. There is also a <a href="https://www.youtube.com/watch?v=SU2RpGdezP4">video tutorial</a>.</p>
+<h3 id="linux_1">Linux</h3>
+<p>There are multiple methods for creating a standalone executable application. One method <a href="https://www.love2d.org/wiki/Game_Distribution#AppImages">detailed</a> is to fuse the LOVE appimage with your project.</p>
+<h2 id="creating-a-web-build-of-your-project">Creating a web build of your project</h2>
+<p>There are multiple tools to create WASM we builds out of love files. Alex J. Griffith's <a href="https://alexjgriffith.itch.io/lovejs-player">LoveJS Builder</a> can take your love file and output a (rather large) single html file that holds your L5 project along with a working web runtime of LOVE to power your project. The resulting file can be put online on your own website or uploaded somewhere, such as on Itch.io. Note there are some limitations and gotchas to be aware of for this method.</p>
+<p><em>Some instructions on this page are adapted from LOVE's <a href="https://www.love2d.org/wiki/Game_Distribution">Game Distribution</a> GNU FDL 1.3.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.prune", "navigation.path", "toc.follow", "toc.integrate", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
