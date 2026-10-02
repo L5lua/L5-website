@@ -1,4 +1,4 @@
-# deltaTime()
+# deltaTime
  
 A `Number` variable that tracks the number of milliseconds it took to draw the last frame.
 

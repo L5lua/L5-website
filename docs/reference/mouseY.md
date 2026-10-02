@@ -1,4 +1,4 @@
-# mouseY()
+# mouseY
 
 A `Number` system variable that tracks the mouse's vertical position.
 

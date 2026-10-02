@@ -1,4 +1,4 @@
-# movedY()
+# movedY
 
 A `Number` system variable that tracks the mouse's vertical movement.
 

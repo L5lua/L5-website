@@ -1,4 +1,4 @@
-# pmouseX()
+# pmouseX
  
 A `Number` system variable that tracks the mouse's previous horizontal position.
 

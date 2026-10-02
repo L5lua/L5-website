@@ -1,4 +1,4 @@
-# frameCount()
+# frameCount
  
 A `Number` variable that tracks the number of frames drawn since the sketch started.
 

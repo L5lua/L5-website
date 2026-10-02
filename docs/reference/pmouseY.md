@@ -1,4 +1,4 @@
-# pmouseY()
+# pmouseY
 
 A `Number` system variable that tracks the mouse's previous vertical position.
 

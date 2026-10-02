@@ -1,4 +1,4 @@
-# if()
+# if
 
 A way to choose whether to run a block of code.
 

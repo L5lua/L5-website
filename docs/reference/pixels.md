@@ -1,4 +1,4 @@
-# pixels()
+# pixels
 
 An array containing the color of each pixel on the canvas.
 

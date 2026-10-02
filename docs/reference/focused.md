@@ -1,4 +1,4 @@
-# focused()
+# focused
  
 A `Boolean` variable that's `true` if the window is focused and `false` if not.
 

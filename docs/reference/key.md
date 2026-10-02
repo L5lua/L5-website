@@ -1,4 +1,4 @@
-# key()
+# key
  
 A `String` system variable that contains the value of the last key typed.
 
