@@ -92,6 +92,8 @@ nav:
               - Create Graphics Offscreen: examples/createGraphics-offscreen.md
           - Object-Orientation:
               - Random Robot Objects: examples/random-robot-objects.md
+          - Miscellaneous:
+              - Bitwise Operators: examples/bitwise-operators.md
       - L5 for Processing-p5.js programmers: tutorials/L5-for-processingp5.md
   - Reference: 
       - reference/index.md

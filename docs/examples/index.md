@@ -59,3 +59,7 @@
 ## Object-Orientation
 
 - [Random Robot Objects](random-robot-objects.md) - Demonstrates two different Lua patterns - classes with metatables and simple table objects
+
+## Miscellaneous
+
+- [Bitwise operators](bitwise-operators.md) - Demonstrates how to use Lua's bitwise operators
