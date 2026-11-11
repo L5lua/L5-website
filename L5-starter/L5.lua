@@ -1,10 +1,10 @@
--- L5 0.2.1 (c) Lee Tusman and Contributors GNU LGPL2.1
-VERSION = '0.2.1'
+-- L5 0.2.5 (c) Lee Tusman and Contributors GNU LGPL2.1
+VERSION = '0.2.5'
 
 -- Internal table for L5 helper functions
 local L5_internal = {} 
 -- Internal table for holding state
-local L5_env = {} 
+local L5_env = {}
 -- Internal table for holding filter shaders
 local L5_filter = {}
 -- Internal table for html color names
@@ -15,6 +15,7 @@ function love.run()
   L5_internal.defaults()
 
   L5_internal.define_env_globals()
+
   if love.load then love.load(love.arg.parseGameArguments(arg), arg) end
   if love.timer then love.timer.step() end
   local dt = 0
@@ -145,11 +146,11 @@ function love.load()
   displayWidth, displayHeight = love.window.getDesktopDimensions()
 
   -- create default-size buffers. will be recreated again if size() or fullscreen(true) called
-  local w, h = love.graphics.getDimensions()
+  width, height = love.graphics.getDimensions()
 
   -- Create double buffers
-  L5_env.backBuffer = love.graphics.newCanvas(w, h) 
-  L5_env.frontBuffer = love.graphics.newCanvas(w, h) 
+  L5_env.backBuffer = love.graphics.newCanvas(width, height) 
+  L5_env.frontBuffer = love.graphics.newCanvas(width, height) 
 
   -- Clear both buffers initially
   love.graphics.setCanvas(L5_env.backBuffer) 
@@ -343,10 +344,10 @@ function love.resize(w, h)
   
   -- Clear new buffers and apply scaling
   love.graphics.setCanvas(L5_env.backBuffer) 
-  love.graphics.clear(0.5, 0.5, 0.5, 1)
+  love.graphics.clear(unpack(L5_env.bgColor))
   
   love.graphics.setCanvas(L5_env.frontBuffer) 
-  love.graphics.clear(0.5, 0.5, 0.5, 1)
+  love.graphics.clear(unpack(L5_env.bgColor))
   
   love.graphics.setCanvas(L5_env.backBuffer)
   
@@ -439,6 +440,14 @@ function size(_w, _h)
 
   love.window.setMode(_w, _h)
 
+  -- Detect scaling and compensate for fractional scaling such as in Wayland
+  local widthWindow, heightWindow, flags = love.window.getMode()
+  local widthScale = widthWindow / _w
+  local heightScale = heightWindow / _h
+  if widthScale ~= 1 or heightScale ~= 1 then
+    love.window.setMode(_w / widthScale, _h / heightScale)
+  end
+
   -- Recreate buffers for new size
   if L5_env.backBuffer then L5_env.backBuffer:release() end 
   if L5_env.frontBuffer then L5_env.frontBuffer:release() end 
@@ -448,9 +457,9 @@ function size(_w, _h)
 
   -- Clear new buffers
   love.graphics.setCanvas(L5_env.backBuffer) 
-  love.graphics.clear(0.5, 0.5, 0.5, 1)
+  love.graphics.clear(unpack(L5_env.bgColor))
   love.graphics.setCanvas(L5_env.frontBuffer) 
-  love.graphics.clear(0.5, 0.5, 0.5, 1)
+  love.graphics.clear(unpack(L5_env.bgColor))
 
   -- Set back to back buffer for continued drawing
   love.graphics.setCanvas(L5_env.backBuffer)
@@ -510,9 +519,9 @@ function fullscreen(display)
   L5_env.frontBuffer = love.graphics.newCanvas(w, h) 
   
   love.graphics.setCanvas(L5_env.backBuffer) 
-  love.graphics.clear(0.5, 0.5, 0.5, 1)
+  love.graphics.clear(unpack(L5_env.bgColor))
   love.graphics.setCanvas(L5_env.frontBuffer) 
-  love.graphics.clear(0.5, 0.5, 0.5, 1)
+  love.graphics.clear(unpack(L5_env.bgColor))
   
   love.graphics.setCanvas(L5_env.backBuffer)
   width, height = love.graphics.getDimensions()  
@@ -889,6 +898,7 @@ function L5_internal.define_env_globals()
   L5_env.image_mode = CORNER --also: CENTER, CORNERS
   -- global color state 
   L5_env.fill_mode="fill"   --also: "line"
+  L5_env.bgColor = {0.5, 0.5, 0.5, 1}
   L5_env.stroke_color = {0,0,0}
   L5_env.currentTint = {1, 1, 1, 1} -- Default: no tint white
   L5_env.color_max = {255,255,255,255}
@@ -1890,8 +1900,10 @@ function background(_r,_g,_b,_a)
   if type(_r) == "userdata" and _r:type() == "Image" then
     image(_r,0,0,width,height)
   else
+    local bgColor = toColor(_r, _g, _b, _a)
+    L5_env.bgColor = bgColor
     local prevR, prevG, prevB, prevA = love.graphics.getColor()
-    love.graphics.setColor(unpack(toColor(_r,_g,_b,_a)))
+    love.graphics.setColor(unpack(bgColor))
     love.graphics.rectangle("fill", 0, 0, width, height)
     love.graphics.setColor(prevR, prevG, prevB, prevA)
     L5_env.clearscreen = true 
